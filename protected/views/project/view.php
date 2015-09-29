@@ -2,52 +2,164 @@
 /* @var $this ProjectController */
 /* @var $model Project */
 
+//面包屑
 $this->breadcrumbs=array(
-	'科研项目'=>array('index'),
-	$model->name,
-);
-
-$this->menu=array(
-	array('label'=>'List Project', 'url'=>array('index')),
-	array('label'=>'Create Project', 'url'=>array('create')),
-	array('label'=>'Update Project', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Project', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Project', 'url'=>array('admin')),
+    '科研'=>array('project/index'),
+    '科研项目'=>array('index'),
+    '管理'=>array('admin'),
+    substr($model->name, 0, 30).'...',
 );
 ?>
 
-<h1>查看科研项目 #<?php echo $model->id; ?></h1>
+<div style="position:relative">
+    <img src="images/lang1.jpg" alt="" />
+    <div style="position:absolute;z-indent:2;left:0;top:0;">
+        <br>
+        <h2>论文详细</h2>
+        <h4><?php echo substr($model->name, 0, 30).'...'; ?></h4>
+    </div>
+</div>
 
+<br>
+<?php
+echo '<div class="errorMessage">'.$model->getIncompleteInfo().'</div>';
+?>
+<br>
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
 		'name',
 		'number',
 		'fund_number',
-		array(
-			'label'=>'级别',
-			'type'=>'raw',
-			'value'=>$model->getLevelString()
-		),
+        'level',
+		'category',
+        'fund',
+        'unit',
 		'start_date',
 		'deadline_date',
 		'conclude_date',
-		'app_date',
-		'pass_date',
-		'app_fund',
-		'pass_fund',
 		array(
 			'label'=>'实际执行人员',
 			'type'=>'raw',
-			'value'=>$model->getExecutePeoples(),		
+			'value'=>$model->getAuthorsWithLink(Project::PEOPLE_EXECUTE),
 		),
 		array(
-			'label'=>'责任书人员',
+			'label'=>'合同书人员',
 			'type'=>'raw',
-			'value'=>$model->getLiabilityPeoples(),		
+			'value'=>$model->getAuthorsWithLink(Project::PEOPLE_LIABILITY),
 		),
+        'description',
+        array(
+            'label'=>'维护人员',
+            'type'=>'raw',
+            'value'=>
+                isset($model->maintainer) ?
+                    CHtml::link(CHtml::encode($model->maintainer->name), array('people/view', 'id'=>$model->maintainer->id)) :
+                    null,
+        ),
+        'last_update_date',
 	),
-)); 
+));
 
-	//var_dump($model->execute_peoples);
+//var_dump($model->execute_peoples);
 ?>
+
+<div class="view-more-information" style="display:none">
+    <br/>
+    <h4>更多信息</h4>
+    <?php $this->widget('zii.widgets.CDetailView', array(
+        'data'=>$model,
+        'attributes'=>array(
+            array(
+                'label'=>'以其支助的论文',
+                'type'=>'raw',
+                'value'=>$model->getPapersWithLink(Project::PAPER_FUND) ? $model->getPapersWithLink(Project::PAPER_FUND) : '无',
+            ),
+            array(
+                'label'=>'以其报账的论文',
+                'type'=>'raw',
+                'value'=>$model->getPapersWithLink(Project::PAPER_REIM) ? $model->getPapersWithLink(Project::PAPER_REIM) : '无',
+            ),
+            array(
+                'label'=>'以其成果的论文',
+                'type'=>'raw',
+                'value'=>$model->getPapersWithLink(Project::PAPER_ACHIEVEMENT) ? $model->getPapersWithLink(Project::PAPER_ACHIEVEMENT) : '无',
+            ),
+            array(
+                'label'=>'以其报账的专利',
+                'type'=>'raw',
+                'value'=>$model->getPatentsWithLink(Project::PATENT_REIM) ? $model->getPatentsWithLink(Project::PATENT_REIM) : '无',
+            ),
+            array(
+                'label'=>'以其成果的专利',
+                'type'=>'raw',
+                'value'=>$model->getPatentsWithLink(Project::PATENT_ACHIEVEMENT) ? $model->getPatentsWithLink(Project::PATENT_ACHIEVEMENT) : '无',
+            ),
+            array(
+                'label'=>'以其支助的专著',
+                'type'=>'raw',
+                'value'=>$model->getPublicationsWithLink(Project::PUBLICATION_FUND) ? $model->getPublicationsWithLink(Project::PUBLICATION_FUND) : '无',
+            ),
+            array(
+                'label'=>'以其报账的专著',
+                'type'=>'raw',
+                'value'=>$model->getPublicationsWithLink(Project::PUBLICATION_REIM) ? $model->getPublicationsWithLink(Project::PUBLICATION_REIM) : '无'
+            ),
+            array(
+                'label'=>'以其成果的专著',
+                'type'=>'raw',
+                'value'=>$model->getPublicationsWithLink(Project::PUBLICATION_ACHIEVEMENT) ? $model->getPublicationsWithLink(Project::PUBLICATION_ACHIEVEMENT) : '无',
+            ),
+            array(
+                'label'=>'以其支助的软件著作权',
+                'type'=>'raw',
+                'value'=>$model->getSoftwaresWithLink(Project::SOFTWARE_FUND) ? $model->getSoftwaresWithLink(Project::SOFTWARE_FUND) : '无',
+            ),
+            array(
+                'label'=>'以其报账的软件著作权',
+                'type'=>'raw',
+                'value'=>$model->getSoftwaresWithLink(Project::SOFTWARE_REIM) ? $model->getSoftwaresWithLink(Project::SOFTWARE_REIM) : '无',
+            ),
+            array(
+                'label'=>'以其成果的软件著作权',
+                'type'=>'raw',
+                'value'=>$model->getSoftwaresWithLink(Project::SOFTWARE_ACHIEVEMENT) ? $model->getSoftwaresWithLink(Project::SOFTWARE_ACHIEVEMENT) : '无',
+            ),
+        ),
+    ));
+
+    //var_dump($model->execute_peoples);
+    ?>
+</div>
+
+
+<hr/>
+
+<?php
+//删除必须使用POST提交，这里写一个表单
+//admin manager用户才能编辑、删除
+$user = Yii::app()->user;
+?>
+<form name="operate" action="<?php echo Yii::app()->controller->createUrl("delete",array("id"=>$model->id)); ?>" method="post" onsubmit="return firm()">
+    <input type="button" value="更多" class="btn btn-default" onclick="$('.view-more-information').toggle();"/>
+    <?php if(isset($user->is_admin) && $user->is_admin || isset($user->is_manager) && $user->is_manager) { ?>
+        <input type="button" value="编辑" class="btn btn-default" onclick="location='<?php echo Yii::app()->controller->createUrl("update",array("id"=>$model->id)); ?>'"/>
+        <input type="submit" class="btn btn-default" id="drop"  value="删除"/>
+    <?php } ?>
+    <input type="button" class="btn btn-default" value="返回" onclick="location='<?php echo Yii::app()->controller->createUrl("admin"); ?>'"/>
+</form>
+
+<script>
+    function firm() {
+        if(confirm("您确定要删除这个科研项目吗？")) {
+            location.href = '<?php echo Yii::app()->controller->createUrl("delete",array("id"=>$model->id)); ?>';
+            return true;
+        }
+
+        else {
+            return false;
+        }
+    }
+</script>
+
+

@@ -32,6 +32,22 @@ class SiteController extends Controller
 		$this->render('index');
 	}
 
+    public function actionEnrollment() {
+        $this->render('enrollment');
+    }
+
+    public function actionFun() {
+        $this->render('fun');
+    }
+    public function actionFun1() {
+        $this->render('fun1');
+    }
+    public function actionFun2() {
+        $this->render('fun2');
+    }
+    public function actionFun3() {
+        $this->render('fun3');
+    }
 
 	public function actionAbout() {
 		$this->render('about');

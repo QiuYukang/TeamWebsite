@@ -25,17 +25,13 @@
 	<?php echo CHtml::encode($data->is_admin); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('is_paper')); ?>:</b>
-	<?php echo CHtml::encode($data->is_paper); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('is_manager')); ?>:</b>
+	<?php echo CHtml::encode($data->is_manager); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('is_project')); ?>:</b>
-	<?php echo CHtml::encode($data->is_project); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('is_user')); ?>:</b>
+	<?php echo CHtml::encode($data->is_user); ?>
 	<br />
 
-	
-	<b><?php echo CHtml::encode($data->getAttributeLabel('is_patent')); ?>:</b>
-	<?php echo CHtml::encode($data->is_patent); ?>
-	<br />
 
 </div>

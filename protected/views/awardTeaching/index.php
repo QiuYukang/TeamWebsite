@@ -3,7 +3,7 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Award Teachings',
+	'教学成果',
 );
 
 $this->menu=array(
@@ -12,7 +12,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>Award Teachings</h1>
+<h1>教学成果</h1>
 <table>
 	<tr>
 		<th><?php echo CHtml::encode(Award::model()->getAttributeLabel('project_name')); ?></th>

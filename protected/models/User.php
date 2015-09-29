@@ -12,9 +12,8 @@ require_once('password_compat/password_compat.php');
  * @property string $password
  * @property string $email
  * @property integer $is_admin
- * @property integer $is_paper
- * @property integer $is_project
- * @property integer $is_patent
+ * @property integer is_manager
+ * @property integer is_user
  */
 class User extends CActiveRecord
 {
@@ -40,14 +39,14 @@ class User extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('username, password', 'required'),
-			array('is_admin, is_paper, is_project, is_patent', 'numerical', 'integerOnly'=>true),
+			array('is_admin, is_manager, is_user', 'numerical', 'integerOnly'=>true),
 			array('username', 'length', 'max'=>30),
 			array('password', 'length', 'max'=>255),
 			array('email', 'email'),
 			array('passwordRepeat', 'compare','compareAttribute'=>'password', 'message'=>"两次密码不符合",'on'=>'create'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, username, password, email, is_admin, is_paper, is_project, is_patent', 'safe', 'on'=>'search'),
+			array('id, username, password, email, is_admin, is_manager, is_user', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -73,9 +72,8 @@ class User extends CActiveRecord
 			'password' => '密码',
 			'email' => '电子邮件',
 			'is_admin' => '超级管理员权限',
-			'is_paper' => '论文管理权限',
-			'is_project' => '项目管理权限',
-			'is_patent' => '专利管理权限',
+			'is_manager' => '管理员权限',
+			'is_user' => '普通用户权限',
 		);
 	}
 
@@ -102,9 +100,8 @@ class User extends CActiveRecord
 		$criteria->compare('password',$this->password,true);
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('is_admin',$this->is_admin);
-		$criteria->compare('is_paper',$this->is_paper);
-		$criteria->compare('is_project',$this->is_project);
-		$criteria->compare('is_patent',$this->is_patent);
+		$criteria->compare('is_manager',$this->is_manager);
+		$criteria->compare('is_user',$this->is_user);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

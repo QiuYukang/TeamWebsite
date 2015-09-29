@@ -2,17 +2,20 @@
 /* @var $this PeopleController */
 /* @var $model People */
 
+//面包屑
 $this->breadcrumbs=array(
-	'Peoples'=>array('index'),
-	'Create',
+    '人员管理'=>array('people/admin'),
+    '添加',
 );
 
-$this->menu=array(
-	array('label'=>'List People', 'url'=>array('index')),
-	array('label'=>'Manage People', 'url'=>array('admin')),
-);
 ?>
 
-<h1>Create People</h1>
+    <div style="position:relative">
+        <img src="images/lang1.jpg" alt="" />
+        <div style="position:absolute;z-indent:2;left:0;top:0;">
+            <br>
+            <h2>添加人员</h2>
+        </div>
+    </div>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

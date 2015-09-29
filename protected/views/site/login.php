@@ -9,9 +9,16 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<h1>登录</h1>
+<div style="position:relative">
+    <img src="images/lang1.jpg" alt="" />
+    <div style="position:absolute;z-indent:2;left:0;top:0;">
+        <br>
+        <h2>登录</h2>
+        <h4>请填写登录信息</h4>
+    </div>
+</div>
 
-<p>请填写登录信息:</p>
+
 
 <div class="form columns">
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -22,7 +29,7 @@ $this->breadcrumbs=array(
 	),
 )); ?>
 
-	<p class="note">带<span class="required">*</span>的为必填项目。</p>
+
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'username'); ?>
@@ -43,7 +50,8 @@ $this->breadcrumbs=array(
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('登录',array('class'=>'button small radius')); ?>
+        <br>
+		<?php echo CHtml::submitButton('登录',array('class'=>'btn btn-primary')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

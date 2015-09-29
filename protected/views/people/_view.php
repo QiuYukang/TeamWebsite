@@ -1,17 +1,10 @@
 <?php
 /* @var $this PeopleController */
 /* @var $data People */
+
+
+
+//已废弃，index使用前台重写了，不采用yii框架生成了
 ?>
 
-<div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('name')); ?>:</b>
-	<?php echo CHtml::encode($data->name); ?>
-	<br />
-
-
-</div>

@@ -3,8 +3,8 @@
 /* @var $model Course */
 
 $this->breadcrumbs=array(
-	'Courses'=>array('index'),
-	'Create',
+	'教学课程'=>array('index'),
+	'添加',
 );
 
 $this->menu=array(
@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Create Course</h1>
+<h1>添加教学课程</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

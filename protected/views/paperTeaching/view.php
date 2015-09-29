@@ -45,7 +45,7 @@ $this->menu=array(
 		'ei_number',
 		'istp_number',
         array(
-            'label'=>'支柱项目',
+            'label'=>'支助项目',
             'type'=>'raw',
             'value'=>$model->getFundProjects(),
         ),

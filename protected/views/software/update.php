@@ -2,20 +2,25 @@
 /* @var $this SoftwareController */
 /* @var $model Software */
 
+//面包屑
 $this->breadcrumbs=array(
-	'Softwares'=>array('index'),
-	$model->name=>array('view','id'=>$model->id),
-	'Update',
+    '学术成果'=>array('paper/index'),
+    '软件著作权'=>array('index'),
+    '管理'=>array('admin'),
+    substr($model->name, 0, 30).'...'=>array('view','id'=>$model->id),
+    '编辑',
 );
 
-$this->menu=array(
-	array('label'=>'List Software', 'url'=>array('index')),
-	array('label'=>'Create Software', 'url'=>array('create')),
-	array('label'=>'View Software', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Software', 'url'=>array('admin')),
-);
 ?>
 
-<h1>Update Software <?php echo $model->id; ?></h1>
+<div style="position:relative">
+    <img src="images/lang1.jpg" alt="" />
+    <div style="position:absolute;z-indent:2;left:0;top:0;">
+        <br>
+        <h2>编辑软件著作权</h2>
+        <h4><?php echo substr($model->name, 0, 30).'...'; ?></h4>
+    </div>
+</div>
+
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

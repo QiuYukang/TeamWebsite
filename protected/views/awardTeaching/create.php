@@ -3,8 +3,8 @@
 /* @var $model AwardTeaching */
 
 $this->breadcrumbs=array(
-	'Award Teachings'=>array('index'),
-	'Create',
+	'教学成果'=>array('index'),
+	'添加',
 );
 
 $this->menu=array(
@@ -13,6 +13,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Create AwardTeaching</h1>
+<h1>添加教学成果</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

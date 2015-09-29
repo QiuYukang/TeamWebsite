@@ -50,7 +50,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'password',
 		'email',
 		'is_admin',
-		'is_paper',
+		'is_manager',
+        'is_user',
 		/*
 		'is_project',
 		'is_patent',

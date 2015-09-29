@@ -32,18 +32,13 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'is_paper'); ?>
-		<?php echo $form->textField($model,'is_paper'); ?>
+		<?php echo $form->label($model,'is_manager'); ?>
+		<?php echo $form->textField($model,'is_manager'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'is_project'); ?>
-		<?php echo $form->textField($model,'is_project'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'is_patent'); ?>
-		<?php echo $form->textField($model,'is_patent'); ?>
+		<?php echo $form->label($model,'is_user'); ?>
+		<?php echo $form->textField($model,'is_user'); ?>
 	</div>
 
 	<div class="row buttons">

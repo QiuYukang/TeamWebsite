@@ -2,19 +2,30 @@
 /* @var $this PaperController */
 /* @var $model Paper */
 
+//已废弃，菜单用前台完成
+//$this->menu=array(
+//    array('label'=>'列出论文', 'url'=>array('index')),
+//    array('label'=>'管理论文', 'url'=>array('admin')),
+//    array('label'=>'导入论文', 'url'=>array('upload')),
+//    array('label'=>'导出全部论文', 'url'=>array('exportAll')),
+//);
+
+//面包屑
 $this->breadcrumbs=array(
+    '学术成果'=>array('paper/index'),
 	'论文'=>array('index'),
-	'创建',
+    '管理'=>array('admin'),
+	'添加',
 );
 
-$this->menu=array(
-	array('label'=>'列出论文', 'url'=>array('index')),
-	array('label'=>'管理论文', 'url'=>array('admin')),
-	array('label'=>'导入论文', 'url'=>array('upload')),
-	array('label'=>'导出全部论文', 'url'=>array('exportAll')),
-);
 ?>
 
-<h1>Create Paper</h1>
+    <div style="position:relative">
+        <img src="images/lang1.jpg" alt="" />
+        <div style="position:absolute;z-indent:2;left:0;top:0;">
+            <br>
+            <h2>添加论文</h2>
+        </div>
+    </div>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

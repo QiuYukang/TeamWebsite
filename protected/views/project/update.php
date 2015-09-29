@@ -2,20 +2,26 @@
 /* @var $this ProjectController */
 /* @var $model Project */
 
+
+//面包屑
 $this->breadcrumbs=array(
-	'科研项目'=>array('index'),
-	$model->name=>array('view','id'=>$model->id),
-	'修改',
+    '科研'=>array('project/index'),
+    '科研项目'=>array('index'),
+    '管理'=>array('admin'),
+    substr($model->name, 0, 30).'...'=>array('view','id'=>$model->id),
+    '编辑',
 );
 
-$this->menu=array(
-	array('label'=>'List Project', 'url'=>array('index')),
-	array('label'=>'Create Project', 'url'=>array('create')),
-	array('label'=>'View Project', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Project', 'url'=>array('admin')),
-);
 ?>
 
-<h1>修改项目 #<?php echo $model->id; ?></h1>
+<div style="position:relative">
+    <img src="images/lang1.jpg" alt="" />
+    <div style="position:absolute;z-indent:2;left:0;top:0;">
+        <br>
+        <h2>编辑科研项目</h2>
+        <h4><?php echo substr($model->name, 0, 30).'...'; ?></h4>
+    </div>
+</div>
+
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

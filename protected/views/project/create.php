@@ -2,17 +2,22 @@
 /* @var $this ProjectController */
 /* @var $model Project */
 
+//面包屑
 $this->breadcrumbs=array(
-	'科研项目'=>array('index'),
-	'增加',
+    '科研'=>array('project/index'),
+    '科研项目'=>array('index'),
+    '管理'=>array('admin'),
+    '添加',
 );
 
-$this->menu=array(
-	array('label'=>'List Project', 'url'=>array('index')),
-	array('label'=>'Manage Project', 'url'=>array('admin')),
-);
 ?>
 
-<h1>增加科研项目</h1>
+    <div style="position:relative">
+        <img src="images/lang1.jpg" alt="" />
+        <div style="position:absolute;z-indent:2;left:0;top:0;">
+            <br>
+            <h2>添加科研项目</h2>
+        </div>
+    </div>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

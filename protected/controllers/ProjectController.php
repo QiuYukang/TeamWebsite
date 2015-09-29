@@ -1,6 +1,5 @@
 <?php
 Yii::import('application.vendor.*');
-require_once('password_compat/password_compat.php');
 require_once('PHPExcel/PHPExcel.php');
 class ProjectController extends Controller
 {
@@ -8,7 +7,7 @@ class ProjectController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	public $layout='//layouts/main';
 
 	/**
 	 * @return array action filters
@@ -29,412 +28,312 @@ class ProjectController extends Controller
 
 	public function accessRules()
 	{
-		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin'),
-				'expression'=>'isset($user->is_project) && $user->is_project',
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('upload','admin','delete','create','update','import','export','pwd','reset'),
-				'expression'=>'isset($user->is_admin) && $user->is_admin',
-			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
-		);
+        return array(
+            array('allow',  // allow all users to perform 'index' actions
+                'actions'=>array('index'),
+                'users'=>array('*'),
+            ),
+            array('allow', // allow authenticated user to perform 'admin' and 'view' actions
+                'actions'=>array('index', 'admin', 'view'),
+                'expression'=>'isset($user->is_user) && $user->is_user'
+            ),
+            array('allow', // allow manager user to perform 'create', 'delete', 'downloadformat', 'upload' and 'update' actions
+                'actions'=>array('index', 'admin', 'view', 'create', 'delete', 'downloadformat', 'upload', 'update'),
+                'expression'=>'isset($user->is_manager) && $user->is_manager',
+            ),
+            array('allow', // allow admin user to perform 'clear' actions
+                'actions'=>array('index', 'admin', 'view', 'create', 'delete', 'downloadformat', 'upload', 'update', 'clear'),
+                'expression'=>'isset($user->is_admin) && $user->is_admin',
+            ),
+            array('deny',  // deny all users
+                'users'=>array('*'),
+            ),
+        );
 	}
 
-	/**
-	 * Displays a particular model.
-	 * @param integer $id the ID of the model to be displayed
-	 */
-	public function actionView($id)
-	{
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
-	}
+    /**
+     * index
+     */
+    public function actionIndex($page = 1)
+    {
 
-	private function setModelPeoples($model) {
-		if(isset($_POST['Project']['execute_peoples_value']))
-			$model->executePeoples=explode(',',$_POST['Project']['execute_peoples_value']);
-		if(isset($_POST['Project']['liability_peoples_value']))
-			$model->liabilityPeoples=explode(',',$_POST['Project']['liability_peoples_value']);
-	}
-	/**
-	 * Creates a new model.
-	 * If creation is successful, the browser will be redirected to the 'view' page.
-	 */
-	public function actionCreate()
-	{
-		$model=new Project;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Project']))
-		{
-			$model->attributes=$_POST['Project'];
-			self::setModelPeoples($model);
-			if($model->save()) {
-				$this->redirect(array('view','id'=>$model->id));
-			}
-
-		}
-
-		$this->render('create',array(
-			'model'=>$model,
-		));
-	}
-
-	/**
-	 * Updates a particular model.
-	 * If update is successful, the browser will be redirected to the 'view' page.
-	 * @param integer $id the ID of the model to be updated
-	 */
-	public function actionUpdate($id)
-	{
-		$model=$this->loadModel($id);
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Project']))
-		{
-			$model->attributes=$_POST['Project'];
-			self::setModelPeoples($model);
-			$model->scenario='update';
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
-		}
-
-		$this->render('update',array(
-			'model'=>$model,
-		));
-	}
-
-	/**
-	 * Deletes a particular model.
-	 * If deletion is successful, the browser will be redirected to the 'admin' page.
-	 * @param integer $id the ID of the model to be deleted
-	 */
-	public function actionDelete($id)
-	{
-		$this->loadModel($id)->delete();
-
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-	}
-
-	/**
-	 * Lists all models.
-	 */
-	public function actionIndex()
-	{
-		$criteria = new CDbCriteria;
-		$criteria->addCondition('is_school!=1');
-		$dataProvider=new CActiveDataProvider('Project',
+        $dataProvider=new CActiveDataProvider(
+            'Project',
             array('sort'=>array(
                 'defaultOrder'=>array(
-                	'is_intl'=>true,
-                	'is_NSF'=>true,
-                	'is_973'=>true,
-                	'is_863'=>true,
-                	'is_is_NKTRD'=>true,
-                	'is_major'=>true,
-                	'is_provincial'=>true,
-                	'is_city'=>true,
-                	'is_enterprise'=>true,
-                    'start_date' => true,
+                    'latest_date' => CSort::SORT_DESC, //依最新时间排序
                 ),
 
             ),
-            'pagination'=>false,
-            'criteria'=>$criteria
+                'pagination' =>false, //所有数据都传给前台，前台实现分页
+            )
+        );
+        //$dataProvider->pagination=false;
+        $this->render('index',array(
+            'dataProvider' => $dataProvider, //所有数据
+            'page' => $page, //当前页，GET方式得到
         ));
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
-	}
-
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
-		$model=new Project('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Project'])) {
-			$model->attributes=$_GET['Project'];
-			if($_GET['Project']['is_intl']=='0') {
-				$model->is_intl="";
-			}
-			if($_GET['Project']['is_national']=='0') {
-				$model->is_national="";
-			}
-			if($_GET['Project']['is_provincial']=='0') {
-				$model->is_provincial="";
-			}
-			if($_GET['Project']['is_school']=='0') {
-				$model->is_school="";
-			}
-			if($_GET['Project']['is_city']=='0') {
-				$model->is_city="";
-			}
-			if($_GET['Project']['is_enterprise']=='0') {
-				$model->is_enterprise="";
-			}
-			if($_GET['Project']['is_NSF']=='0') {
-				$model->is_NSF="";
-			}
-			if($_GET['Project']['is_973']=='0') {
-				$model->is_973="";
-			}
-			if($_GET['Project']['is_863']=='0') {
-				$model->is_863="";
-			}
-			if($_GET['Project']['is_NKTRD']=='0') {
-				$model->is_NKTRD="";
-			}
-			if($_GET['Project']['is_DFME']=='0') {
-				$model->is_DFME="";
-			}
-			if($_GET['Project']['is_major']=='0') {
-				$model->is_major="";
-			}
-			$peopleNameArr=array();
-			if(!empty($_GET['People']['execute_id'])){
-				$people=People::model()->findByPk($_GET['People']['execute_id']);
-				$model->searchExecutePeople=$people->id;
-				$peopleNameArr[]=$people->name;
-
-			}
-			if(!empty($_GET['People']['liability_id'])){
-				$people=People::model()->findByPk($_GET['People']['liability_id']);
-				$model->searchExecutePeople=$people->id;
-				$peopleNameArr[]=$people->name;
-			}			
-		}
-		if( isset($_GET['export']) && $_GET['export']) {
-			$dataProvider=$model->search();
-			$dataProvider->pagination=false;
-			self::exportProjectsToXlsByPeople($dataProvider->getData(),'参与者包括'.implode('， ',$peopleNameArr).'的项目');
-		} else {
-			$this->render('admin',array(
-				'model'=>$model,
-			));
-		}
-
-	}
-
-	/**
-	 * Returns the data model based on the primary key given in the GET variable.
-	 * If the data model is not found, an HTTP exception will be raised.
-	 * @param integer $id the ID of the model to be loaded
-	 * @return Project the loaded model
-	 * @throws CHttpException
-	 */
-	public function loadModel($id)
-	{
-		$model=Project::model()->findByPk($id);
-		if($model===null)
-			throw new CHttpException(404,'The requested page does not exist.');
-		return $model;
-	}
-
-	/**
-	 * Performs the AJAX validation.
-	 * @param Project $model the model to be validated
-	 */
-	protected function performAjaxValidation($model)
-	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='project-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
-	}
-
-    public function actionUpload() {
-        set_time_limit(50);
-        if(isset($_FILES['spreedSheet']) && !empty($_FILES['spreedSheet'])) {
-            $path = $_FILES['spreedSheet']['tmp_name'];
-            echo $_FILES['spreedSheet']['name']."<hr />";
-            echo $_FILES['spreedSheet']['type']."<hr />";
-            echo $_FILES['spreedSheet']['tmp_name']."<hr />";
-            if(self::saveXlsToDb($path)){
-                echo 'function actionUpload() succeeded.<hr />';
-                $this->redirect(array('index'));
-            }
-        }
-
-
-        $this->render('upload');
     }
 
-    public function actionReset() {
-        Project::model()->deleteAll();
-    }
-
-
-
-
-    protected function saveXlsToDb($xlsPath) {
-        $projects = self::xlsToArray($xlsPath);
-        return self::saveXlsArrayToDb($projects);
-    }
-
-    public function xlsToArray($path)
+    /**
+     * admin & export
+     */
+    public function actionAdmin()
     {
-        Yii::trace("start of loading","actionTestXls()");
-        $objPHPExcel = PHPExcel_IOFactory::load($path);
-        Yii::trace("end of loading","actionTestXls()");
-        Yii::trace("start of reading","actionTestXls()");
-        $dataArray = $objPHPExcel->getActiveSheet()->toArray(null,true,true);
-        Yii::trace("end of reading","actionTestXls()");
-        array_shift($dataArray);
-        //var_dump($dataArray);
-        return $dataArray;
-    }
+        $fileName = array(); //显示的搜索条件，导出的文件名
 
-    private function convertYesNoToInt($yesno) {
-        if($yesno=='是') {
-            return 1;
-        }else if($yesno=='否'){
-            return 0;
+        $criteria = new CDbCriteria();
+        $criteria->with = array('execute_peoples','liability_peoples');
+        $criteria->together = true;
+        $criteria->group = 't.id';
+        $params = array();
+        $order = '';
+
+        $now_criteria = array(); //用于传递给_search显示当前的搜索条件
+
+        // do not manually cat sql string, use methods like CDbCriteria::addCondition()!
+        // or there will be sql injection vulnerability!
+        // http://www.yiiframework.com/forum/index.php/topic/13119-sql-injection-question/
+        if(isset($_GET['keyword']) && $_GET['keyword']){
+            array_push($fileName,'关键词为'.$_GET['keyword']);
+            $criteria->addCondition('lower(t.name) like :keyword'); //name和param全部转小写进行判断，达到忽略大小写的效果
+            $params[':keyword']='%'.strtolower($_GET['keyword']).'%';
+            $now_criteria['keyword'] = $_GET['keyword'];
         }
-        return 0;
-    }
-
-
-
-    public function saveXlsArrayToDb($projects)
-    {
-        $connection=Yii::app()->db;
-        //var_dump($projects);
-        foreach($projects as $k => $p) {
-            //var_dump($k);
-            //var_dump($p);
-            if($k<1) continue;
-            if(($project=Project::model()->findByAttributes(array('name'=>$p[0],'number'=>$p[1])))==null) {
-            	$project = new Project;
-            }
-            $project->scenario='update';
-            $project->name=$p[0];
-            $project->number=$p[1];
-            $project->fund_number=$p[2];
-            $project->is_intl=self::convertYesNoToInt($p[3]);
-            $project->is_national=self::convertYesNoToInt($p[4]);
-            $project->is_provincial=self::convertYesNoToInt($p[5]);
-            $project->is_city=self::convertYesNoToInt($p[6]);
-            $project->is_school=self::convertYesNoToInt($p[7]);
-            $project->is_enterprise=self::convertYesNoToInt($p[8]);
-            $project->is_NSF=self::convertYesNoToInt($p[9]);
-            $project->is_973=self::convertYesNoToInt($p[10]);
-            $project->is_863=self::convertYesNoToInt($p[11]);
-            $project->is_NKTRD=self::convertYesNoToInt($p[12]);
-            $project->is_DFME=self::convertYesNoToInt($p[13]);
-            $project->is_major=self::convertYesNoToInt($p[14]);
-            $project->start_date=($p[16]);
-            $project->deadline_date=($p[17]);
-            $project->conclude_date=empty($p[18]) ? $project->deadline_date : $p[18];
-            $project->pass_fund=$p[19];
-            $peoplesId=array();
-            for($i=0;$i<20;$i=$i+1){
-				$peopleName=$p[20+$i];
-				if($peopleName=="") {
-					continue;
-				}
-				$people = People::model()->findByAttributes(array('name'=>$peopleName));
-                if($people!=null) {
-                    $peoplesId[]=$people->id;
-                }else {
-                    $people = new People;
-                    $people->name = $peopleName;
-                    if(!$people->save()){
-                    	print_r($people->getErrors());
-                    	return false;
-                    }
-                    $peoplesId[] = $people->id;
-                }
-
-            }
-            $project->executePeoples = $peoplesId;
-            $peoplesId=array();
-            for($i=0;$i<20;$i=$i+1){
-				$peopleName=$p[20+$i];
-				$people = People::model()->findByAttributes(array('name'=>$peopleName));
-                if($people!=null) {
-                    $peoplesId[]=$people->id;
-
-                }else {
-                    $people = new People;
-                    $people->name = $peopleName;
-                    if($people->save())
-                    $peoplesId[] = $people->id;
-                }
-
-            }
-            $project->liabilityPeoples = $peoplesId;
-            $project->save();
+        if(isset($_GET['number']) && $_GET['number']) {
+            array_push($fileName,'项目编号为'.$_GET['number']);
+            $criteria->addCondition('lower(t.number) like :number'); //全部转小写进行判断，达到忽略大小写的效果
+            $params[':number']='%'.strtolower($_GET['number']).'%';
+            $now_criteria['number'] = $_GET['number'];
         }
-        return true;
+        if(isset($_GET['fund_number']) && $_GET['fund_number']) {
+            array_push($fileName,'经费本编号为'.$_GET['fund_number']);
+            $criteria->addCondition('lower(t.fund_number) like :fund_number'); //全部转小写进行判断，达到忽略大小写的效果
+            $params[':fund_number']='%'.strtolower($_GET['fund_number']).'%';
+            $now_criteria['fund_number'] = $_GET['fund_number'];
+        }
+        if(isset($_GET['execute_people']) && $_GET['execute_people']) {
+//            $isByPeople = true;
+            $people = People::model()->find('id=:id',array(':id'=>$_GET['execute_people']));
+            $peopleName = isset($people) ? $people->name : '';
+            array_push($fileName, '执行人员含'.$peopleName);
+            $criteria->addCondition('execute_.id=:execute_people_id');
+            $params[':execute_people_id']=$_GET['execute_people'];
+            $now_criteria['execute_people'] = $_GET['execute_people'];
+        }
+        if(isset($_GET['liability_people']) && $_GET['liability_people']) {
+//            $isByPeople = true;
+            $people = People::model()->find('id=:id',array(':id'=>$_GET['liability_people']));
+            $peopleName = isset($people) ? $people->name : '';
+            array_push($fileName, '合同书人员含'.$peopleName);
+            $criteria->addCondition('liability_.id=:liability_people_id');
+            $params[':liability_people_id']=$_GET['liability_people'];
+            $now_criteria['liability_people'] = $_GET['liability_people'];
+        }
+        if(isset($_GET['maintainer']) && $_GET['maintainer']) {
+//            $isByMaintainer = true;
+//            $isByPeople = true;
+            $people = People::model()->find('id=:id',array(':id'=>$_GET['maintainer']));
+            $peopleName = isset($people) ? $people->name : '';
+            array_push($fileName,$peopleName."维护");
+            $criteria->addCondition('t.maintainer_id=:maintainer_id');
+            $params[':maintainer_id']=$_GET['maintainer'];
+            $now_criteria['maintainer'] = $_GET['maintainer'];
+        }
+        if(isset($_GET['level']) && $_GET['level'] ){
+            array_push($fileName,'级别为'.$_GET['level']);
+            $criteria->addCondition('t.level = :level');
+            $params[':level']=$_GET['level'];
+            $now_criteria['level'] = $_GET['level'];
+        }
+        if(isset($_GET['category']) && $_GET['category'] ){
+            array_push($fileName,'类别为'.$_GET['category']);
+            $criteria->addCondition('lower(t.category) like :category');
+            $params[':category']='%'.strtolower($_GET['category']).'%';
+            $now_criteria['category'] = $_GET['category'];
+        }
+        if(isset($_GET['unit']) && $_GET['unit'] ){
+            array_push($fileName,'牵头/合作单位为'.$_GET['unit']);
+            $criteria->addCondition('t.unit = :unit');
+            $params[':unit']=$_GET['unit'];
+            $now_criteria['unit'] = $_GET['unit'];
+        }
+
+        if(isset($_GET['start_date']) && $_GET['start_date'] && isset($_GET['end_date']) && $_GET['end_date']) {
+            if ((($start_date = Project::processDateStatic($_GET['start_date'], 0)) != null) &&
+                (($end_date = Project::processDateStatic($_GET['end_date'], 1)) != null) ) {
+//                $isByDate = true;
+                array_push($fileName,'时间在'.$start_date.'之后，在'.$end_date.'之前');
+                //三个时间任意一个落在时间段中都ok
+                $criteria->addCondition('((t.start_date >= :start_date AND t.start_date <= :end_date) OR
+                (t.deadline_date >= :start_date AND t.deadline_date <= :end_date) OR
+                (t.conclude_date >= :start_date AND t.conclude_date <= :end_date))');
+
+                $params[':start_date'] = $start_date;
+                $params[':end_date'] = $end_date;
+                $now_criteria['start_date'] = $_GET['start_date'];
+                $now_criteria['end_date'] = $_GET['end_date'];
+            }
+        }
+        else if(isset($_GET['start_date']) && $_GET['start_date']){
+            if(($start_date = Project::processDateStatic($_GET['start_date'], 0)) != null) {
+//                $isByDate = true;
+                array_push($fileName,'时间在'.$start_date.'之后');
+                $criteria->addCondition('(t.start_date >= :start_date OR t.deadline_date >= :start_date OR t.conclude_date >= :start_date)');
+
+                $params[':start_date']=$start_date;
+                $now_criteria['start_date'] = $_GET['start_date'];
+            }
+        }
+        else if(isset($_GET['end_date']) && $_GET['end_date']){
+            if(($end_date = Project::processDateStatic($_GET['end_date'], 1)) != null) {
+//                $isByDate = true;
+                array_push($fileName, '时间在' . $end_date . '之前');
+                $criteria->addCondition('(t.start_date <= :end_date OR t.deadline_date <= :end_date OR t.conclude_date <= :end_date)');
+
+                $params[':end_date'] = $end_date;
+                $now_criteria['end_date'] = $_GET['end_date'];
+            }
+        }
+
+        if(isset($_GET['start_fund']) && $_GET['start_fund'] && isset($_GET['end_fund']) && $_GET['end_fund']) {
+            if ((($start_fund = floatval($_GET['start_fund'])) != 0) &&
+                (($end_fund = floatval($_GET['end_fund'])) != 0)) {
+
+                array_push($fileName,'经费大于'.$start_fund.'，小于'.$end_fund);
+                $criteria->addCondition('(t.fund >= :start_fund AND t.fund <= :end_fund)');
+
+                $params[':start_fund'] = $start_fund;
+                $params[':end_fund'] = $end_fund;
+                $now_criteria['start_fund'] = $_GET['start_fund'];
+                $now_criteria['end_fund'] = $_GET['end_fund'];
+            }
+        }
+        else if(isset($_GET['start_fund']) && $_GET['start_fund']){
+            if(($start_fund = floatval($_GET['start_fund'])) != 0) {
+
+                array_push($fileName,'经费大于'.$start_fund);
+                $criteria->addCondition('t.fund >= :start_fund');
+
+                $params[':start_fund'] = $start_fund;
+                $now_criteria['start_fund'] = $_GET['start_fund'];
+            }
+        }
+        else if(isset($_GET['end_fund']) && $_GET['end_fund']){
+            if(($end_fund = floatval($_GET['end_fund'])) != 0) {
+
+                array_push($fileName, '经费小于' . $end_fund);
+                $criteria->addCondition('t.fund <= :end_fund');
+
+                $params[':end_fund'] = $end_fund;
+                $now_criteria['end_fund'] = $_GET['end_fund'];
+            }
+        }
+
+        if(isset($_GET['order']) && $_GET['order'] == 2) { //选择了按最新更新时间排序
+            $order .= 't.last_update_date DESC ,'; //按最后更新时间排序
+            array_push($fileName, '按最后更新时间排序');
+            $now_criteria['order'] = 2;
+        } else {
+            array_push($fileName, '按时间排序');
+            $now_criteria['order'] = 0;
+        }
+
+        $fileNameString = implode(', ',$fileName);
+
+        //var_dump($params);
+        $criteria->params = $params;
+        $order .= 't.latest_date DESC';
+
+        $dataProvider = new CActiveDataProvider(
+            'Project',
+            array(
+                'sort'=>array(
+                    'defaultOrder' => $order
+                ),
+                'criteria' => $criteria,
+                'pagination' => false, //前台实现分页，无论显示还是导出都将数据全部传出
+//                    array('pageSize' => '20')
+                //array(
+                //'pageSize' => Yii::app()->params['pageSize'],
+                //)
+            )
+        );
+
+        //筛选信息不完整的数据，筛选条件是数据的getIncompleteInfo()函数
+        if(isset($_GET['incomplete']) && $_GET['incomplete'] ) {
+            $data_arr = $dataProvider->getData();
+            $incomplete_data_arr = array();
+            foreach($data_arr as $data) {
+                if($data->getIncompleteInfo() != null) { //信息不完整
+                    $incomplete_data_arr[] = $data;
+                }
+            }
+            $dataProvider->setData($incomplete_data_arr);
+            $fileNameString .= '的信息不完整或有误的科研项目';
+            $now_criteria['incomplete'] = 1;
+        } else {
+            $fileNameString .= '的全部科研项目';
+        }
+
+        //导出与否
+        if(isset($_GET['export']) && $_GET['export']){
+            self::exportProjectsToXlsByDefault($dataProvider->getData(), $fileNameString);
+        } else {
+            $this->render('admin',
+                array(
+                    'dataProvider' => $dataProvider,
+                    'page' => isset($_GET['page']) ? $_GET['page'] : 1,
+                    'search_info' => $fileNameString, //用于显示
+                    'now_criteria' => $now_criteria, //用于让_search显示当前的搜索条件
+                ));
+        }
     }
 
-    private function exportProjectsToXlsByPeople($papers,$fileName='export'){
-
-        $objPHPExcel = new PHPExcel();
-        $objPHPExcel->getProperties()->setTitle("导出的科研项目");
+    /**
+     * 按默认方式导出文件，@projects传入导出的数据，生成的文件名为@fileName
+     */
+    private function exportProjectsToXlsByDefault($projects,$fileName){
+        $formatPath = dirname(__FILE__)."/../xls_format/project_import_format.xlsx"; //载入标准格式
+        $objPHPExcel = PHPExcel_IOFactory::load($formatPath);
+//        $objPHPExcel->getProperties()->setTitle("导出的科研项目");
         $objPHPExcel->setActiveSheetIndex(0);
-
-        $i=1;
+        $row=2;
         $activeSheet = $objPHPExcel->getActiveSheet();
-        $activeSheet->setTitle('project');
-        $activeSheet->SetCellValue('A'.$i,'编号');
-        $activeSheet->SetCellValue('B'.$i,'名称');
-        $activeSheet->SetCellValue('C'.$i,'经费本编号');
-        $activeSheet->SetCellValue('D'.$i,'级别');
-        $activeSheet->SetCellValue('E'.$i,'开始时间');
-        $activeSheet->SetCellValue('F'.$i,'截至时间');
-        $activeSheet->SetCellValue('G'.$i,'结题时间');
-        $activeSheet->SetCellValue('H'.$i,'申报时间');
-        $activeSheet->SetCellValue('I'.$i,'通过时间');
-        $activeSheet->SetCellValue('J'.$i,'申报经费');
-        $activeSheet->SetCellValue('K'.$i,'立项经费');
-        $activeSheet->SetCellValue('L'.$i,'实际执行人员');
-        $activeSheet->SetCellValue('M'.$i,'责任书人员');
-        $i++;
-        $j=1;
-        header("content-type:text/html; charset=utf-8");
-        foreach($papers as $p) {
-            $activeSheet->SetCellValue('A'.$i,$i-1);
-            $activeSheet->SetCellValue('B'.$i,$p->name);
-            $activeSheet->SetCellValue('C'.$i,$p->fund_number);
-            $activeSheet->SetCellValue('D'.$i,$p->getLevelString());
-            $activeSheet->SetCellValue('E'.$i,$p->start_date);
-            $activeSheet->SetCellValue('F'.$i,$p->deadline_date);
-            $activeSheet->SetCellValue('G'.$i,$p->conclude_date);
-            $activeSheet->SetCellValue('H'.$i,$p->app_date);
-            $activeSheet->SetCellValue('I'.$i,$p->pass_date);
-            $activeSheet->SetCellValue('J'.$i,$p->app_fund);
-            $activeSheet->SetCellValue('K'.$i,$p->pass_fund);
-            $activeSheet->SetCellValue('L'.$i,Project::model()->findByPk($p->id)->getExecutePeoples(', '));
-            $activeSheet->SetCellValue('M'.$i,Project::model()->findByPk($p->id)->getLiabilityPeoples(', '));
-            $i++;
-            // echo $j++.' '.$p->id.' '.$p->name.' ';
-            // print_r(Project::model()->findByPk($p->id)->getExecutePeoples());
-            // echo " ";
-            // print_r(Project::model()->findByPk($p->id)->getLiabilityPeoples());
-            // echo "<hr />";
+//        $activeSheet->setTitle('projects');
+        foreach($projects as $p){
+            $col=0;
+            $activeSheet->setCellValueByColumnAndRow($col++,$row,$p->name, PHPExcel_Cell_DataType::TYPE_STRING);
+            $activeSheet->setCellValueByColumnAndRow($col++,$row,$p->number, PHPExcel_Cell_DataType::TYPE_STRING);
+            $activeSheet->setCellValueByColumnAndRow($col++,$row,$p->fund_number, PHPExcel_Cell_DataType::TYPE_STRING);
+            $activeSheet->setCellValueByColumnAndRow($col++,$row,$p->start_date, PHPExcel_Cell_DataType::TYPE_STRING);
+            $activeSheet->setCellValueByColumnAndRow($col++,$row,$p->deadline_date, PHPExcel_Cell_DataType::TYPE_STRING);
+            $activeSheet->setCellValueByColumnAndRow($col++,$row,$p->conclude_date, PHPExcel_Cell_DataType::TYPE_STRING);
+            $activeSheet->setCellValueByColumnAndRow($col++,$row,$p->fund, PHPExcel_Cell_DataType::TYPE_STRING);
+            $activeSheet->setCellValueByColumnAndRow($col++,$row,$p->unit, PHPExcel_Cell_DataType::TYPE_STRING);
+            $activeSheet->setCellValueByColumnAndRow($col++,$row,$p->level, PHPExcel_Cell_DataType::TYPE_STRING);
+            $activeSheet->setCellValueByColumnAndRow($col++,$row,$p->category, PHPExcel_Cell_DataType::TYPE_STRING);
 
+            //这里不能使用$p->execute_peoples，该数组中只有一个作者，不明原因，下liability_peoples同
+            foreach(Project::model()->findByPk($p->id)->execute_peoples as $people) {
+                if($col>29){
+                    break;
+                }
+                $activeSheet->setCellValueByColumnAndRow($col++,$row,$people->name);
+            }
+            $col=30;
+            foreach(Project::model()->findByPk($p->id)->liability_peoples as $people) {
+                if($col>49){
+                    break;
+                }
+                $activeSheet->setCellValueByColumnAndRow($col++,$row,$people->name);
+            }
+            $col=50;
+            $activeSheet->setCellValueByColumnAndRow($col++,$row,$p->description);
+            $activeSheet->setCellValueByColumnAndRow($col++,$row,isset($p->maintainer)?$p->maintainer->name:'');
+            $row++;
         }
-        //Yii::app()->end();
-        //http://stackoverflow.com/questions/19155488/array-to-excel-2007-using-phpexcel
+
         $objWriter = new PHPExcel_Writer_Excel2007($objPHPExcel);
         header("Pragma: public");
         header("Expires: 0");
@@ -444,10 +343,323 @@ class ProjectController extends Controller
         header("Content-Type:application/octet-stream");
         header("Content-Type:application/download");;
         //$fileName = iconv('utf-8', "gb2312", $fileName);
-        header('Content-Disposition:attachment;filename="'.$fileName.'.xlsx"');
+        header('Content-Disposition:attachment;filename="'.$fileName.'.xlsx"'); //文件名
         header("Content-Transfer-Encoding:binary");
-        $objWriter->save('php://output');
+        $objWriter->save('php://output'); exit;
+    }
 
+    /**
+     * value to '是' or ''
+     */
+    private function convertIntToYesNo($int) {
+        if($int == 1)
+            return '是';
+        else
+            return '';
+    }
+
+    public function actionDownloadformat() {
+        $path = dirname(__FILE__)."/../xls_format/project_import_format.xlsx";
+
+        header('Content-Transfer-Encoding: binary');
+        header('Content-length: '.filesize($path));
+        header('Content-Type: '.mime_content_type($path));
+        header('Content-Disposition: attachment; filename='.'科研项目标准导入格式.xlsx');
+        echo file_get_contents($path);
+    }
+
+    /**
+     * upload
+     */
+    public function actionUpload() {
+//        set_time_limit(50);
+        if(isset($_FILES['fileField']) && !empty($_FILES['fileField'])
+            && ( $_FILES['fileField']['type'] == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' || $_FILES['fileField']['type'] == 'application/vnd.ms-excel')
+        ) {
+            $path = $_FILES['fileField']['tmp_name'];
+//            echo $_FILES['fileField']['name']."<hr />";
+//            echo $_FILES['fileField']['type']."<hr />";
+//            echo $_FILES['fileField']['tmp_name']."<hr />";
+
+            if(self::saveXlsToDb($path)){ //导入成功才进行页面跳转
+//                echo 'function actionUpload() succeeded.<hr />';
+                $this->redirect(array('admin'));
+            }
+        }
+
+        $this->render('upload');
+    }
+
+    /**
+     * 从@xlsPath路径下读取文件并将其数据存入数据库
+     */
+    protected function saveXlsToDb($xlsPath) {
+        $projects = self::xlsToArray($xlsPath);
+        return self::saveXlsArrayToDb($projects);
+    }
+
+    /**
+     * @path下的xls to Array
+     */
+    public function xlsToArray($path)
+    {
+        Yii::trace("start of loading","actionTestXls()");
+        //$reader = PHPExcel_IOFactory::createReader('Excel5');
+        //$reader->setReadDataOnly(true);
+        $objPHPExcel = PHPExcel_IOFactory::load($path);
+        Yii::trace("end of loading","actionTestXls()");
+        Yii::trace("start of reading","actionTestXls()");
+        $dataArray = $objPHPExcel->getActiveSheet()->toArray(null,true,true);
+        Yii::trace("end of reading","actionTestXls()");
+//        for($i = 0; $i < 2; $i++) { //前两行是标准导入格式中的标题，不是数据，移除
+        array_shift($dataArray); //一行是标题
+//        }
+        //var_dump($dataArray);
+        return $dataArray;
+    }
+
+    /**
+     * 将@projects数组中的数据逐个提取并存入数据库
+     */
+    public function saveXlsArrayToDb($projects)
+    {
+//        $connection = Yii::app()->db;
+        foreach($projects as $k => $p) {
+            //var_dump($k);
+            //var_dump($p);
+            for($i = 0; $i < 51; $i++) {
+                $p[$i] = trim($p[$i]); //所有数据去空格
+//                echo $p[$i].' ';
+            }
+
+            if (empty($p[0])) continue; //name为空直接拜拜
+            //以name、number、fund_number做搜索，若数据库中有则修改该数据，没有则创建一条新数据
+            $project = Project::model()->findByAttributes(array('name' => $p[0]));
+            if($project == null)  $project = Project::model()->findByAttributes(array('number' => $p[1]));
+            if($project == null)  $project = Project::model()->findByAttributes(array('fund_number' => $p[2]));
+            if ($project == null) {
+                $project = new Project;
+            }
+            $project->name=$p[0];
+            $project->number=$p[1];
+            $project->fund_number=$p[2];
+            //不合适的日期格式会在beforeSave()中处理
+            $project->start_date=$p[3];
+            $project->deadline_date=$p[4];
+            $project->conclude_date=$p[5];
+            $project->fund=$p[6];
+            $project->unit=$p[7];
+            $project->level=$p[8];
+            $project->category=$p[9];
+
+            for($i=0; $i<20; $i++) {
+                $peopleName = $p[$i + 10];
+
+                if($peopleName != null && $peopleName != '') { //没有填写就跳过余下的处理
+                    $people = People::model()->findByAttributes(array('name'=>$peopleName));
+                    if($people == null) $people = People::model()->findByAttributes(array('name_en'=>$peopleName));
+                    if($people != null) {
+                        $project->save_execute_peoples_id[] = $people->id;
+                    }else {
+                        $people = new People;
+                        $people->name = $peopleName;
+                        if($people->save()){
+                            $project->save_execute_peoples_id[] = $people->id;
+                        }
+                    }
+                }
+            }
+
+            for($i=0; $i<20; $i++) {
+                $peopleName = $p[$i + 30];
+
+                if($peopleName != null && $peopleName != '') { //没有填写就跳过余下的处理
+                    $people = People::model()->findByAttributes(array('name'=>$peopleName));
+                    if($people == null) $people = People::model()->findByAttributes(array('name_en'=>$peopleName));
+                    if($people != null) {
+                        $project->save_liability_peoples_id[] = $people->id;
+                    }else {
+                        $people = new People;
+                        $people->name = $peopleName;
+                        if($people->save()){
+                            $project->save_liability_peoples_id[] = $people->id;
+                        }
+                    }
+                }
+            }
+
+            $project->description=$p[50];
+
+            $maintainerName = $p[51];
+            if($maintainerName != null && $maintainerName != '') { //没有填写就跳过余下的处理
+                $maintainer = People::model()->findByAttributes(array('name'=>$maintainerName));
+                if($maintainer == null) $maintainer = People::model()->findByAttributes(array('name_en'=>$maintainerName));
+                if($maintainer != null) {
+                    $project->maintainer_id = $maintainer->id;
+                }else {
+                    $maintainer = new People;
+                    $maintainer->name = $maintainerName;
+                    if($maintainer->save()){
+                        $project->maintainer_id = $maintainer->id;
+                    }
+                }
+            }
+
+            $project->re_relation = true; //打开重铸关联标记
+            if($project->save()) {
+                ;
+            } else {
+                return false;
+            }
+
+        }
+        return true;
+    }
+
+    /**
+     * 依规则@yesno to boolean
+     */
+    private function convertYesNoToInt($yesno) {
+        if($yesno == '是') {
+            return 1;
+        } else if ($yesno == '否' || $yesno == "" || $yesno == null) {
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+
+    /**
+     * Creates a new model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     */
+    public function actionCreate()
+    {
+        $model = new Project;
+
+        if (isset($_POST['Project'])) {
+            //除category、两个peoples外其它的所有属性直接存储进model
+            $model->attributes=$_POST['Project'];
+
+            //category因为一些动态因素用前台代码写的，这里也需要手动添加
+            $model->category = $_POST['category'];
+
+            //_form中两个people通过POST传值给控制器
+            //控制器把这些POST的值也存入对应的变量，调用save()时会根据变量进行关联表的处理
+            $model->save_execute_peoples_id = $_POST['Project']['execute_peoples'];
+            $model->save_liability_peoples_id = $_POST['Project']['liability_peoples'];
+
+            $model->re_relation = true;
+            if ($model->save()) {
+                $this->redirect(array('view','id'=>$model->id)); //储存成功跳转到其view页面
+            }
+        }
+
+        $this->render('create',array(
+            'model'=>$model,
+        ));
+    }
+
+    /**
+     * Updates a particular model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param integer $id the ID of the model to be updated
+     */
+    public function actionUpdate($id)
+    {
+        $model = $this->loadModel($id);
+
+        if (isset($_POST['Project'])) {
+//            var_dump($_FILES['uploaded_file']);
+//            var_dump($model->uploaded_file);
+
+            //除category、两个peoples外其它的所有属性直接存储进model
+            $model->attributes = $_POST['Project'];
+
+            //category因为一些动态因素用前台代码写的，这里也需要手动添加
+            $model->category = $_POST['category'];
+
+            //_form中两个people通过POST传值给控制器
+            //控制器把这些POST的值也存入对应的变量，调用save()时会根据变量进行关联表的处理
+            $model->save_execute_peoples_id = $_POST['Project']['execute_peoples'];
+            $model->save_liability_peoples_id = $_POST['Project']['liability_peoples'];
+
+            $model->re_relation = true;
+            if ($model->save()) {
+                $this->redirect(array('view','id'=>$model->id));
+            }
+        }
+
+        $this->render('update',array(
+            'model'=>$model,
+        ));
+    }
+
+    /**
+     * Displays a particular model.
+     * @param integer $id the ID of the model to be displayed
+     */
+    public function actionView($id)
+    {
+        $this->render('view',array(
+            'model'=>$this->loadModel($id),
+        ));
+    }
+
+    /**
+     * Deletes a particular model.
+     * If deletion is successful, the browser will be redirected to the 'admin' page.
+     * @param integer $id the ID of the model to be deleted
+     */
+    public function actionDelete($id)
+    {
+        if (Yii::app()->request->isPostRequest) {
+            $this->loadModel($id)->delete();
+            $this->redirect(array('admin'));
+        } else {
+            throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
+        }
+    }
+
+    /**
+     * Delete all models.
+     */
+    public function actionClear() {
+        //清空所有有关的关联表
+        ProjectPeopleExecute::model()->deleteAll();
+        ProjectPeopleLiability::model()->deleteAll();
+        PaperProjectFund::model()->deleteAll();
+        PaperProjectReim::model()->deleteAll();
+        PaperProjectAchievement::model()->deleteAll();
+        PatentProjectReim::model()->deleteAll();
+        PatentProjectAchievement::model()->deleteAll();
+        PublicationProjectFund::model()->deleteAll();
+        PublicationProjectReim::model()->deleteAll();
+        PublicationProjectAchievement::model()->deleteAll();
+        SoftwareProjectFund::model()->deleteAll();
+        SoftwareProjectReim::model()->deleteAll();
+        SoftwareProjectAchievement::model()->deleteAll();
+
+        //清空project数据表
+        Project::model()->deleteAll();
+
+        $this->redirect(array('admin'));
+    }
+
+    /**
+     * Returns the data model based on the primary key given in the GET variable.
+     * If the data model is not found, an HTTP exception will be raised.
+     * @param integer $id the ID of the model to be loaded
+     * @return Project the loaded model
+     * @throws CHttpException
+     */
+    public function loadModel($id)
+    {
+        $model = Project::model()->findByPk($id);
+        if ($model === null) {
+            throw new CHttpException(404,'The requested page does not exist.');
+        }
+        return $model;
     }
 
 }

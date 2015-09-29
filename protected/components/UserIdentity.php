@@ -34,9 +34,8 @@ class UserIdentity extends CUserIdentity
             $this->_id=$record->id;
             $this->setState('email',$record->email);
             $this->setState('is_admin', $record->is_admin);
-            $this->setState('is_paper', $record->is_paper);
-            $this->setState('is_project', $record->is_project);
-            $this->setState('is_patent', $record->is_patent);
+            $this->setState('is_manager', $record->is_manager);
+            $this->setState('is_user', $record->is_user);
             $this->errorCode=self::ERROR_NONE;
         }
         return !$this->errorCode;

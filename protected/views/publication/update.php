@@ -2,20 +2,25 @@
 /* @var $this PublicationController */
 /* @var $model Publication */
 
+//面包屑
 $this->breadcrumbs=array(
-	'Publications'=>array('index'),
-	$model->id=>array('view','id'=>$model->id),
-	'Update',
+    '学术成果'=>array('paper/index'),
+    '著作'=>array('index'),
+    '管理'=>array('admin'),
+    substr($model->info, 0, 30).'...'=>array('view','id'=>$model->id),
+    '编辑',
 );
 
-$this->menu=array(
-	array('label'=>'List Publication', 'url'=>array('index')),
-	array('label'=>'Create Publication', 'url'=>array('create')),
-	array('label'=>'View Publication', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Publication', 'url'=>array('admin')),
-);
 ?>
 
-<h1>Update Publication <?php echo $model->id; ?></h1>
+<div style="position:relative">
+    <img src="images/lang1.jpg" alt="" />
+    <div style="position:absolute;z-indent:2;left:0;top:0;">
+        <br>
+        <h2>编辑著作</h2>
+        <h4><?php echo substr($model->info, 0, 30).'...'; ?></h4>
+    </div>
+</div>
+
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

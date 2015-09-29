@@ -2,19 +2,22 @@
 /* @var $this PatentController */
 /* @var $model Patent */
 
+//面包屑
 $this->breadcrumbs=array(
-	'专利'=>array('index'),
-	'添加',
+    '学术成果'=>array('paper/index'),
+    '专利'=>array('index'),
+    '管理'=>array('admin'),
+    '添加',
 );
 
-$this->menu=array(
-	array('label'=>'全部专利', 'url'=>array('index')),
-	array('label'=>'管理专利', 'url'=>array('admin')),
-);
 ?>
 
-<h1>添加专利</h1>
+    <div style="position:relative">
+        <img src="images/lang1.jpg" alt="" />
+        <div style="position:absolute;z-indent:2;left:0;top:0;">
+            <br>
+            <h2>添加专利</h2>
+        </div>
+    </div>
 
-<?php
-$this->renderPartial('_form', array('model'=>$model));
-?>
+<?php $this->renderPartial('_form', array('model'=>$model)); ?>

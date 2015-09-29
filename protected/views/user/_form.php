@@ -48,21 +48,15 @@
 		</div>
 
 		<div class="medium-3 columns">
-			<?php echo $form->labelEx($model,'is_paper'); ?>
-			<?php echo $form->checkBox($model,'is_paper'); ?>
-			<?php echo $form->error($model,'is_paper'); ?>
-		</div>
-
-		<div class="medium-3 columns">
-			<?php echo $form->labelEx($model,'is_project'); ?>
-			<?php echo $form->checkBox($model,'is_project'); ?>
-			<?php echo $form->error($model,'is_project'); ?>
+			<?php echo $form->labelEx($model,'is_manager'); ?>
+			<?php echo $form->checkBox($model,'is_manager'); ?>
+			<?php echo $form->error($model,'is_manager'); ?>
 		</div>
 
 		<div class="medium-3 columns end">
-			<?php echo $form->labelEx($model,'is_patent'); ?>
-			<?php echo $form->checkBox($model,'is_patent'); ?>
-			<?php echo $form->error($model,'is_patent'); ?>
+			<?php echo $form->labelEx($model,'is_user'); ?>
+			<?php echo $form->checkBox($model,'is_user'); ?>
+			<?php echo $form->error($model,'is_user'); ?>
 		</div>
 	</div>
 	<div class="buttons">

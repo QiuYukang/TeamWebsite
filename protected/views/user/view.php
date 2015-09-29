@@ -26,8 +26,7 @@ $this->menu=array(
 		'password',
 		'email',
 		'is_admin',
-		'is_paper',
-		'is_project',
-		'is_patent',
+		'is_manager',
+		'is_user',
 	),
 )); ?>
