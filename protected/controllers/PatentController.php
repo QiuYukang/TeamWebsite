@@ -61,7 +61,7 @@ class PatentController extends Controller
     public function actionIndex($page = 1)
     {
         $criteria = new CDbCriteria;
-        //搜索出了的行只读出一下列来显示
+        //搜索出了的行只读出以下列来显示
 //        $criteria->select = array('name','number','status','app_date','auth_date','latest_date','level','category','file_name','abstract','maintainer_id','last_update_date');
         $criteria->select = array('name', 'number', 'abstract');
 //        $criteria->with = array('peoples','reim_projects','achievement_projects');

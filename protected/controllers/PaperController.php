@@ -111,7 +111,7 @@ class PaperController extends Controller
         $fileName = array(); //显示的搜索条件，导出的文件名
 
         $criteria = new CDbCriteria();
-        //搜索出了的行只读出一下列来显示
+        //搜索出了的行只读出以下列来显示
 //        $criteria->select = array('info','status','index_number','pass_date','pub_date','index_date','latest_date','sci_number','ei_number','istp_number','category','file_name','is_high_level','maintainer_id','last_update_date');
         $criteria->select = array('info','index_number','sci_number','ei_number','istp_number','category');
 //        $criteria->with = array('peoples','fund_projects','reim_projects','achievement_projects');
