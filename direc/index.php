@@ -66,7 +66,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse exp1">
             <ul class="nav navbar-nav">
-                <li class="default"><a href="index.php">首页</a></li>
+                <li class="default"><a href="../index.php">首页</a></li>
                 <li><a href="./about.php">团队简介</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;科研&nbsp; <span class="caret"></span></a>
