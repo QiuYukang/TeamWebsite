@@ -64,6 +64,9 @@ class SoftwareController extends Controller
 //            Yii::app()->runController('software/admin');
 //            return;
 //	    }
+        $criteria = new CDbCriteria;
+        $criteria->select = array('name','reg_number','description');
+        $criteria->with = array('peoples');
 
         $dataProvider=new CActiveDataProvider(
             'Software',
@@ -73,6 +76,7 @@ class SoftwareController extends Controller
                 ),
 
             ),
+                'criteria' => $criteria,
                 'pagination' =>false, //所有数据都传给前台，前台实现分页
             )
         );
@@ -97,7 +101,8 @@ class SoftwareController extends Controller
         $fileName = array(); //显示的搜索条件，导出的文件名
 
         $criteria = new CDbCriteria();
-        $criteria->with = array('peoples','fund_projects','reim_projects','achievement_projects');
+        $criteria->select = array('name','reg_number');
+        $criteria->with = array('peoples');
         $criteria->together = true;
         $criteria->group = 't.id';
         $params = array();

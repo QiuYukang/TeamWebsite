@@ -58,6 +58,10 @@ class PublicationController extends Controller
      */
     public function actionIndex($page = 1)
     {
+        $criteria = new CDbCriteria;
+        $criteria->select = array('info', 'isbn_number', 'description');
+        $criteria->with = array('peoples');
+
         $dataProvider=new CActiveDataProvider(
             'Publication',
             array('sort'=>array(
@@ -66,6 +70,7 @@ class PublicationController extends Controller
                 ),
 
             ),
+                'criteria' => $criteria,
                 'pagination' =>false, //所有数据都传给前台，前台实现分页
             )
         );
@@ -84,7 +89,10 @@ class PublicationController extends Controller
         $fileName = array(); //显示的搜索条件，导出的文件名
 
         $criteria = new CDbCriteria();
-        $criteria->with = array('peoples','fund_projects','reim_projects','achievement_projects');
+//        $criteria->select = array('info', 'press', 'isbn_number', 'pub_date', 'category', 'description', 'last_update_date');
+        $criteria->select = array('info', 'isbn_number', 'description');
+//        $criteria->with = array('peoples','fund_projects','reim_projects','achievement_projects');
+        $criteria->with = array('peoples');
         $criteria->together = true;
         $criteria->group = 't.id';
         $params = array();

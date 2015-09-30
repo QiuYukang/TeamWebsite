@@ -75,6 +75,7 @@ class PaperController extends Controller
             !(isset($user->is_user) && $user->is_user)) {
             $criteria->condition = "is_high_level=1";
         }
+        $criteria->select = array('info','index_number');
         $dataProvider=new CActiveDataProvider(
             'Paper',
             array('sort'=>array(
@@ -110,8 +111,11 @@ class PaperController extends Controller
         $fileName = array(); //显示的搜索条件，导出的文件名
 
         $criteria = new CDbCriteria();
-        $criteria->select = array('info','status','index_number','pass_date','pub_date','index_date','latest_date','sci_number','ei_number','istp_number','category','file_name','is_high_level','maintainer_id','last_update_date');
-        $criteria->with = array('peoples','fund_projects','reim_projects','achievement_projects');
+        //搜索出了的行只读出一下列来显示
+//        $criteria->select = array('info','status','index_number','pass_date','pub_date','index_date','latest_date','sci_number','ei_number','istp_number','category','file_name','is_high_level','maintainer_id','last_update_date');
+        $criteria->select = array('info','index_number','sci_number','ei_number','istp_number','category');
+//        $criteria->with = array('peoples','fund_projects','reim_projects','achievement_projects');
+        $criteria->with = array('peoples');
         $criteria->together = true;
         $criteria->group = 't.id';
         $params = array();

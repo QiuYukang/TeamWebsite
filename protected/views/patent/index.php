@@ -114,7 +114,7 @@ else {
             <td width="4%">&nbsp;&nbsp;&nbsp;<?php echo $i+1;?>&nbsp;&nbsp;&nbsp;</td>
             <td><?php echo $dataProvider->getData()[$i]->getContentToGuest(); ?>
             <?php if(!empty($dataProvider->getData()[$i]->abstract)) { ?>
-                <a onclick="javascript:TestBlack('divc<?php echo $i;?>');">更多</a></td>
+                &nbsp;&nbsp;<a onclick="javascript:TestBlack('divc<?php echo $i;?>');">更多</a></td>
             <?php } ?>
         </tr>
         <tr id="divc<?php echo $i;?>" style="display: none">

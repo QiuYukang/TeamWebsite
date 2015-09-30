@@ -60,6 +60,13 @@ class PatentController extends Controller
      */
     public function actionIndex($page = 1)
     {
+        $criteria = new CDbCriteria;
+        //搜索出了的行只读出一下列来显示
+//        $criteria->select = array('name','number','status','app_date','auth_date','latest_date','level','category','file_name','abstract','maintainer_id','last_update_date');
+        $criteria->select = array('name', 'number', 'abstract');
+//        $criteria->with = array('peoples','reim_projects','achievement_projects');
+        $criteria->with = array('peoples');
+
         $dataProvider=new CActiveDataProvider(
             'Patent',
             array('sort'=>array(
@@ -68,6 +75,7 @@ class PatentController extends Controller
                 ),
 
             ),
+                'criteria' => $criteria,
                 'pagination' =>false, //所有数据都传给前台，前台实现分页
             )
         );
@@ -85,7 +93,8 @@ class PatentController extends Controller
         $fileName = array(); //显示的搜索条件，导出的文件名
 
         $criteria = new CDbCriteria();
-        $criteria->with = array('peoples','reim_projects','achievement_projects');
+        $criteria->select = array('name', 'number', 'level', 'category');
+        $criteria->with = array('peoples');
         $criteria->together = true;
         $criteria->group = 't.id';
         $params = array();

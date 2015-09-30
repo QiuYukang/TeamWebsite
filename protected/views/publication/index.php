@@ -109,8 +109,15 @@ else {
         ?>
         <tbody>
         <tr>
-            <td>&nbsp;&nbsp;&nbsp;<?php echo $i+1;?>&nbsp;&nbsp;&nbsp;</td>
-            <td><?php echo $dataProvider->getData()[$i]->getContentToGuest(); ?></td>
+            <td width="4%">&nbsp;&nbsp;&nbsp;<?php echo $i+1;?>&nbsp;&nbsp;&nbsp;</td>
+            <td><?php echo $dataProvider->getData()[$i]->getContentToGuest(); ?>
+                <?php if(!empty($dataProvider->getData()[$i]->description)) { ?>
+                &nbsp;&nbsp;<a onclick="javascript:TestBlack('divc<?php echo $i;?>');">更多</a></td>
+            <?php } ?>
+        </tr>
+        <tr id="divc<?php echo $i;?>" style="display: none">
+            <td></td>
+            <td><?php /*信息*/ echo $dataProvider->getData()[$i]->description;?></td>
         </tr>
         </tbody>
     <?php
@@ -157,6 +164,15 @@ else {
 
 <?php } ?>
 <script>
+    function TestBlack(TagName){
+        var obj = document.getElementById(TagName);
+        if(obj.style.display==""){
+            obj.style.display = "none";
+        }else{
+            obj.style.display = "";
+        }
+    }
+
     function firm() {
         if(confirm("您确定要清空著作吗？")) {
             location.href = 'index.php?r=publication/clear';
