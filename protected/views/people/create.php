@@ -4,7 +4,7 @@
 
 //面包屑
 $this->breadcrumbs=array(
-    '人员管理'=>array('people/admin'),
+    '团队人员'=>array('people/admin'),
     '添加',
 );
 

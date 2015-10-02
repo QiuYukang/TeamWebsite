@@ -128,7 +128,7 @@
                             <li><a href="./index.php?r=paperTeaching">教改论文</a></li>
                         </ul>
                     </li>
-                    <li><?php if(isset( $authStrArr)) echo '<a href="./index.php?r=people/admin">人员管理</a>'; else  echo '<a></a>';?></li>
+                    <li><?php if(isset( $authStrArr)) echo '<a href="./index.php?r=people/admin">团队人员</a>'; else  echo '<a></a>';?></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <?php if(isset( $authStrArr)) { ?>
@@ -232,7 +232,7 @@
                             <li><a href="./index.php?r=paperTeaching">教改论文</a></li>
                         </ul>
                     </li>
-                    <li><?php if(isset( $authStrArr)) echo '<a href="./index.php?r=people/admin">人员管理</a>'; else  echo '<a></a>';?></li>
+                    <li><?php if(isset( $authStrArr)) echo '<a href="./index.php?r=people/admin">团队人员</a>'; else  echo '<a></a>';?></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <?php if(isset( $authStrArr)) { ?>

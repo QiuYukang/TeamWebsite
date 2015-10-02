@@ -4,7 +4,7 @@
 
 //面包屑
 $this->breadcrumbs=array(
-    '人员管理'=>array('people/admin'),
+    '团队人员',
 );
 ?>
 
@@ -12,7 +12,7 @@ $this->breadcrumbs=array(
     <img src="images/lang1.jpg" alt="" />
     <div style="position:absolute;z-indent:2;left:0;top:0;">
         <br>
-        <h2>人员管理</h2>
+        <h2>团队人员</h2>
     </div>
 </div>
 
