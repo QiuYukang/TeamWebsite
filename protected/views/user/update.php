@@ -2,20 +2,22 @@
 /* @var $this UserController */
 /* @var $model User */
 
+//面包屑
 $this->breadcrumbs=array(
-	'Users'=>array('index'),
-	$model->id=>array('view','id'=>$model->id),
-	'Update',
+    '用户管理'=>array('user/admin'),
+    $model->username,
 );
 
-$this->menu=array(
-	array('label'=>'List User', 'url'=>array('index')),
-	array('label'=>'Create User', 'url'=>array('create')),
-	array('label'=>'View User', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage User', 'url'=>array('admin')),
-);
 ?>
 
-<h1>Update User <?php echo $model->id; ?></h1>
+<div style="position:relative">
+    <img src="images/lang1.jpg" alt="" />
+    <div style="position:absolute;z-indent:2;left:0;top:0;">
+        <br>
+        <h2>修改或删除用户</h2>
+        <h4><?php echo $model->username; ?></h4>
+    </div>
+</div>
+
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -2,62 +2,138 @@
 /* @var $this UserController */
 /* @var $model User */
 
+//面包屑
 $this->breadcrumbs=array(
-	'Users'=>array('index'),
-	'Manage',
+    '用户管理',
 );
-
-$this->menu=array(
-	array('label'=>'List User', 'url'=>array('index')),
-	array('label'=>'Create User', 'url'=>array('create')),
-);
-
-Yii::app()->clientScript->registerScript('search', "
-$('.search-button').click(function(){
-	$('.search-form').toggle();
-	return false;
-});
-$('.search-form form').submit(function(){
-	$('#user-grid').yiiGridView('update', {
-		data: $(this).serialize()
-	});
-	return false;
-});
-");
 ?>
 
-<h1>Manage Users</h1>
+<div style="position:relative">
+    <img src="images/lang1.jpg" alt="" />
+    <div style="position:absolute;z-indent:2;left:0;top:0;">
+        <br>
+        <h2>用户管理</h2>
+    </div>
+</div>
 
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
+<?php
+$user = Yii::app()->user;
+if(isset($user->is_admin) && $user->is_admin || isset($user->is_manager) && $user->is_manager) {
+    echo CHtml::link('添加用户', 'index.php?r=user/create', array('class' => 'btn btn-primary'));
+}
+if(isset($user->is_admin) && $user->is_admin) {
+    echo '&nbsp;&nbsp;';
+    echo CHtml::link('清空用户', 'index.php?r=user/clear', array('class' => 'btn btn-primary', 'onclick' => 'return clear_firm()'));
+}
+if(isset($user->is_admin) && $user->is_admin || isset($user->is_manager) && $user->is_manager) {
+    echo '&nbsp;&nbsp;';
+    echo CHtml::link('导入用户数据表', 'index.php?r=user/upload', array('class' => 'btn btn-primary'));
 
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
-<div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
-</div><!-- search-form -->
+}
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'user-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	'columns'=>array(
-		'id',
-		'username',
-		'password',
-		'email',
-		'is_admin',
-		'is_manager',
-        'is_user',
-		/*
-		'is_project',
-		'is_patent',
-		*/
-		array(
-			'class'=>'CButtonColumn',
-		),
-	),
-)); ?>
+?>
+
+<br><br><br>
+
+<?php
+    $arr_admin = array();
+    $arr_manager = array();
+    $arr_user = array();
+    foreach($dataProvider->getData() as $data) {
+        if($data->id == Yii::app()->user->id) continue;
+        if($data->is_admin == 1) $arr_admin[] = $data;
+        if($data->is_manager == 1) $arr_manager[] = $data;
+        if($data->is_user == 1) $arr_user[] = $data;
+    }
+
+?>
+
+<p>您登陆的用户(超级管理员权限)： <?php echo Yii::app()->user->name; ?></p>
+
+<br/>
+
+<p>其余超级管理员权限： <?php if(count($arr_admin) == 0) echo '无'; ?></p>
+<table class="table table-striped">
+    <tbody>
+    <?php
+    echo '<tr>';
+    $cnt = 0;
+    foreach($arr_admin as $data) {
+        if(($cnt % 10) == 0) {
+            echo '</tr><tr>';
+        }
+        echo '<td width="10%">'.CHtml::link(CHtml::encode($data->username), array('user/update', 'id'=>$data->id)).'</td>';
+        $cnt++;
+    }
+    //用空白补充一行剩下的
+    $blank = 10 - count($arr_admin) % 10;
+    if($blank != 10) {
+        while($blank--) echo '<td width="10%"></td>';
+    }
+    echo '</tr>';
+    ?>
+    </tbody>
+</table>
+
+
+<p>管理员权限： <?php if(count($arr_manager) == 0) echo '无'; ?></p>
+<table class="table table-striped">
+    <tbody>
+    <?php
+    echo '<tr>';
+    $cnt = 0;
+    foreach($arr_manager as $data) {
+        if(($cnt % 10) == 0) {
+            echo '</tr><tr>';
+        }
+        echo '<td width="10%">'.CHtml::link(CHtml::encode($data->username), array('user/update', 'id'=>$data->id)).'</td>';
+        $cnt++;
+    }
+    //用空白补充一行剩下的
+    $blank = 10 - count($arr_manager) % 10;
+    if($blank != 10) {
+        while($blank--) echo '<td width="10%"></td>';
+    }
+    echo '</tr>';
+    ?>
+    </tbody>
+</table>
+
+
+<p>用户权限： <?php if(count($arr_user) == 0) echo '无'; ?></p>
+<table class="table table-striped">
+    <tbody>
+    <?php
+    echo '<tr>';
+    $cnt = 0;
+    foreach($arr_user as $data) {
+        if(($cnt % 10) == 0) {
+            echo '</tr><tr>';
+        }
+        echo '<td width="10%">'.CHtml::link(CHtml::encode($data->username), array('user/update', 'id'=>$data->id)).'</td>';
+        $cnt++;
+    }
+    //用空白补充一行剩下的
+    $blank = 10 - count($arr_user) % 10;
+    if($blank != 10) {
+        while($blank--) echo '<td width="10%"></td>';
+    }
+    echo '</tr>';
+    ?>
+    </tbody>
+</table>
+<hr/>
+
+<script>
+    function clear_firm() {
+        if(confirm("您确定要清空用户吗？")) {
+            location.href = 'index.php?r=user/clear';
+            return true;
+        }
+
+        else {
+            return false;
+        }
+    }
+
+</script>

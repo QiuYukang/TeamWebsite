@@ -137,8 +137,8 @@
                                 <?php echo "&nbsp;欢迎！".Yii::app()->user->name."($authStrArr)&nbsp;"; ?> <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">账户设置</a></li>
-                                <?php if(isset(Yii::app()->user->is_admin) && Yii::app()->user->is_admin) echo '<li><a href="#">用户管理</a></li>'; ?>
+                                <li><a href="./index.php?r=user/setting">修改密码</a></li>
+                                <?php if(isset(Yii::app()->user->is_admin) && Yii::app()->user->is_admin) echo '<li><a href="./index.php?r=user/admin">用户管理</a></li>'; ?>
                                 <li><a href="./index.php?r=site/logout">登出&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                             </ul>
                         </li>
@@ -241,8 +241,8 @@
                             <?php echo "&nbsp;欢迎！".Yii::app()->user->name."($authStrArr)&nbsp;"; ?> <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">账户设置</a></li>
-                            <?php if(isset(Yii::app()->user->is_admin) && Yii::app()->user->is_admin) echo '<li><a href="#">用户管理</a></li>'; ?>
+                            <li><a href="./index.php?r=user/setting">修改密码</a></li>
+                            <?php if(isset(Yii::app()->user->is_admin) && Yii::app()->user->is_admin) echo '<li><a href="./index.php?r=user/admin">用户管理</a></li>'; ?>
                             <li><a href="./index.php?r=site/logout">登出&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
                         </ul>
                     </li>

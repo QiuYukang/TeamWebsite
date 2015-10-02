@@ -2,17 +2,21 @@
 /* @var $this UserController */
 /* @var $model User */
 
+//面包屑
 $this->breadcrumbs=array(
-	'用户'=>array('index'),
-	'创建',
+    '用户管理'=>array('user/admin'),
+    '添加用户',
 );
 
-$this->menu=array(
-	array('label'=>'List User', 'url'=>array('index')),
-	array('label'=>'Manage User', 'url'=>array('admin')),
-);
 ?>
 
-<h1>创建用户</h1>
+<div style="position:relative">
+    <img src="images/lang1.jpg" alt="" />
+    <div style="position:absolute;z-indent:2;left:0;top:0;">
+        <br>
+        <h2>添加用户</h2>
+    </div>
+</div>
+
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>
