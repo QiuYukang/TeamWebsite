@@ -26,37 +26,11 @@ $peoples = People::model()->findAllBySql('SELECT * FROM `tbl_people` ORDER BY `p
         <div class="row">
             <div class="medium-4 columns">
                 <label for="number">项目编号</label>
-                <select id="number" name="number">
-                    <option value="-1">选择项目编号</option>
-                    <?php
-                    $hasSelected = isset($now_criteria['number']);
-                    foreach(CHtml::listData(Project::model()->findAll(), 'number', 'number') as $num) {
-                        if($num == '') continue; //去空值
-                        if($hasSelected && $num == $now_criteria['number']) {
-                            echo '<option selected="selected" value ="'.$num.'">'.$num.'</option>';
-                            $hasSelected = false;
-                        }
-                        else echo '<option value ="'.$num.'">'.$num.'</option>';
-                    }
-                    ?>
-                </select>
+                <input id="number" name="number" type="text" value="<?php echo isset($now_criteria['number']) ? $now_criteria['number'] : ''?>">
             </div>
             <div class="medium-4 columns end">
                 <label for="fund_number">经费本编号</label>
-                <select id="fund_number" name="fund_number">
-                    <option value="-1">选择经费本编号</option>
-                    <?php
-                    $hasSelected = isset($now_criteria['fund_number']);
-                    foreach(CHtml::listData(Project::model()->findAll(), 'fund_number', 'fund_number') as $num) {
-                        if($num == '') continue; //去空值
-                        if($hasSelected && $num == $now_criteria['fund_number']) {
-                            echo '<option selected="selected" value ="'.$num.'">'.$num.'</option>';
-                            $hasSelected = false;
-                        }
-                        else echo '<option value ="'.$num.'">'.$num.'</option>';
-                    }
-                    ?>
-                </select>
+                <input id="fund_number" name="fund_number" type="text" value="<?php echo isset($now_criteria['fund_number']) ? $now_criteria['fund_number'] : ''?>">
             </div>
         </div>
 
