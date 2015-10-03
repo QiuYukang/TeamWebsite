@@ -2,7 +2,8 @@
 
 //面包屑
 $this->breadcrumbs=array(
-    '修改密码',
+    '修改密码'=>array('user/setting'),
+    Yii::app()->user->name,
 );
 
 ?>
@@ -12,6 +13,7 @@ $this->breadcrumbs=array(
     <div style="position:absolute;z-indent:2;left:0;top:0;">
         <br>
         <h2>修改密码</h2>
+        <h4><?php echo Yii::app()->user->name; ?></h4>
     </div>
 </div>
 

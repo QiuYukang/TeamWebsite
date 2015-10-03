@@ -69,7 +69,7 @@
     </div>
     <br/>
     <div class="buttons">
-        <?php echo CHtml::submitButton($model->isNewRecord ? '创建' : '保存',array('class'=>'btn btn-default')); ?>
+        <?php echo CHtml::submitButton($model->isNewRecord ? '创建' : '修改',array('class'=>'btn btn-default')); ?>
         <?php if(!$model->isNewRecord) { ?>
         <input type="button" value="删除" class="btn btn-default" onclick="return firm();" />
         <?php } ?>

@@ -5,7 +5,7 @@
 //面包屑
 $this->breadcrumbs=array(
     '用户管理'=>array('user/admin'),
-    '添加用户',
+    '添加',
 );
 
 ?>
