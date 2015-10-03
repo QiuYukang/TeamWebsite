@@ -26,26 +26,18 @@ class ProjectTeachingController extends Controller
 	 * This method is used by the 'accessControl' filter.
 	 * @return array access control rules
 	 */
-	public function accessRules()
-	{
-		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin'),
-				'expression'=>'isset($user->is_project_teaching) && $user->is_project_teaching',
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('upload','admin','delete','create','update','import','export','pwd','reset'),
-				'expression'=>'isset($user->is_admin) && $user->is_admin',
-			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
-		);
-	}
+    public function accessRules()
+    {
+        return array(
+            array('allow',  // allow all users to perform 'index' actions
+                'actions'=>array('index'),
+                'users'=>array('*'),
+            ),
+            array('deny',  // deny all users
+                'users'=>array('*'),
+            ),
+        );
+    }
 
 	/**
 	 * Displays a particular model.

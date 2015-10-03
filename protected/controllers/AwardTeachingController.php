@@ -29,17 +29,9 @@ class AwardTeachingController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+			array('allow',  // allow all users to perform 'index' actions
+				'actions'=>array('index'),
 				'users'=>array('*'),
-			),
-			array('allow',
-				'actions'=>array('create','update'),
-				'expression'=>'isset($user->is_award_teaching) && $user->is_award_teaching',
-			),
-			array('allow', 
-				'actions'=>array('upload','admin','delete','create','update'),
-				'expression'=>'isset($user->is_admin) && $user->is_admin',
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),

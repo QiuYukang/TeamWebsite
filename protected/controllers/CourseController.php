@@ -26,26 +26,18 @@ class CourseController extends Controller
 	 * This method is used by the 'accessControl' filter.
 	 * @return array access control rules
 	 */
-	public function accessRules()
-	{
-		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
-			array('allow',
-				'actions'=>array('create','update'),
-				'expression'=>'isset($user->is_course) && $user->is_course',
-			),
-			array('allow', 
-				'actions'=>array('admin','delete','create','update','upload'),
-				'expression'=>'isset($user->is_admin) && $user->is_admin',
-			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
-		);
-	}
+    public function accessRules()
+    {
+        return array(
+            array('allow',  // allow all users to perform 'index' actions
+                'actions'=>array('index'),
+                'users'=>array('*'),
+            ),
+            array('deny',  // deny all users
+                'users'=>array('*'),
+            ),
+        );
+    }
 
 	/**
 	 * Displays a particular model.
