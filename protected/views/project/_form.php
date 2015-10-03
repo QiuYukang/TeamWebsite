@@ -82,30 +82,30 @@ $peoples = People::model()->findAllBySql('SELECT * FROM `tbl_people` ORDER BY `p
                 <input id="category" name="category" style="width:247px;height:26px;position:absolute;left:0px;" placeholder="&nbsp;&nbsp;选择或输入类别" value="<?php echo isset($model->category) ? $model->category : ''?>">
                 </div>
             </div>
-            <div class="medium-2 columns" id="fund">
-                <?php echo $form->labelEx($model,'fund'); ?>
-                <?php echo $form->textField($model,'fund'); ?>
-                <?php echo $form->error($model,'fund'); ?>
-            </div>
             <div class="medium-4 columns end" id="unit">
                 <?php echo $form->labelEx($model,'unit'); ?>
                 <?php echo $form->textField($model,'unit',array('size'=>60,'maxlength'=>255)); ?>
                 <?php echo $form->error($model,'unit'); ?>
             </div>
+            <div class="medium-2 columns" id="fund">
+                <?php echo $form->labelEx($model,'fund'); ?>
+                <?php echo $form->textField($model,'fund'); ?>
+                <?php echo $form->error($model,'fund'); ?>
+            </div>
         </div>
 
         <div class="row">
-            <div class="medium-3 columns" id="start_date">
+            <div class="medium-4 columns" id="start_date">
                 <?php echo $form->labelEx($model,'start_date'); ?>
                 <?php echo $form->textField($model,'start_date',array('placeholder'=>'日期格式: yyyy-mm-dd')); ?>
                 <?php echo $form->error($model,'start_date'); ?>
             </div>
-            <div class="medium-3 columns" id="deadline_date">
+            <div class="medium-4 columns" id="deadline_date">
                 <?php echo $form->labelEx($model,'deadline_date'); ?>
                 <?php echo $form->textField($model,'deadline_date',array('placeholder'=>'日期格式: yyyy-mm-dd')); ?>
                 <?php echo $form->error($model,'deadline_date'); ?>
             </div>
-            <div class="medium-3 columns end" id="conclude_date">
+            <div class="medium-4 columns end" id="conclude_date">
                 <?php echo $form->labelEx($model,'conclude_date'); ?>
                 <?php echo $form->textField($model,'conclude_date',array('placeholder'=>'日期格式 :yyyy-mm-dd')); ?>
                 <?php echo $form->error($model,'conclude_date'); ?>
@@ -173,7 +173,7 @@ $peoples = People::model()->findAllBySql('SELECT * FROM `tbl_people` ORDER BY `p
                 <?php echo $form->error($model,'description'); ?>
             </div>
         </div>
-
+        <br/>
         <div class="row">
             <div class="medium-3 columns end" id="maintainer">
                 <?php
@@ -235,7 +235,6 @@ $peoples = People::model()->findAllBySql('SELECT * FROM `tbl_people` ORDER BY `p
 
 
     </div><!-- form -->
-
 
 
 <?php

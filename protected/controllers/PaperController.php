@@ -112,10 +112,12 @@ class PaperController extends Controller
 
         $criteria = new CDbCriteria();
         //搜索出了的行只读出以下列来显示
-//        $criteria->select = array('info','status','index_number','pass_date','pub_date','index_date','latest_date','sci_number','ei_number','istp_number','category','file_name','is_high_level','maintainer_id','last_update_date');
-        $criteria->select = array('info','index_number','sci_number','ei_number','istp_number','category');
+        //        $criteria->select = array('info','index_number','sci_number','ei_number','istp_number','category');
+        //如果要查找不完整的数据，就要查询数据所有列进行筛选；否则只需查找要显示的列，提高加载速度
+        if(isset($_GET['incomplete']) && $_GET['incomplete'] ) $criteria->select = array('info','status','index_number','pass_date','pub_date','index_date','latest_date','sci_number','ei_number','istp_number','category','file_name','file_size','is_high_level','maintainer_id','last_update_date');
+        else $criteria->select = array('info','index_number','sci_number','ei_number','istp_number','category','file_content');
 //        $criteria->with = array('peoples','fund_projects','reim_projects','achievement_projects');
-        $criteria->with = array('peoples');
+        $criteria->with = array('peoples', 'fund_projects','reim_projects','achievement_projects');
         $criteria->together = true;
         $criteria->group = 't.id';
         $params = array();
@@ -152,6 +154,12 @@ class PaperController extends Controller
             $criteria->addCondition('t.maintainer_id=:maintainer_id');
             $params[':maintainer_id']=$_GET['maintainer'];
             $now_criteria['maintainer'] = $_GET['maintainer'];
+        }
+        if(isset($_GET['index_number']) && $_GET['index_number']){
+            array_push($fileName,'检索号为'.$_GET['index_number']);
+            $criteria->addCondition('lower(t.index_number) like :index_number'); //info和param全部转小写进行判断，达到忽略大小写的效果
+            $params[':index_number']='%'.strtolower($_GET['index_number']).'%';
+            $now_criteria['index_number'] = $_GET['index_number'];
         }
         $status = null;
         if(isset($_GET['status']) && $_GET['status'] != null) {
@@ -346,7 +354,9 @@ class PaperController extends Controller
                     $incomplete_data_arr[] = $data;
                 }
             }
+//            $incomplete_data_arr = $data_arr;
             $dataProvider->setData($incomplete_data_arr);
+//            $dataProvider->setTotalItemCount(count($incomplete_data_arr));
             $fileNameString .= '的信息不完整或有误的论文';
             $now_criteria['incomplete'] = 1;
         } else {

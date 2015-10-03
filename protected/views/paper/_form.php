@@ -76,7 +76,7 @@ $projects = Project::model()->findAllBySql('SELECT * FROM `tbl_project` ORDER BY
                     array()); ?>
                 <?php echo $form->error($model,'status'); ?>
             </div>
-            <div class="medium-6 columns end" id="index_number">
+            <div class="medium-8 columns end" id="index_number">
                 <?php echo $form->labelEx($model,'index_number'); ?>
                 <?php echo $form->textField($model,'index_number',array('size'=>60,'maxlength'=>255)); ?>
                 <?php echo $form->error($model,'index_number'); ?>

@@ -177,17 +177,6 @@ $projects = Project::model()->findAllBySql('SELECT * FROM `tbl_project` ORDER BY
         </div>
         <br/>
         <div class="row">
-            <div class="medium-4 columns end">
-                <label for="order">显示顺序</label>
-                <select id="order" name="order">
-                    <option value="-1">按时间排序</option>
-                    <option value="1" <?php echo (isset($now_criteria['order']) && $now_criteria['order'] == 1) ? 'selected="selected"' : ''?>>按作者顺序排序(需选择作者)</option>
-                    <option value="2" <?php echo (isset($now_criteria['order']) && $now_criteria['order'] == 2) ? 'selected="selected"' : ''?>>按最近更新时间排序</option>
-                </select>
-            </div>
-        </div>
-        <br/>
-        <div class="row">
             <div class="medium-3 columns end">
                 <input type="checkbox" id="incomplete" name="incomplete" <?php echo isset($now_criteria['incomplete']) ? 'checked="checked"' : ''?> />
                 <label for="incomplete">信息不完整或有误的专利</label>

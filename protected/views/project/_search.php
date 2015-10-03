@@ -35,6 +35,57 @@ $peoples = People::model()->findAllBySql('SELECT * FROM `tbl_people` ORDER BY `p
         </div>
 
         <div class="row">
+            <div class="medium-3 columns">
+                <label for="execute_people">执行人员</label>
+                <select id="execute_people" name="execute_people">
+                    <option value="-1">选择执行人员</option>
+                    <?php
+                    $hasSelected = isset($now_criteria['execute_people']);
+                    foreach($peoples as $p) {
+                        if($hasSelected && $p->id == $now_criteria['execute_people']) {
+                            echo '<option selected="selected" value ="'.$p->id.'">'.$p->getContentToList().'</option>';
+                            $hasSelected = false;
+                        }
+                        else echo '<option value ="'.$p->id.'">'.$p->getContentToList().'</option>';
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="medium-3 columns">
+                <label for="liability_people">合同书人员</label>
+                <select id="liability_people" name="liability_people">
+                    <option value="-1">选择合同书人员</option>
+                    <?php
+                    $hasSelected = isset($now_criteria['liability_people']);
+                    foreach($peoples as $p) {
+                        if($hasSelected && $p->id == $now_criteria['liability_people']) {
+                            echo '<option selected="selected" value ="'.$p->id.'">'.$p->getContentToList().'</option>';
+                            $hasSelected = false;
+                        }
+                        else echo '<option value ="'.$p->id.'">'.$p->getContentToList().'</option>';
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="medium-2 columns end">
+                <label for="maintainer">维护人员</label>
+                <select id="maintainer" name="maintainer">
+                    <option value="-1">选择维护人员</option>
+                    <?php
+                    $hasSelected = isset($now_criteria['maintainer']);
+                    foreach($peoples as $p) {
+                        if($hasSelected && $p->id == $now_criteria['maintainer']) {
+                            echo '<option selected="selected" value ="'.$p->id.'">'.$p->getContentToList().'</option>';
+                            $hasSelected = false;
+                        }
+                        else echo '<option value ="'.$p->id.'">'.$p->getContentToList().'</option>';
+                    }
+                    ?>
+                </select>
+            </div>
+        </div>
+        <br/>
+        <div class="row">
             <div class="medium-2 columns" id="level">
                 <label for="level">级别</label>
                 <select id="level" name="level">
@@ -113,59 +164,6 @@ $peoples = People::model()->findAllBySql('SELECT * FROM `tbl_people` ORDER BY `p
             </div>
         </div>
 
-        <div class="row">
-            <div class="medium-3 columns">
-                <label for="execute_people">执行人员</label>
-                <select id="execute_people" name="execute_people">
-                    <option value="-1">选择执行人员</option>
-                    <?php
-                    $hasSelected = isset($now_criteria['execute_people']);
-                    foreach($peoples as $p) {
-                        if($hasSelected && $p->id == $now_criteria['execute_people']) {
-                            echo '<option selected="selected" value ="'.$p->id.'">'.$p->getContentToList().'</option>';
-                            $hasSelected = false;
-                        }
-                        else echo '<option value ="'.$p->id.'">'.$p->getContentToList().'</option>';
-                    }
-                    ?>
-                </select>
-            </div>
-            <div class="medium-3 columns">
-                <label for="liability_people">合同书人员</label>
-                <select id="liability_people" name="liability_people">
-                    <option value="-1">选择合同书人员</option>
-                    <?php
-                    $hasSelected = isset($now_criteria['liability_people']);
-                    foreach($peoples as $p) {
-                        if($hasSelected && $p->id == $now_criteria['liability_people']) {
-                            echo '<option selected="selected" value ="'.$p->id.'">'.$p->getContentToList().'</option>';
-                            $hasSelected = false;
-                        }
-                        else echo '<option value ="'.$p->id.'">'.$p->getContentToList().'</option>';
-                    }
-                    ?>
-                </select>
-            </div>
-            <div class="medium-2 columns end">
-                <label for="maintainer">维护人员</label>
-                <select id="maintainer" name="maintainer">
-                    <option value="-1">选择维护人员</option>
-                    <?php
-                    $hasSelected = isset($now_criteria['maintainer']);
-                    foreach($peoples as $p) {
-                        if($hasSelected && $p->id == $now_criteria['maintainer']) {
-                            echo '<option selected="selected" value ="'.$p->id.'">'.$p->getContentToList().'</option>';
-                            $hasSelected = false;
-                        }
-                        else echo '<option value ="'.$p->id.'">'.$p->getContentToList().'</option>';
-                    }
-                    ?>
-                </select>
-            </div>
-
-        </div>
-
-        <br/>
         <div class="row">
             <div class="medium-4 columns end">
                 <label for="order">显示顺序</label>

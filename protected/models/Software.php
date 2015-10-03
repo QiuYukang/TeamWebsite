@@ -546,7 +546,7 @@ class Software extends CActiveRecord
         if(empty($this->reg_number)) {
             $info[] = '*登记时间为空';
         }
-        if(empty($this->file_content)) {
+        if(empty($this->file_size)) {
             $info[] = '*软件著作权资料不存在或未上传';
         }
         if(count($this->reim_projects) == 0) {

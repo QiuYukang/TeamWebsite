@@ -116,7 +116,7 @@ class ProjectController extends Controller
 //            $isByPeople = true;
             $people = People::model()->find('id=:id',array(':id'=>$_GET['execute_people']));
             $peopleName = isset($people) ? $people->name : '';
-            array_push($fileName, '执行人员含'.$peopleName);
+            array_push($fileName, '执行人员为'.$peopleName);
             $criteria->addCondition('execute_.id=:execute_people_id');
             $params[':execute_people_id']=$_GET['execute_people'];
             $now_criteria['execute_people'] = $_GET['execute_people'];
@@ -125,7 +125,7 @@ class ProjectController extends Controller
 //            $isByPeople = true;
             $people = People::model()->find('id=:id',array(':id'=>$_GET['liability_people']));
             $peopleName = isset($people) ? $people->name : '';
-            array_push($fileName, '合同书人员含'.$peopleName);
+            array_push($fileName, '合同书人员为'.$peopleName);
             $criteria->addCondition('liability_.id=:liability_people_id');
             $params[':liability_people_id']=$_GET['liability_people'];
             $now_criteria['liability_people'] = $_GET['liability_people'];
@@ -200,7 +200,7 @@ class ProjectController extends Controller
             if ((($start_fund = floatval($_GET['start_fund'])) != 0) &&
                 (($end_fund = floatval($_GET['end_fund'])) != 0)) {
 
-                array_push($fileName,'经费大于'.$start_fund.'，小于'.$end_fund);
+                array_push($fileName,'经费大于'.$start_fund.'万, 小于'.$end_fund.'万');
                 $criteria->addCondition('(t.fund >= :start_fund AND t.fund <= :end_fund)');
 
                 $params[':start_fund'] = $start_fund;
@@ -212,7 +212,7 @@ class ProjectController extends Controller
         else if(isset($_GET['start_fund']) && $_GET['start_fund']){
             if(($start_fund = floatval($_GET['start_fund'])) != 0) {
 
-                array_push($fileName,'经费大于'.$start_fund);
+                array_push($fileName,'经费大于'.$start_fund.'万');
                 $criteria->addCondition('t.fund >= :start_fund');
 
                 $params[':start_fund'] = $start_fund;
@@ -222,7 +222,7 @@ class ProjectController extends Controller
         else if(isset($_GET['end_fund']) && $_GET['end_fund']){
             if(($end_fund = floatval($_GET['end_fund'])) != 0) {
 
-                array_push($fileName, '经费小于' . $end_fund);
+                array_push($fileName, '经费小于' . $end_fund.'万');
                 $criteria->addCondition('t.fund <= :end_fund');
 
                 $params[':end_fund'] = $end_fund;

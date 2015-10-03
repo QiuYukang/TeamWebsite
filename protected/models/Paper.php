@@ -776,7 +776,7 @@ class Paper extends CActiveRecord
         if(empty($this->category)) {
             $info[] = '*论文应存在类别';
         }
-        if(empty($this->file_content)) {
+        if(empty($this->file_size)) {
             $info[] = '*论文文件不存在或未上传';
         }
         if(count($this->reim_projects) == 0) {

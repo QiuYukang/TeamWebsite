@@ -94,16 +94,40 @@ $projects = Project::model()->findAllBySql('SELECT * FROM `tbl_project` ORDER BY
                 <input id="category" name="category" style="width:150px;height:26px;position:absolute;left:0px;" placeholder="&nbsp;&nbsp;选择或输入类别" value="<?php echo isset($now_criteria['category']) ? $now_criteria['category'] : ''?>">
                 </div>
             </div>
-
-            <div class="medium-3 columns">
+            <div class="medium-6 columns end">
+                <label for="index_number">检索号</label>
+                <input id="index_number" name="index_number" type="text" value="<?php echo isset($now_criteria['index_number']) ? $now_criteria['index_number'] : ''?>">
+            </div>
+        </div>
+        <div class="row">
+            <div class="medium-4 columns">
                 <label for="start_date">开始时间</label>
                 <input id="start_date" name="start_date" type="text" value="<?php echo isset($now_criteria['start_date']) ? $now_criteria['start_date'] : ''?>" placeholder="yyyy-mm-dd" />
             </div>
-            <div class="medium-3 columns end">
+            <div class="medium-4 columns end">
                 <label for="end_date">截至时间</label>
                 <input id="end_date" name="end_date" type="text" value="<?php echo isset($now_criteria['end_date']) ? $now_criteria['end_date'] : ''?>" placeholder="yyyy-mm-dd" />
             </div>
         </div>
+        <div class="row">
+            <div class="medium-1 columns">
+                <input type="checkbox" id="is_sci" name="is_sci" <?php echo isset($now_criteria['is_sci']) ? 'checked="checked"' : ''?> />
+                <label for="is_sci">SCI</label>
+            </div>
+            <div class="medium-1 columns">
+                <input type="checkbox" id="is_ei" name="is_ei" <?php echo isset($now_criteria['is_ei']) ? 'checked="checked"' : ''?> />
+                <label for="is_ei">EI</label>
+            </div>
+            <div class="medium-1 columns">
+                <input type="checkbox" id="is_istp" name="is_istp" <?php echo isset($now_criteria['is_istp']) ? 'checked="checked"' : ''?> />
+                <label for="is_istp">ISTP</label>
+            </div>
+            <div class="medium-2 columns end">
+                <input type="checkbox" id="is_high_level" name="is_high_level" <?php echo isset($now_criteria['is_high_level']) ? 'checked="checked"' : ''?> />
+                <label for="is_high_level">高水平</label>
+            </div>
+        </div>
+        <br/>
         <div class="row">
             <div class="medium-8 columns end">
                 <label for="fund_project">支助项目</label>
@@ -156,25 +180,6 @@ $projects = Project::model()->findAllBySql('SELECT * FROM `tbl_project` ORDER BY
                     }
                     ?>
                 </select>
-            </div>
-        </div>
-        <br/>
-        <div class="row">
-            <div class="medium-1 columns">
-                <input type="checkbox" id="is_sci" name="is_sci" <?php echo isset($now_criteria['is_sci']) ? 'checked="checked"' : ''?> />
-                <label for="is_sci">SCI</label>
-            </div>
-            <div class="medium-1 columns">
-                <input type="checkbox" id="is_ei" name="is_ei" <?php echo isset($now_criteria['is_ei']) ? 'checked="checked"' : ''?> />
-                <label for="is_ei">EI</label>
-            </div>
-            <div class="medium-1 columns">
-                <input type="checkbox" id="is_istp" name="is_istp" <?php echo isset($now_criteria['is_istp']) ? 'checked="checked"' : ''?> />
-                <label for="is_istp">ISTP</label>
-            </div>
-            <div class="medium-2 columns end">
-                <input type="checkbox" id="is_high_level" name="is_high_level" <?php echo isset($now_criteria['is_high_level']) ? 'checked="checked"' : ''?> />
-                <label for="is_high_level">高水平</label>
             </div>
         </div>
         <br/>

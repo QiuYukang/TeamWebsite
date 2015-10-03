@@ -89,10 +89,10 @@ class PublicationController extends Controller
         $fileName = array(); //显示的搜索条件，导出的文件名
 
         $criteria = new CDbCriteria();
-//        $criteria->select = array('info', 'press', 'isbn_number', 'pub_date', 'category', 'description', 'last_update_date');
-        $criteria->select = array('info', 'isbn_number', 'description');
+        if(isset($_GET['incomplete']) && $_GET['incomplete'] ) $criteria->select = array('info', 'press', 'isbn_number', 'pub_date', 'category', 'description', 'last_update_date');
+        else $criteria->select = array('info', 'isbn_number', 'description');
 //        $criteria->with = array('peoples','fund_projects','reim_projects','achievement_projects');
-        $criteria->with = array('peoples');
+        $criteria->with = array('peoples', 'fund_projects','reim_projects','achievement_projects');
         $criteria->together = true;
         $criteria->group = 't.id';
         $params = array();
