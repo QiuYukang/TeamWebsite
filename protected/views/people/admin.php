@@ -19,7 +19,6 @@ $this->breadcrumbs=array(
 <?php
 $user = Yii::app()->user;
 if(isset($user->is_admin) && $user->is_admin || isset($user->is_manager) && $user->is_manager) {
-echo '&nbsp;&nbsp;';
 echo CHtml::link('添加人员', 'index.php?r=people/create', array('class' => 'btn btn-primary'));
 }
 if(isset($user->is_admin) && $user->is_admin) {
