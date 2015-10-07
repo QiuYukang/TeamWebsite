@@ -95,7 +95,7 @@
                             <li><a href="./index.php?r=award">科研成果</a></li>
                         </ul>
                     </li>
-                    <?php  $pro=substr($_SERVER['REQUEST_URI'],33,5);
+                    <?php  $pro=substr($_SERVER['REQUEST_URI'],1,50);
                     if($pro=="paper")  {?>
                     <li class="dropdown active">
                         <?php } else {?>
@@ -122,7 +122,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;教学&nbsp; <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="./index.php?r=course">教学课程</a></li>
-                            <li><a href="#">实验建设</a></li>
+                            <li><a href="./index.php?r=site/sub">实验建设</a></li>
                             <li><a href="./index.php?r=awardTeaching">教学成果</a></li>
                             <li><a href="./index.php?r=projectTeaching">教改项目</a></li>
                             <li><a href="./index.php?r=paperTeaching">教改论文</a></li>
@@ -199,7 +199,7 @@
                             <li><a href="./index.php?r=award">科研成果</a></li>
                         </ul>
                     </li>
-                    <?php  $pro=substr($_SERVER['REQUEST_URI'],33,5);
+                    <?php  $pro=substr($_SERVER['REQUEST_URI'],1,50);
                     if($pro=="paper")  {?>
                     <li class="dropdown active">
                         <?php } else {?>
@@ -226,7 +226,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;教学&nbsp; <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="./index.php?r=course">教学课程</a></li>
-                            <li><a href="#">实验建设</a></li>
+                            <li><a href="./index.php?r=site/sub">实验建设</a></li>
                             <li><a href="./index.php?r=awardTeaching">教学成果</a></li>
                             <li><a href="./index.php?r=projectTeaching">教改项目</a></li>
                             <li><a href="./index.php?r=paperTeaching">教改论文</a></li>

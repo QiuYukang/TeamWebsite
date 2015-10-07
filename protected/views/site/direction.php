@@ -2,13 +2,13 @@
 <html>
 <head>
 <title>UESTC Network Tech Research Group - 研究方向</title>
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<link href="<?php echo Yii::app()->request->baseUrl; ?>/direc/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery-1.11.0.min.js"></script>
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/direc/js/jquery-1.11.0.min.js"></script>
 <!-- Custom Theme files -->
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="css/lrtk.css" rel="stylesheet" type="text/css" />
-    <script src="js/lrtk.js"></script>
+<link href="<?php echo Yii::app()->request->baseUrl; ?>/direc/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="<?php echo Yii::app()->request->baseUrl; ?>/direc/css/lrtk.css" rel="stylesheet" type="text/css" />
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/direc/js/lrtk.js"></script>
     <!-- Custom Theme files -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -20,18 +20,18 @@
 <!--Google Fonts-->
 
 <!-- start-smoth-scrolling -->
-    <script type="text/javascript" src="js/move-top.js"></script>
-    <script type="text/javascript" src="js/easing.js"></script>
+    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/direc/js/move-top.js"></script>
+    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/direc/js/easing.js"></script>
     <link rel="stylesheet" id="sc" type="text/css" href="" />
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css" />
-    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-theme.min.css" />
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap.min.js"></script>
 
 	<script type="text/javascript">
         window.onload=function() {
             var sc = document.getElementById("sc");
             if (screen.width < 1366)  //获取屏幕的的宽度
             {
-                sc.setAttribute("href", "css/720P.css");   //设置css引入样式表的路径
+                sc.setAttribute("href", "<?php echo Yii::app()->request->baseUrl; ?>/direc/css/720P.css");   //设置css引入样式表的路径
 
             }
         }
@@ -53,7 +53,7 @@
     <div class="container" >
         <div class="clearfix" style="height:4em;">
             <div class="container">
-                <img  style="height:100%;" src="../images/logo.png" />
+                <img  style="height:100%;" src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" />
             </div>
         </div>
         <div class="navbar-header">
@@ -66,14 +66,14 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse exp1">
             <ul class="nav navbar-nav">
-                <li class="default"><a href="../index.php">首页</a></li>
-                <li><a href="./about.php">团队介绍</a></li>
+                <li class="default"><a href="./index.php">首页</a></li>
+                <li><a href="./index.php?r=site/introduction">团队介绍</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;科研&nbsp; <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="./index.php">研究方向</a></li>
-                        <li><a href=<?php echo $auth ? "../index.php?r=project/admin" : "../index.php?r=project/index"; ?>>科研项目</a></li>
-                        <li><a href="../index.php?r=award">科研成果</a></li>
+                        <li><a href="./index.php?r=site/direction">研究方向</a></li>
+                        <li><a href=<?php echo $auth ? "./index.php?r=project/admin" : "./index.php?r=project/index"; ?>>科研项目</a></li>
+                        <li><a href="./index.php?r=award">科研成果</a></li>
                     </ul>
                 </li>
                 <?php  $pro=substr($_SERVER['REQUEST_URI'],33,5);
@@ -85,31 +85,31 @@
 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;学术成果&nbsp; <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href=<?php echo $auth ? "../index.php?r=paper/admin" : "../index.php?r=paper/index"; ?>>论文</a></li>
-                        <li><a href=<?php echo $auth ? "../index.php?r=patent/admin" : "../index.php?r=patent/index"; ?>>专利</a></li>
-                        <li><a href=<?php echo $auth ? "../index.php?r=publication/admin" : "../index.php?r=publication/index"; ?>>专著</a></li>
-                        <li><a href=<?php echo $auth ? "../index.php?r=software/admin" : "../index.php?r=software/index"; ?>>软件著作权</a></li>
+                        <li><a href=<?php echo $auth ? "./index.php?r=paper/admin" : "./index.php?r=paper/index"; ?>>论文</a></li>
+                        <li><a href=<?php echo $auth ? "./index.php?r=patent/admin" : "./index.php?r=patent/index"; ?>>专利</a></li>
+                        <li><a href=<?php echo $auth ? "./index.php?r=publication/admin" : "./index.php?r=publication/index"; ?>>专著</a></li>
+                        <li><a href=<?php echo $auth ? "./index.php?r=software/admin" : "./index.php?r=software/index"; ?>>软件著作权</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;硕博培养&nbsp; <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="../index.php?r=site/enrollment">招生与就业</a></li>
-                        <li><a href="../index.php?r=site/teacher">导师介绍</a></li>
-                        <li><a href="../index.php?r=site/fun">团队生活</a></li>
+                        <li><a href="./index.php?r=site/enrollment">招生与就业</a></li>
+                        <li><a href="./index.php?r=site/teacher">导师介绍</a></li>
+                        <li><a href="./index.php?r=site/fun">团队生活</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;教学&nbsp; <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="../index.php?r=course">教学课程</a></li>
-                        <li><a href="#">实验建设</a></li>
-                        <li><a href="../index.php?r=awardTeaching">教学成果</a></li>
-                        <li><a href="../index.php?r=projectTeaching">教改项目</a></li>
-                        <li><a href="../index.php?r=paperTeaching">教改论文</a></li>
+                        <li><a href="./index.php?r=course">教学课程</a></li>
+                        <li><a href="./index.php?r=site/sub">实验建设</a></li>
+                        <li><a href="./index.php?r=awardTeaching">教学成果</a></li>
+                        <li><a href="./index.php?r=projectTeaching">教改项目</a></li>
+                        <li><a href="./index.php?r=paperTeaching">教改论文</a></li>
                     </ul>
                 </li>
-                <li><?php if(isset( $authStrArr)) echo '<a href="../index.php?r=people/admin">人员管理</a>'; else  echo '<a></a>';?></li>
+                <li><?php if(isset( $authStrArr)) echo '<a href="./index.php?r=people/admin">人员管理</a>'; else  echo '<a></a>';?></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a>&nbsp;欢迎！</a></li>
@@ -126,8 +126,8 @@
 				</div>
 				<div class="work-bottom">
 					<div class="col-md-3 portfolio-wrapper">		
-							<a href="images/b-w1.jpg" class="b-link-stripe b-animate-go  swipebox"  title="Image Title">
-						     <img src="images/b-w1.jpg" alt="" class="img-responsive"><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03"><img src="images/link.png" alt=""/></h2>
+							<a href="#section-1" class="b-link-stripe b-animate-go  swipebox"  title="Image Title">
+						     <img src="<?php echo Yii::app()->request->baseUrl; ?>/direc/images/b-w1.jpg" alt="" class="img-responsive"><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03"><img src="<?php echo Yii::app()->request->baseUrl; ?>/direc/images/link.png" alt=""/></h2>
 						  		</div></a>
                          <div class="work-details">
 					   	  <a href="#section-1">
@@ -137,8 +137,8 @@
 					   </div>
 					</div>
 					<div class="col-md-3 portfolio-wrapper">		
-							<a href="images/b-w2.jpg" class="b-link-stripe b-animate-go  swipebox"  title="Image Title">
-						     <img src="images/b-w2.jpg" alt="" class="img-responsive"><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03"><img src="images/link.png" alt=""/></h2>
+							<a href="#section-2" class="b-link-stripe b-animate-go  swipebox"  title="Image Title">
+						     <img src="<?php echo Yii::app()->request->baseUrl; ?>/direc/images/b-w2.jpg" alt="" class="img-responsive"><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03"><img src="<?php echo Yii::app()->request->baseUrl; ?>/direc/images/link.png" alt=""/></h2>
 						  		</div></a>
                          <div class="work-details">
                              <a href="#section-2">
@@ -148,8 +148,8 @@
 					   </div>
 					</div>
 					<div class="col-md-3 portfolio-wrapper">		
-							<a href="images/b-w3.jpg" class="b-link-stripe b-animate-go  swipebox"  title="Image Title">
-						     <img src="images/b-w3.jpg" alt="" class="img-responsive"><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03"><img src="images/link.png" alt=""/></h2>
+							<a href="#section-3" class="b-link-stripe b-animate-go  swipebox"  title="Image Title">
+						     <img src="<?php echo Yii::app()->request->baseUrl; ?>/direc/images/b-w3.jpg" alt="" class="img-responsive"><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03"><img src="<?php echo Yii::app()->request->baseUrl; ?>/direc/images/link.png" alt=""/></h2>
 						  		</div></a>
                          <div class="work-details">
                              <a href="#section-3">
@@ -159,8 +159,8 @@
 					   </div>
 					</div>
 					<div class="col-md-3 portfolio-wrapper">		
-							<a href="images/b-w4.jpg" class="b-link-stripe b-animate-go  swipebox"  title="Image Title">
-						     <img src="images/b-w4.jpg" alt="" class="img-responsive"><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03"><img src="images/link.png" alt=""/></h2>
+							<a href="#section-4" class="b-link-stripe b-animate-go  swipebox"  title="Image Title">
+						     <img src="<?php echo Yii::app()->request->baseUrl; ?>/direc/images/b-w4.jpg" alt="" class="img-responsive"><div class="b-wrapper"><h2 class="b-animate b-from-left    b-delay03"><img src="<?php echo Yii::app()->request->baseUrl; ?>/direc/images/link.png" alt=""/></h2>
 						  		</div></a>
                          <div class="work-details">
                              <a href="#section-4">
@@ -194,7 +194,7 @@
 					</div>
 					<div class="col-md-6 recent-right">
                         <br><br>
-                        <img src="images/p1.jpg" alt="" class="img-responsive">
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/direc/images/p1.jpg" alt="" class="img-responsive">
                     </div>
                 </div>
 			</div>
@@ -205,7 +205,7 @@
     <div class="container">
         <div class="recent-bottom">
             <div class="col-md-6 recent-right">
-                <img src="images/p2.jpg" alt="" class="img-responsive">
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/direc/images/p2.jpg" alt="" class="img-responsive">
             </div>
             <div class="col-md-6 recent-right">
                 <h4>绿色网络关键技术研究（国家863项目 2012AA011402）</h4>
@@ -235,11 +235,6 @@
                     <h4>信息传输分系统研制(国家863重大项目，2005AA121120，2005-2006)</h4>
                     <p><strong>项目简介</strong></p>
                     <p>本项目构重点研究适应多种通信体制、多层次通信需求的分布式分级无线自组网体制，建了基于超短波扩频、跳频电台的多层次、全移动、大覆盖范围的无线自组织网络，满足了项目应用系统在应急、机动、救灾等的组网、通信、指挥等方面的需求。</p>
-                    <br><br><br>
-                    <img src="images/p3.jpg" alt="" class="img-responsive">
-                </div>
-                <div class="col-md-6 recent-right">
-                    <img src="images/post2.jpg" alt="" class="img-responsive">
                     <p><strong>应用前景</strong></p>
                     <p>车载超短波扩频、跳频联合移动自组织网</p>
                     <p>多种通信体制、大规模无线自组织网分级组网技术</p>
@@ -247,6 +242,10 @@
                     <p>网内自组织、网间动态自组织互联</p>
                     <p>大规模应急通信网</p>
                     <p>军事战术通信网、分级指挥调度网</p>
+                </div>
+                <div class="col-md-6 recent-right">
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/direc/images/p3.jpg" alt="" class="img-responsive">
+
                     <br>
                 </div>
             </div>
@@ -256,8 +255,7 @@
         <div class="container">
             <div class="recent-bottom">
                 <div class="col-md-6 recent-right">
-                    <img src="images/f4.jpg" alt="" class="img-responsive">
-                    <img src="images/p4.jpg" alt="" class="img-responsive" id="section-3">
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/direc/images/p4.jpg" alt="" class="img-responsive" id="section-3">
 
                 </div>
                 <div class="col-md-6 recent-right">
@@ -287,18 +285,17 @@
                     <h4>龙门山地震带小流域滑坡泥石流灾害监测预警技术研究与示范（国家科技支撑计划，2011BAK12B02，2011-2015）</h4>
                     <p><strong>项目简介</strong></p>
                     <p>为降低山地滑坡、泥石流灾害带来的生命财产损失，克服山地环境下通信环境恶劣、传输故障率高、缺少市电供应、维护成本高昂等问题，建设高可靠、低能耗的异构无线灾害监测预警网络，提供持续、可靠的山地灾害监测预警数据。本项目在龙门上地震带建立灾害监测预警技术集成与应用示范点，为灾害监测预警技术的推广与应用奠定基础。</p>
-                    <br>
-                    <img src="images/p5.1.jpg" alt="" class="img-responsive">
-                </div>
-                <div class="col-md-6 recent-right">
-                    <img src="images/post3.jpg" alt="" class="img-responsive">
                     <p><strong>应用前景</strong></p>
                     <p>分层架构，盲点中继技术，提高网络可靠性</p>
                     <p>业务自适应式多通道接入技术</p>
                     <p>GPRS/ 3G/4G/卫星/WiFi多制式智能接入，适应山地恶劣多变的通信环境</p>
                     <p>多维节能策略，提高网络生存期，减少运营成本</p>
                     <p>极端恶劣情况下维持通信网络关键功能</p>
-                    <img src="images/p5.3.jpg" alt="" class="img-responsive">
+
+                </div>
+                <div class="col-md-6 recent-right">
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/direc/images/p5.1.jpg" alt="" class="img-responsive">
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/direc/images/p5.3.jpg" alt="" class="img-responsive">
                     <br>
                 </div>
             </div>
@@ -308,8 +305,12 @@
         <div class="container">
             <div class="recent-bottom">
                 <div class="col-md-6 recent-right">
-                    <img src="images/f5.jpg" alt="" class="img-responsive">
-                    <br><br>
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/direc/images/p6.jpg" alt="" class="img-responsive">
+                </div>
+                <div class="col-md-6 recent-right">
+                    <h4>首都机场接续运输协调运行保障技术研究与示范应用（北京市交通行业科技项目，2013-2014）</h4>
+                    <p><strong>项目简介</strong></p>
+                    <p>为提高机场运力的高效、有序利用，创建快捷、舒适的旅客出行环境，本项目以首都机场为示范场所，基于信息采集与管理平台，对各种接续运输方式运力进行协调分析，建立首都机场接续运输协调运行保障技术示范系统，提供机场接接续运输协调运行保障功能，面向政府、企业、公众等多主体提供相应信息服务。</p>
                     <p id="section-4"><strong>应用前景</strong></p>
                     <p>首都机场接续运输协调运行保障示范系统</p>
                     <p>多接续方式运力协调分析模型</p>
@@ -317,12 +318,6 @@
                     <p>可应用于多种交通枢纽的接续运输协调</p>
                     <p>技术和数据可用于交通一体化出行系统</p>
 
-                </div>
-                <div class="col-md-6 recent-right">
-                    <h4>首都机场接续运输协调运行保障技术研究与示范应用（北京市交通行业科技项目，2013-2014）</h4>
-                    <p><strong>项目简介</strong></p>
-                    <p>为提高机场运力的高效、有序利用，创建快捷、舒适的旅客出行环境，本项目以首都机场为示范场所，基于信息采集与管理平台，对各种接续运输方式运力进行协调分析，建立首都机场接续运输协调运行保障技术示范系统，提供机场接接续运输协调运行保障功能，面向政府、企业、公众等多主体提供相应信息服务。</p>
-                    <img src="images/p6.jpg" alt="" class="img-responsive">
                 </div>
             </div>
         </div>
@@ -335,11 +330,6 @@
                     <h4>动态频谱资源共享宽带无线通信系统验证网络开发（国家863重点项目 2009～2012）</h4>
                     <p><strong>项目简介</strong></p>
                     <p>本项目研制出我国首套基于认知无线电技术的新型无线宽带网络系统，通过频谱感知动态使用空闲电视频道，提供无线宽带通信业务。并通过构建实验网络验证了该系统在不干扰电视广播信号的前提下，提供无线宽带网络服务。该技术可用于为城镇建设“超级无线”网络，提供基于动态频谱共享技术的下一代无线宽带通信设施。</p>
-                    <br>
-                    <img src="images/p7.2.jpg" alt="" class="img-responsive">
-                </div>
-                <div class="col-md-6 recent-right">
-                    <img src="images/post4.jpg" alt="" class="img-responsive">
                     <p><strong>应用前景</strong></p>
                     <p>电视广播信号的独立认知与协同认知技术</p>
                     <p>认知网络组网与动态控制技术</p>
@@ -347,6 +337,10 @@
                     <p>可动态重构协议栈架构</p>
                     <p>混合式网络架构实验验证系统</p>
 
+                </div>
+                <div class="col-md-6 recent-right">
+
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/direc/images/p7.2.jpg" alt="" class="img-responsive">
                     <br><br>
                 </div>
             </div>
@@ -356,18 +350,17 @@
         <div class="container">
             <div class="recent-bottom">
                 <div class="col-md-6 recent-right">
-                    <img src="images/f6.jpg" alt="" class="img-responsive">
-                    <br><br>
-                    <p><strong>应用前景</strong></p>
-                    <p>基于移动社会网络设计高效信息投递/共享策略</p>
-                    <p>构建移动社会网络测试平台</p>
-                    <p>实现具有典型应用(交友、社团、搜索)的MSN原型系统</p>
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/direc/images/p8.jpg" alt="" class="img-responsive">
+
                 </div>
                 <div class="col-md-6 recent-right">
                     <h4>Cross-Layer Investigation and Integration of Computing and Networking Aspects of Mobile Social Networks （欧盟第7框架科研合作项目，2013～2017）</h4>
                     <p><strong>项目简介</strong></p>
                     <p>从社会计算和无线传输网络角度分析移动社会网络（MSN）应用需求，研究MSN实际应用的网络架构，评估MSN网络容量负荷，设计资源分配策略。并实现典型MSN应用系统原型；验证相应的方法和策略。</p>
-                    <img src="images/p8.jpg" alt="" class="img-responsive">
+                    <p><strong>应用前景</strong></p>
+                    <p>基于移动社会网络设计高效信息投递/共享策略</p>
+                    <p>构建移动社会网络测试平台</p>
+                    <p>实现具有典型应用(交友、社团、搜索)的MSN原型系统</p>
                 </div>
             </div>
         </div>
@@ -376,7 +369,7 @@
     <div class="clearfix"> </div>
 </div>
 <a href="#0" class="cd-top">Top</a>
-<link rel="stylesheet" href="css/swipebox.css">
+<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/direc/css/swipebox.css">
 	<script src="js/jquery.swipebox.min.js"></script> 
 	    <script type="text/javascript">
 			jQuery(function($) {

@@ -2,21 +2,21 @@
 <html>
 <head>
     <title>UESTC Network Tech Research Group - 团队介绍</title>
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <link href="<?php echo Yii::app()->request->baseUrl; ?>/direc/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/direc/js/jquery-1.11.0.min.js"></script>
     <!-- Custom Theme files -->
-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="<?php echo Yii::app()->request->baseUrl; ?>/direc/css/style.css" rel="stylesheet" type="text/css" media="all"/>
     <!-- Custom Theme files -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!--Google Fonts-->
 
     <!-- start-smoth-scrolling -->
-    <script type="text/javascript" src="js/move-top.js"></script>
-    <script type="text/javascript" src="js/easing.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css" />
-    <script src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/direc/js/move-top.js"></script>
+    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/direc/js/easing.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap-theme.min.css" />
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event){
@@ -173,7 +173,7 @@
     <div class="container" >
         <div class="clearfix" style="height:4em;">
             <div class="container">
-                <img  style="height:100%;" src="../images/logo.png" />
+                <img  style="height:100%;" src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" />
             </div>
         </div>
         <div class="navbar-header">
@@ -186,14 +186,14 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse exp1">
             <ul class="nav navbar-nav">
-                <li class="default"><a href="../index.php">首页</a></li>
-                <li><a href="./about.php">团队介绍</a></li>
+                <li class="default"><a href="./index.php">首页</a></li>
+                <li><a href="./index.php?r=site/introduction">团队介绍</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;科研&nbsp; <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="./index.php">研究方向</a></li>
-                        <li><a href=<?php echo $auth ? "../index.php?r=project/admin" : "../index.php?r=project/index"; ?>>科研项目</a></li>
-                        <li><a href="../index.php?r=award">科研成果</a></li>
+                        <li><a href="./index.php?r=site/direction">研究方向</a></li>
+                        <li><a href=<?php echo $auth ? "./index.php?r=project/admin" : "./index.php?r=project/index"; ?>>科研项目</a></li>
+                        <li><a href="./index.php?r=award">科研成果</a></li>
                     </ul>
                 </li>
                 <?php  $pro=substr($_SERVER['REQUEST_URI'],33,5);
@@ -205,31 +205,31 @@
 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;学术成果&nbsp; <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href=<?php echo $auth ? "../index.php?r=paper/admin" : "../index.php?r=paper/index"; ?>>论文</a></li>
-                        <li><a href=<?php echo $auth ? "../index.php?r=patent/admin" : "../index.php?r=patent/index"; ?>>专利</a></li>
-                        <li><a href=<?php echo $auth ? "../index.php?r=publication/admin" : "../index.php?r=publication/index"; ?>>专著</a></li>
-                        <li><a href=<?php echo $auth ? "../index.php?r=software/admin" : "../index.php?r=software/index"; ?>>软件著作权</a></li>
+                        <li><a href=<?php echo $auth ? "./index.php?r=paper/admin" : "./index.php?r=paper/index"; ?>>论文</a></li>
+                        <li><a href=<?php echo $auth ? "./index.php?r=patent/admin" : "./index.php?r=patent/index"; ?>>专利</a></li>
+                        <li><a href=<?php echo $auth ? "./index.php?r=publication/admin" : "./index.php?r=publication/index"; ?>>专著</a></li>
+                        <li><a href=<?php echo $auth ? "./index.php?r=software/admin" : "./index.php?r=software/index"; ?>>软件著作权</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;硕博培养&nbsp; <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="../index.php?r=site/enrollment">招生与就业</a></li>
-                        <li><a href="../index.php?r=site/teacher">导师介绍</a></li>
-                        <li><a href="../index.php?r=site/fun">团队生活</a></li>
+                        <li><a href="./index.php?r=site/enrollment">招生与就业</a></li>
+                        <li><a href="./index.php?r=site/teacher">导师介绍</a></li>
+                        <li><a href="./index.php?r=site/fun">团队生活</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">&nbsp;教学&nbsp; <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="../index.php?r=course">教学课程</a></li>
-                        <li><a href="#">实验建设</a></li>
-                        <li><a href="../index.php?r=awardTeaching">教学成果</a></li>
-                        <li><a href="../index.php?r=projectTeaching">教改项目</a></li>
-                        <li><a href="../index.php?r=paperTeaching">教改论文</a></li>
+                        <li><a href="./index.php?r=course">教学课程</a></li>
+                        <li><a href="./index.php?r=site/sub">实验建设</a></li>
+                        <li><a href="./index.php?r=awardTeaching">教学成果</a></li>
+                        <li><a href="./index.php?r=projectTeaching">教改项目</a></li>
+                        <li><a href="./index.php?r=paperTeaching">教改论文</a></li>
                     </ul>
                 </li>
-                <li><?php if(isset( $authStrArr)) echo '<a href="../index.php?r=people/admin">人员管理</a>'; else  echo '<a></a>';?></li>
+                <li><?php if(isset( $authStrArr)) echo '<a href="./index.php?r=people/admin">人员管理</a>'; else  echo '<a></a>';?></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a>&nbsp;欢迎！</a></li>
@@ -303,21 +303,21 @@
             <hr style=" border:1px #a89574 solid; " />
             <div class="team-top">
                 <div class="col-md-4 team-top-left">
-                    <img src="images/t1.jpg" src="">
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/direc/images/t1.jpg" src="">
                     <div class="team-details">
                         <h4>毛玉明 教授</h4>
                         <P>荣获国防科工委“光华科技基金个人二等奖”、“国务院政府特殊津贴”、国家“百千万人才工程”国家级入选。</P>
                     </div>
                 </div>
                 <div class="col-md-4 team-top-left">
-                    <img src="images/t2.jpg" src="">
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/direc/images/t2.jpg" src="">
                     <div class="team-details">
                         <h4>冷甦鹏 教授</h4>
                         <P>博士，教授，博士生导师，教育部“新世纪优秀人才支持计划”入选者。</P>
                     </div>
                 </div>
                 <div class="col-md-4 team-top-left">
-                    <img src="images/t3.jpg" src="">
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/direc/images/t3.jpg" src="">
                     <div class="team-details">
                         <h4>杨坤 教授</h4>
                         <P>“重庆市劳动模范”称号，电子科大 “优秀主讲教师”。</P>

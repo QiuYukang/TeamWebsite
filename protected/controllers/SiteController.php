@@ -62,6 +62,9 @@ class SiteController extends Controller
     public function actionFun3() {
         $this->render('fun3');
     }
+    public function actionSub() {
+        $this->render('sub');
+    }
 
 	public function actionAbout() {
 		$this->render('about');

@@ -156,6 +156,38 @@ $this->breadcrumbs=array(
         });
     });
 
+    window.onscroll = function () {
+        var dis = $(window).scrollTop();
+        var div1 = document.getElementById('tion-1');
+        var div2 = document.getElementById('tion-2');
+        var div3 = document.getElementById('tion-3');
+        var div4 = document.getElementById('tion-4');
+        if (dis<=200) {
+            div1.setAttribute("class", "active");
+            div2.setAttribute("class", "");
+            div3.setAttribute("class", "");
+            div4.setAttribute("class", "");
+        }
+        else if (dis>200 && dis<=800){
+            div1.setAttribute("class", "");
+            div2.setAttribute("class", "active");
+            div3.setAttribute("class", "");
+            div4.setAttribute("class", "");
+        }
+        else if (dis>800 && dis<=1000){
+            div1.setAttribute("class", "");
+            div2.setAttribute("class", "");
+            div3.setAttribute("class", "active");
+            div4.setAttribute("class", "");
+        }
+        else {
+            div1.setAttribute("class", "");
+            div2.setAttribute("class", "");
+            div3.setAttribute("class", "");
+            div4.setAttribute("class", "active");
+        }
+    };
+
 </script>
 
 
@@ -422,9 +454,9 @@ $this->breadcrumbs=array(
             <div class="sidebar-module">
                 <ul class="nav nav-tabs nav-stacked" id="myNav">
                     <li class="active" id="tion-1"><a href="#section-1" >招生要求</a></li>
-                    <li id="tion-2"><a href="#section-2">招生规模</a></li>
-                    <li id="tion-3"><a href="#section-3">培养模式</a></li>
-                    <li id="tion-4"><a href="#section-4">就业情况</a></li>
+                    <li class="" id="tion-2"><a href="#section-2">招生规模</a></li>
+                    <li class="" id="tion-3"><a href="#section-3">培养模式</a></li>
+                    <li class="" id="tion-4"><a href="#section-4">就业情况</a></li>
                 </ul>
             </div>
 <!--            <div class="sidebar-module">-->
