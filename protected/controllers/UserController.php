@@ -81,9 +81,12 @@ class UserController extends Controller
                     $model->new_password = '';
                     $model->repeat_password = '';
                     $this->render('setting', array('model'=>$model, 'msg'=>'<font color="green">密码修改成功</font>'));
+                    return;
                 }
-                else
-                    $this->render('setting', array('model'=>$model, 'msg'=>'<font color="red">密码修改失败</font>>'));
+                else {
+                    $this->render('setting', array('model' => $model, 'msg' => '<font color="red">密码修改失败</font>>'));
+                    return;
+                }
             }
         }
 
