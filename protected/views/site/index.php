@@ -9,7 +9,7 @@ $this->pageTitle=Yii::app()->name;
 <div class="container" >
 <ul class="ca-menu">
     <li>
-        <a href="./direc/about.php">
+        <a href="index.php?r=site/introduction">
             <span class="ca-icon">I</span>
             <div class="ca-content">
                 <h2 class="ca-main">团队介绍</h2>
@@ -18,7 +18,7 @@ $this->pageTitle=Yii::app()->name;
         </a>
     </li>
     <li>
-        <a href="./direc/index.php">
+        <a href="index.php?r=site/direction">
             <span class="ca-icon">S</span>
             <div class="ca-content">
                 <h2 class="ca-main">研究方向</h2>
