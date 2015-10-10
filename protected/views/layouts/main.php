@@ -157,7 +157,7 @@
 
         <figure class="effect-layla">
             <img src="images/eg.jpg"  alt="img03"/>
-            <a href="direc/index.php"><figcaption>
+            <a href="./index.php?r=site/introduction""><figcaption>
                     <h2><span>电子科技大学</span></h2>
                     <h1><span>泛在无线</span>网络团队</h1>
                     <p>Click to get more information</p>
