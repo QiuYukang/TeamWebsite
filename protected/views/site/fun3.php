@@ -1,8 +1,8 @@
 <?php
 
 $this->breadcrumbs=array(
-    '素质拓展'=>array('fun'),
-    '学习与生活',
+    '团队生活'=>array('fun'),
+    '照片墙',
 );
 
 ?>
@@ -11,7 +11,7 @@ $this->breadcrumbs=array(
     <img src="images/lang1.jpg" alt="" />
     <div style="position:absolute;z-indent:2;left:0;top:0;">
         <br>
-        <h2>学习与生活</h2>
+        <h2>团队生活</h2>
     </div>
 </div>
 
