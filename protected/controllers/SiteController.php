@@ -36,14 +36,14 @@ class SiteController extends Controller
     {
         // renders the view file 'protected/views/site/index.php'
         // using the default layout 'protected/views/layouts/main.php'
-        $this->renderPartial('introduction');
+        $this->render('introduction');
     }
 
     public function actionDirection()
     {
         // renders the view file 'protected/views/site/index.php'
         // using the default layout 'protected/views/layouts/main.php'
-        $this->renderPartial('direction');
+        $this->render('direction');
     }
 
     public function actionEnrollment() {

@@ -11,7 +11,7 @@ return array(
         'bootstrap' => realpath(__DIR__ . '/../extensions/bootstrap'),
         'yiiwheels' => realpath(__DIR__ . '/../extensions/yiiwheels'),
     ),
-	'name'=>'UESTC Network Tech Research Group',
+	'name'=>'电子科技大学泛在无线网络团队',
     'language'=>'zh_cn',
 	// preloading 'log' component
 	'preload'=>array('log'),
