@@ -6,13 +6,30 @@ $this->breadcrumbs=array(
     '团队介绍',
 );
 ?>
+<?php
+$authStrArr=null;
+$auth = false;
+if(isset(Yii::app()->user->is_user) && Yii::app()->user->is_user) {
+    $authStrArr = '普通用户';
+    $auth = true;
+}
+if(isset(Yii::app()->user->is_manager) && Yii::app()->user->is_manager) {
+    $authStrArr = '管理员';
+    $auth = true;
+}
+if(isset(Yii::app()->user->is_admin) && Yii::app()->user->is_admin) {
+    $authStrArr = '超级管理员';
+    $auth = true;
+}
+?>
+<?php $user = Yii::app()->user; ?>
 
 <div class="cam-page-header">
     <div class="cam-wrap clearfix cam-local-navigation">
         <ul class="cam-unstyled-list cam-current">
-            <li class = "cam-current-page" ><a href="#" class="active-trail">团队介绍</a></li>
+            <li class="cam-current-page"><a href="#" class="active-trail">团队介绍</a></li>
             <li><a href="index.php?r=site/direction">研究方向</a></li>
-            <li><a href="#">科研项目</a></li>
+            <li><a href=<?php echo $auth ? "index.php?r=project/admin" : "index.php?r=project/index"; ?>>科研项目</a></li>
             <li><a href="#">科研成果</a></li>
         </ul>
     </div>
@@ -38,7 +55,7 @@ $this->breadcrumbs=array(
             </p>
             <p>团队自上世纪80年代中期开始从事计算机网络、无线网络领域的研究工作，是国内开展无线网络技术研究的先行者之一。“七五”以来，先后完成了包括电子预研项目、国家重大专项项目、国家863项目、国家科技支撑计划项目、国家自然基金、教育部重点项目，以及校企合作项目数十项，取得丰硕成果。获得多项国家级和省部级科研成果奖励。</p>
             <p>团队创建并承担了网络工程专业的建设，创建了网络工程专业人才培养体系、课程体系和实验体系。出版系列网络工程相关教材，承担所有网络工程专业课程的教学。主持“通信与信息系统国家级实验教学示范中心”建设。承建的骨干传输系统实验室、路由与互连实验室、网络工程实验室、综合接入网实验室等国内技术一流。多门课程获得省级精品课程，网络工程专业获批国家级特色专业建设点。</p>
-            <img style="margin-bottom: 10px" src="<?php echo Yii::app()->request->baseUrl; ?>/images/introduce_1.png"/>
+            <img style="margin: 10px 0 20px 0" src="<?php echo Yii::app()->request->baseUrl; ?>/images/introduce_1.png"/>
             <p>团队研究的不同方向都承接了大量的科研项目。其中，无线自组织网络方向有国家863重大重点项目3项，国家自然基金项目1项，部级项目1项。无线传感网与物联网方向有国家科技支撑计划2项，国家科技重大专项1项，国家自然基金项目1项。宽带无线移动网络方向有国家科技重大专项5项，部级项目1项。无线网络新技术方面有国家863重大重点项目1项，国家自然基金项目2项，国家科技重大专项1项，还有学校首个欧盟合作项目。</p>
             <p>团队研究的主要支撑技术涉及到操作系统方面，软件技术，网络协议技术和网络仿真技术。其中操作系统涉及到Windows系统、Linux系统、Android系统。软件技术涉及到C、C++高级语言、操作系统网络驱动软件设计、通信协议软件设计、传感网协议与应用软件设计。网络协议技术涉及到TCP/IP协议、无线信道访问MAC技术、无线网络组网协议、无线路由协议技术、传感器网组网协议。网络仿真技术涉及Opnet网络仿真、NS2/3仿真技术、MATLAB仿真还有一些其它仿真。</p>
             <h2>技术优势</h2>

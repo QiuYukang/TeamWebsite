@@ -7,13 +7,30 @@ $this->breadcrumbs=array(
     '研究方向',
 );
 ?>
+<?php
+$authStrArr=null;
+$auth = false;
+if(isset(Yii::app()->user->is_user) && Yii::app()->user->is_user) {
+    $authStrArr = '普通用户';
+    $auth = true;
+}
+if(isset(Yii::app()->user->is_manager) && Yii::app()->user->is_manager) {
+    $authStrArr = '管理员';
+    $auth = true;
+}
+if(isset(Yii::app()->user->is_admin) && Yii::app()->user->is_admin) {
+    $authStrArr = '超级管理员';
+    $auth = true;
+}
+?>
+<?php $user = Yii::app()->user; ?>
 
 <div class="cam-page-header">
     <div class="cam-wrap clearfix cam-local-navigation">
         <ul class="cam-unstyled-list cam-current">
-            <li class = "cam-current-page" ><a href="index.php?r=site/introduction">团队介绍</a></li>
-            <li><a href="#" class="active-trail">研究方向</a></li>
-            <li><a href="#">科研项目</a></li>
+            <li><a href="index.php?r=site/introduction">团队介绍</a></li>
+            <li class="cam-current-page"><a href="#" class="active-trail">研究方向</a></li>
+            <li><a href=<?php echo $auth ? "index.php?r=project/admin" : "index.php?r=project/index"; ?>>科研项目</a></li>
             <li><a href="#">科研成果</a></li>
         </ul>
     </div>
@@ -29,6 +46,13 @@ $this->breadcrumbs=array(
 </div>
 <div class="cam-content cam-recessed-content">
     <div class="cam-wrap clearfix">
+        <ul class="direction-list">
+            <li><a href="index.php?r=site/direction#direction1">宽带无线移动网络</a></li>
+            <li><a href="index.php?r=site/direction#direction2">无线自组织网络</a></li>
+            <li><a href="index.php?r=site/direction#direction3">无线传感网/物联网</a></li>
+            <li><a href="index.php?r=site/direction#direction4">无线网络新技术</a></li>
+            <div class="clearfix"></div>
+        </ul>
         <div class="direction-content">
             <div class="direction-item1">
                 <h3 id="direction1">宽带无线移动网络</h3>
