@@ -268,10 +268,12 @@ class ProjectController extends Controller
                 }
             }
             $dataProvider->setData($incomplete_data_arr);
-            $fileNameString .= '的信息不完整或有误的科研项目';
+            if(strlen($fileNameString) == 0) $fileNameString = '信息不完整或有误的科研项目';
+            else $fileNameString .= '的信息不完整或有误的科研项目';
             $now_criteria['incomplete'] = 1;
         } else {
-            $fileNameString .= '的科研项目';
+            if(strlen($fileNameString) == 0) $fileNameString = '科研项目';
+            else $fileNameString .= '的科研项目';
         }
         if(isset($_GET['order']) && $_GET['order'] == 2) { //选择了按最新更新时间排序
             $fileNameString .= '（按最后更新时间排序）';
