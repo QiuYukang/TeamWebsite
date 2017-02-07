@@ -232,14 +232,12 @@ class ProjectController extends Controller
 
         if(isset($_GET['order']) && $_GET['order'] == 2) { //选择了按最新更新时间排序
             $order .= 't.last_update_date DESC ,'; //按最后更新时间排序
-            array_push($fileName, '按最后更新时间排序');
             $now_criteria['order'] = 2;
         } else {
-            array_push($fileName, '按时间排序');
             $now_criteria['order'] = 0;
         }
 
-        $fileNameString = implode(', ',$fileName);
+        $fileNameString = implode('，',$fileName);
 
         //var_dump($params);
         $criteria->params = $params;
@@ -273,7 +271,12 @@ class ProjectController extends Controller
             $fileNameString .= '的信息不完整或有误的科研项目';
             $now_criteria['incomplete'] = 1;
         } else {
-            $fileNameString .= '的全部科研项目';
+            $fileNameString .= '的科研项目';
+        }
+        if(isset($_GET['order']) && $_GET['order'] == 2) { //选择了按最新更新时间排序
+            $fileNameString .= '（按最后更新时间排序）';
+        } else {
+            $fileNameString .= '（按时间排序）';
         }
 
         //导出与否

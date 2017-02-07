@@ -78,7 +78,8 @@ $offset = ($page-1) * $page_size;
         <div class="index-content">
             <?php
             if($data_count == 0) {
-                echo "<p>团队数据库中暂时没有记载科研项目数据</p>";
+                echo "<p>团队数据库中暂时没有记载科研项目数据。</p>";
+                echo '<img style="margin: 10px 0 20px 0;" src="'.Yii::app()->request->baseUrl.'/images/no_data.png"/>';
             } else {
                 echo "<p>截止目前，团队数据库中共记录了 $data_count 个科研项目，当前页显示第 ".($offset + 1)." - ".min( $offset + $page_size, $data_count)." 个，共 $page_count 页。</p>";
                 ?>

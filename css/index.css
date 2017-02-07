@@ -1157,7 +1157,6 @@ table{
 }
 .index-content {
     margin: 30px 0 40px 0;
-    padding: 0 20px;
 }
 .index-content p {
     font-size: 14px;
@@ -2033,6 +2032,9 @@ ul.pagination li {
     /* max-width:100%;*/
     margin-bottom:20px;
 }
+.index-table a{
+    color: #2a959e;
+}
 .index-table>tbody>tr>td,.index-table>tbody>tr>th,.index-table>tfoot>tr>td,.index-table>tfoot>tr>th,.index-table>thead>tr>td,.index-table>thead>tr>th {
     padding:10px;
     line-height:1.42857143;
@@ -2142,4 +2144,11 @@ th {
 
 .search-form{
     background: #eee;
+    padding: 15px 20px;
+    border-radius: 0 8px 8px 8px;
+}
+
+.search-form p {
+    line-height: 22px;
+    margin-bottom: 10px;
 }
