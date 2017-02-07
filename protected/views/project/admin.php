@@ -2,6 +2,7 @@
 /* @var $this ProjectController */
 /* @var $model Project */
 
+$this->pageTitle=Yii::app()->name . ' - 管理科研项目';
 //面包屑
 $this->breadcrumbs=array(
     '科研'=>array('project/index'),
@@ -10,14 +11,67 @@ $this->breadcrumbs=array(
 );
 
 ?>
+<?php
+$authStrArr=null;
+$auth = false;
+if(isset(Yii::app()->user->is_user) && Yii::app()->user->is_user) {
+    $authStrArr = '普通用户';
+    $auth = true;
+}
+if(isset(Yii::app()->user->is_manager) && Yii::app()->user->is_manager) {
+    $authStrArr = '管理员';
+    $auth = true;
+}
+if(isset(Yii::app()->user->is_admin) && Yii::app()->user->is_admin) {
+    $authStrArr = '超级管理员';
+    $auth = true;
+}
+?>
+<?php $user = Yii::app()->user; ?>
 
-<div style="position:relative" xmlns="http://www.w3.org/1999/html">
-    <img src="images/lang1.jpg" alt="" />
-    <div style="position:absolute;z-indent:2;left:0;top:0;">
-        <br>
-        <h2>管理科研项目</h2>
+<div class="cam-page-header">
+    <div class="cam-wrap clearfix cam-local-navigation">
+        <ul class="cam-unstyled-list cam-current">
+            <li><a href="index.php?r=site/introduction">团队介绍</a></li>
+            <li><a href="index.php?r=site/direction">研究方向</a></li>
+            <li class="cam-current-page"><a href="#" class="active-trail">科研项目</a></li>
+            <li><a href="#">科研成果</a></li>
+        </ul>
+    </div>
+    <div class="cam-wrap clearfix cam-page-sub-title cam-recessed-sub-title">
+        <div class="cam-column">
+            <div class="cam-content-container">
+                <h1 class="cam-sub-title">
+                    管理科研项目 Manage project
+                </h1>
+            </div>
+        </div>
     </div>
 </div>
+<div class="cam-content cam-recessed-content">
+    <div class="cam-wrap clearfix">
+        <ul class="index-list">
+            <li><a href="#" class="search search-info">查询与导出</a></li>
+            <?php if(isset($user->is_admin) && $user->is_admin || isset($user->is_manager) && $user->is_manager) { ?>
+                <li><a href="index.php?r=project/create">添加与批量导入</a></li>
+            <?php } ?>
+            <?php if(isset($user->is_admin) && $user->is_admin) { ?>
+                <li><a href="index.php?r=project/clear" onclick="return clear_firm()">清空科研项目</a></li>
+                <div class="clearfix"></div>
+            <?php } ?>
+        </ul>
+        <div class="search-form" style="display:none">
+            <?php $this->renderPartial('_search',array(
+                'now_criteria' => $now_criteria, //用于让_search显示当前的搜索条件
+            )); ?>
+        </div>
+    </div>
+
+    <div class="index-content">
+    </div>
+</div>
+
+
 
 
 <?php
@@ -40,11 +94,6 @@ if(isset($user->is_admin) && $user->is_admin || isset($user->is_manager) && $use
 ?>
 
 
-<div class="search-form" style="display:none">
-    <?php $this->renderPartial('_search',array(
-        'now_criteria' => $now_criteria, //用于让_search显示当前的搜索条件
-    )); ?>
-</div>
 
 <br><br><br>
 <h4><?php echo $search_info.'如下：'; ?></h4>
@@ -178,7 +227,7 @@ else {
                 </tbody>
             </form>
 
-        <?php
+            <?php
         }
         ?>
 

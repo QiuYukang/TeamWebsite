@@ -80,7 +80,7 @@ $offset = ($page-1) * $page_size;
             if($data_count == 0) {
                 echo "<p>团队数据库中暂时没有记载科研项目数据</p>";
             } else {
-                echo "<p>截止目前，团队数据库中共记录了 $data_count 个科研项目，当前页显示第 ".($offset + 1)." - ".min( $offset + $page_size, $data_count)." 个，更多操作请<a href=\"./index.php?r=site/login\">登录</a>。</p>";
+                echo "<p>截止目前，团队数据库中共记录了 $data_count 个科研项目，当前页显示第 ".($offset + 1)." - ".min( $offset + $page_size, $data_count)." 个，共 $page_count 页。</p>";
                 ?>
                 <?php
                 //用于计算页码按钮上的显示
@@ -126,7 +126,7 @@ $offset = ($page-1) * $page_size;
                 <table class="index-table index-table-hover">
                     <thead>
                     <tr>
-                        <th>序号</th>
+                        <th style="width:40px; text-align: center">序号</th>
                         <th>信息</th>
                     </tr>
                     </thead>
@@ -135,7 +135,7 @@ $offset = ($page-1) * $page_size;
                         ?>
                         <tbody>
                         <tr>
-                            <td class="index-table-id" width="5%"><?php /*序号*/ echo $i+1;?></td>
+                            <td class="index-table-id"><?php /*序号*/ echo $i+1;?></td>
                             <td><?php /*信息*/ echo $dataProvider->getData()[$i]->getContentToGuest();?>
                                 <?php if(!empty($dataProvider->getData()[$i]->description)) { ?>
                                 <a onclick="javascript:TestBlack('divc<?php echo $i;?>');">更多</a></td>

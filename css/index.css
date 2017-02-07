@@ -169,32 +169,6 @@ table{
     float: right;
     margin-right: 8px;
 }
-.search-form{
-    float: right;
-    margin-top: 9px;
-}
-
-.search-form input {
-    outline: none;
-    float: left;
-    height: 12px;
-    line-height: 14px;
-    margin: 0;
-    width: 124px;
-    border: none;
-    padding: 0;
-    padding: 5px 0 5px 10px;
-}
-
-.search-form > .search-btn {
-    cursor: pointer;
-    width: 17px;
-    height: 22px;
-    text-indent: -1000px;
-    padding: 0;
-    background: #fff url(img/search-btn.png) no-repeat 0% 50%;
-}
-
 #navi {
 	background: #106470;
     position: relative;
@@ -1023,6 +997,8 @@ table{
     margin: 10px 0 -5px 0;
 }
 .direction-list li {
+}
+.direction-list a {
     float: left;
     width: 200px;
     height: 40px;
@@ -1031,9 +1007,10 @@ table{
     border: solid 1px #106470;
     margin-right: -1px;
     background: #0c5963;
-}
-.direction-list a {
     color: #fff;
+}
+.direction-list a:hover {
+    background: #1e7680;
 }
 .direction-item1-left {
     float: left;
@@ -1157,6 +1134,8 @@ table{
     margin: 10px 0 -5px 0;
 }
 .index-list li {
+}
+.index-list a {
     float: left;
     width: 200px;
     height: 40px;
@@ -1165,9 +1144,10 @@ table{
     border: solid 1px #106470;
     margin-right: -1px;
     background: #0c5963;
-}
-.index-list a {
     color: #fff;
+}
+.index-list a:hover {
+    background: #1e7680;
 }
 .index-list span {
     color: #f00;
@@ -2054,7 +2034,7 @@ ul.pagination li {
     margin-bottom:20px;
 }
 .index-table>tbody>tr>td,.index-table>tbody>tr>th,.index-table>tfoot>tr>td,.index-table>tfoot>tr>th,.index-table>thead>tr>td,.index-table>thead>tr>th {
-    padding:8px;
+    padding:10px;
     line-height:1.42857143;
     vertical-align:top;
     border-top:1px solid #ddd;
@@ -2155,4 +2135,11 @@ td,th {
 }
 th {
     text-align:left
+}
+/*
+ * admin serach
+ */
+
+.search-form{
+    background: #eee;
 }
