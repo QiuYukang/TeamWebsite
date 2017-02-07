@@ -128,7 +128,7 @@ $offset = ($page-1) * $page_size;
                     <thead>
                     <tr>
                         <th style="width:40px; text-align: center">序号</th>
-                        <th>信息</th>
+                        <th>科研项目</th>
                     </tr>
                     </thead>
                     <?php
