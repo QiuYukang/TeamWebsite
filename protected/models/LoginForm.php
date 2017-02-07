@@ -39,7 +39,7 @@ class LoginForm extends CFormModel
 		return array(
 			'username'=>'用户名',
 			'password'=>'密码',
-			'rememberMe'=>'下次自动登录',
+			'rememberMe'=>'30天内自动登录',
 		);
 	}
 

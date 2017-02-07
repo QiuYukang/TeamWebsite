@@ -224,7 +224,7 @@
 <?php if(isset($this->breadcrumbs) && !empty($this->breadcrumbs)) { ?>
     <div id="breadcrumbs">
         <div class="breadcrumbs-bg">
-            <a class="breadcrumbs-home" href="/"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/breadcrumb_icon.png"></a>
+            <a class="breadcrumbs-home" href="/"><img src="<?php echo Yii::app()->request->baseUrl; ?>/css/img/breadcrumb_icon.png"></a>
             <?php $this->widget('zii.widgets.CBreadcrumbs', array(
                 'links'=>$this->breadcrumbs,
                 'separator'=>'',
