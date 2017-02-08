@@ -2271,3 +2271,10 @@ th {
     margin-top: 3px;
     color: #c60f13;
 }
+
+/*
+ * view
+ */
+table.detail-view a {
+    color: #2a959e;
+}

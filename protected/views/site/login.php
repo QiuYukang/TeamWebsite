@@ -26,12 +26,12 @@ $this->breadcrumbs=array(
     </div>
     <div class="login-username" style="padding: 30px 0 0 0; position: relative;">
         <?php echo $form->labelEx($model,'username'); ?>
-        <?php echo $form->textField($model,'username'); ?>
+        <?php echo $form->textField($model,'username', array('placeholder'=>'请输入用户名')); ?>
         <?php echo $form->error($model,'username'); ?>
     </div>
     <div class="login-password" style="position: relative;">
         <?php echo $form->labelEx($model,'password'); ?>
-        <?php echo $form->passwordField($model,'password'); ?>
+        <?php echo $form->passwordField($model,'password', array('placeholder'=>'密码')); ?>
         <?php echo $form->error($model,'password'); ?>
     </div>
     <div class="login-remember" style="position: relative;">
