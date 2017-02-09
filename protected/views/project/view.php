@@ -2,6 +2,7 @@
 /* @var $this ProjectController */
 /* @var $model Project */
 
+$this->pageTitle=Yii::app()->name . ' - 科研项目详情';
 //面包屑
 $this->breadcrumbs=array(
     '科研'=>array('project/index'),
@@ -147,8 +148,10 @@ $this->breadcrumbs=array(
             <form name="operate" action="<?php echo Yii::app()->controller->createUrl("delete",array("id"=>$model->id)); ?>" method="post" onsubmit="return firm()">
                 <?php if(isset($user->is_admin) && $user->is_admin || isset($user->is_manager) && $user->is_manager) { ?>
                     <input type="button" value="编辑" class="btn btn-default" onclick="location='<?php echo Yii::app()->controller->createUrl("update",array("id"=>$model->id)); ?>'"/>
+                    &nbsp;
                     <input type="submit" class="btn btn-default" id="drop"  value="删除"/>
                 <?php } ?>
+                &nbsp;
                 <input type="button" class="btn btn-default" value="返回" onclick="location='<?php echo Yii::app()->controller->createUrl("admin"); ?>'"/>
             </form>
         </div>

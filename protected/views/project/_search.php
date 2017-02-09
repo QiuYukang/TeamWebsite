@@ -99,7 +99,7 @@ $peoples = People::model()->findAllBySql('SELECT * FROM `tbl_people` ORDER BY `p
         <div class="columns">
             <label for="category">类别</label>
             <div class="clearfix"></div>
-            <input id="category" name="category" type="text"style="float: left; width:220px;" placeholder="输入类别或在右侧选择" value="<?php echo isset($now_criteria['category']) ? $now_criteria['category'] : ''?>">
+            <input id="category" name="category" type="text" style="float: left; width:220px;" placeholder="输入类别或在右侧选择" value="<?php echo isset($now_criteria['category']) ? $now_criteria['category'] : ''?>">
             <select id="category_list" name="category_list" class="category_list" style="float: left; width:220px; margin-left: 5px;" onchange="document.getElementById('category').value = this.value;">
                 <option value="">选择类别</option>
                 <?php
@@ -179,9 +179,9 @@ $peoples = People::model()->findAllBySql('SELECT * FROM `tbl_people` ORDER BY `p
     <div class="row" style="margin: 0">
         <div class="columns" style="width: 920px">
             <input type="button" id="search_btn" class="btn btn-default" value="查询" onclick="validate(0)" />
-            &nbsp;&nbsp;
+            &nbsp;
             <input type="button" id="export_btn" class="btn btn-default" value="导出" onclick="validate(1)" />
-            &nbsp;&nbsp;
+            &nbsp;
             <input type="button" class="btn btn-default" value="重置" onclick="location='index.php?r=project/admin'"/>
         </div>
         <div class="clearfix"></div>
