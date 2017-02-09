@@ -69,12 +69,8 @@ class PaperController extends Controller
 //	    }
         $criteria = new CDbCriteria;
         $user = Yii::app()->user;
-        //对于guest只展示高水平论文，登录用户均展示全部论文
-        if(!(isset($user->is_admin) && $user->is_admin) &&
-            !(isset($user->is_manager) && $user->is_manager) &&
-            !(isset($user->is_user) && $user->is_user)) {
-            $criteria->condition = "is_high_level=1";
-        }
+        //index页面中只展示高水平论文
+        $criteria->condition = "is_high_level=1";
         $criteria->select = array('info','index_number');
         $dataProvider=new CActiveDataProvider(
             'Paper',
