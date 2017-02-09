@@ -3344,7 +3344,8 @@ the specific language governing permissions and limitations under the Apache Lic
         maximumSelectionSize: 0,
         id: function (e) { return e == undefined ? null : e.id; },
         matcher: function(term, text) {
-            return stripDiacritics(''+text).toUpperCase().indexOf(stripDiacritics(''+term).toUpperCase()) >= 0;
+            return text.toPinYin().indexOf(term.toUpperCase()) >= 0 || //pinyin
+            text.toUpperCase().indexOf(term.toUpperCase()) >= 0;
         },
         separator: ",",
         tokenSeparators: [],

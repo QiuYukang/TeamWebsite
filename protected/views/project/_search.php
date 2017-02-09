@@ -229,7 +229,6 @@ $peoples = People::model()->findAllBySql('SELECT * FROM `tbl_people` ORDER BY `p
 
     //下拉框搜索
     $('select').select2({
-        width: 'resolve'
 //                matcher: function(term,text) {
 //                    var pinyin = new Pinyin();
 //                    var mod=pinyin.getCamelChars(text.toUpperCase());
