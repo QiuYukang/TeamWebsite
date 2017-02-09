@@ -63,7 +63,8 @@ $offset = ($page-1) * $page_size;
         <ul class="index-list">
             <li><a href="#" class="search search-info">查询与导出</a></li>
             <?php if(isset($user->is_admin) && $user->is_admin || isset($user->is_manager) && $user->is_manager) { ?>
-                <li><a href="index.php?r=project/create">添加与批量导入</a></li>
+                <li><a href="index.php?r=project/create">添加科研项目</a></li>
+                <li><a href="index.php?r=project/upload">导入科研项目</a></li>
             <?php } ?>
             <?php if(isset($user->is_admin) && $user->is_admin) { ?>
                 <li><a href="index.php?r=project/clear" onclick="return clear_firm()">清空科研项目</a></li>
