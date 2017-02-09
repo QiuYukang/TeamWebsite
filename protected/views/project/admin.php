@@ -44,7 +44,7 @@ $offset = ($page-1) * $page_size;
         <ul class="cam-unstyled-list cam-current">
             <li><a href="index.php?r=site/introduction">团队介绍</a></li>
             <li><a href="index.php?r=site/direction">研究方向</a></li>
-            <li class="cam-current-page"><a href="#" class="active-trail">科研项目</a></li>
+            <li class="cam-current-page"><a href="index.php?r=project/admin" class="active-trail">科研项目</a></li>
             <li><a href="#">科研成果</a></li>
         </ul>
     </div>

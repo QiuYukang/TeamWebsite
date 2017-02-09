@@ -21,7 +21,7 @@ $this->breadcrumbs=array(
         <ul class="cam-unstyled-list cam-current">
             <li><a href="index.php?r=site/introduction">团队介绍</a></li>
             <li><a href="index.php?r=site/direction">研究方向</a></li>
-            <li class="cam-current-page"><a href="#" class="active-trail">科研项目</a></li>
+            <li class="cam-current-page"><a href="index.php?r=project/admin" class="active-trail">科研项目</a></li>
             <li><a href="#">科研成果</a></li>
         </ul>
     </div>
@@ -29,7 +29,7 @@ $this->breadcrumbs=array(
         <div class="cam-column">
             <div class="cam-content-container">
                 <h1 class="cam-sub-title">
-                    添加科研项目 Add project
+                    导入科研项目 Upload project
                 </h1>
             </div>
         </div>

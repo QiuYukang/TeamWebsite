@@ -116,7 +116,7 @@ $peoples = People::model()->findAllBySql('SELECT * FROM `tbl_people` ORDER BY `p
         //liability_peoples下同
         $execute_peoples = $model->execute_peoples;
         for($i=0; $i<20; $i++) {
-            echo '<div class="columns" style="width: 176px">';
+            echo '<div class="columns" style="width: 223px">';
             echo $form->label($model,'执行人员'.($i+1));
             $select = '<select style="width: 100%" name="Project[execute_peoples]['.$i.']">';
             $select .= '<option value="-1">选择执行人员</option>';
@@ -130,7 +130,7 @@ $peoples = People::model()->findAllBySql('SELECT * FROM `tbl_people` ORDER BY `p
             echo $select;
 
             echo '</div>';
-            if($i == 4 || $i == 9 || $i == 14 || $i == 19) {
+            if($i == 3 || $i == 7 || $i == 11 || $i == 15 || $i == 19) {
                 echo '<div class="clearfix"></div>';
                 echo '</div>';
                 echo '<div class="row">';
@@ -144,7 +144,7 @@ $peoples = People::model()->findAllBySql('SELECT * FROM `tbl_people` ORDER BY `p
         <?php
         $liability_peoples = $model->liability_peoples;
         for($i=0; $i<20; $i++) {
-            echo '<div class="columns" style="width: 176px">';
+            echo '<div class="columns" style="width: 223px">';
             echo $form->label($model,'合同书人员'.($i+1));
             $select = '<select style="width: 100%" name="Project[liability_peoples]['.$i.']">';
             $select .= '<option value="-1">选择合同书人员</option>';
@@ -158,7 +158,7 @@ $peoples = People::model()->findAllBySql('SELECT * FROM `tbl_people` ORDER BY `p
             echo $select;
 
             echo '</div>';
-            if($i == 4 || $i == 9 || $i == 14 || $i == 19) {
+            if($i == 3 || $i == 7 || $i == 11 || $i == 15 || $i == 19) {
                 echo '<div class="clearfix"></div>';
                 echo '</div>';
                 echo '<div class="row">';
@@ -177,12 +177,12 @@ $peoples = People::model()->findAllBySql('SELECT * FROM `tbl_people` ORDER BY `p
         <div class="clearfix"></div>
     </div>
     <div class="row">
-        <div class="columns" style="width: 145px">
+        <div class="columns" style="width: 125px">
             <?php
             //$maintainer = $model->maintainer;
             echo $form->label($model,'维护人员');
             $listData = CHtml::listData($peoples,'id','name');
-            $listData = array(null => '选择维护人员')+$listData; //维护人员没有进行后续处理，因此“选择维护人员”这里必须为null不能为-1之类
+            $listData = array(null => '选择人员')+$listData; //维护人员没有进行后续处理，因此“选择维护人员”这里必须为null不能为-1之类
             //var_dump(($listData));
             echo $form->dropDownList($model,'maintainer_id',$listData,array('style'=>'width: 100%'));
             ?>
@@ -217,23 +217,9 @@ $peoples = People::model()->findAllBySql('SELECT * FROM `tbl_people` ORDER BY `p
 
 
         });
-        //下拉框搜索
-        $('select').select2({
-            width: 'resolve'
-//                matcher: function(term,text) {
-//                    var pinyin = new Pinyin();
-//                    var mod=pinyin.getCamelChars(text.toUpperCase());
-//                    return mod.indexOf(term.toUpperCase())==0;
-//                }
-        });
 
-//            function categoryChange() {
-//                var obj = document.getElementById("category_list");
-//                var text = document.getElementById("category").value;
-//
-//                $(".category_list").val("").trigger("change");
-//                $(".category_list").val(text).trigger("change");
-//            }
+        //下拉框搜索
+        $('select').select2();
 
     </script>
 
