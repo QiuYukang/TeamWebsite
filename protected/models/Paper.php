@@ -236,7 +236,7 @@ class Paper extends CActiveRecord
             'category' => '类别',
             'file_name' => '文件名',
             'maintainer_id' => '维护人员',
-            'is_high_level' => '高水平',
+            'is_high_level' => '高水平（是否对外展示）',
             'last_update_date' => '最后更新时间',
 
             'peoples'=>'作者',

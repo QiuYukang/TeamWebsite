@@ -10,6 +10,7 @@
 //    array('label'=>'导出全部论文', 'url'=>array('exportAll')),
 //);
 
+$this->pageTitle=Yii::app()->name . ' - 添加论文';
 //面包屑
 $this->breadcrumbs=array(
     '学术成果'=>array('paper/index'),
@@ -20,12 +21,29 @@ $this->breadcrumbs=array(
 
 ?>
 
-    <div style="position:relative">
-        <img src="images/lang1.jpg" alt="" />
-        <div style="position:absolute;z-indent:2;left:0;top:0;">
-            <br>
-            <h2>添加论文</h2>
+<div class="cam-page-header">
+    <div class="cam-wrap clearfix cam-local-navigation">
+        <ul class="cam-unstyled-list cam-current">
+            <li class="cam-current-page"><a href="index.php?r=paper/admin" class="active-trail">论文</a></li>
+            <li><a href="index.php?r=patent/admin">专利</a></li>
+            <li><a href="index.php?r=publication/admin">专著</a></li>
+            <li><a href="index.php?r=software/admin">软件著作权</a></li>
+        </ul>
+    </div>
+    <div class="cam-wrap clearfix cam-page-sub-title cam-recessed-sub-title">
+        <div class="cam-column">
+            <div class="cam-content-container">
+                <h1 class="cam-sub-title">
+                    添加论文 Add paper
+                </h1>
+            </div>
         </div>
     </div>
-
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+</div>
+<div class="cam-content cam-recessed-content">
+    <div class="cam-wrap clearfix">
+        <div class="index-content">
+            <?php $this->renderPartial('_form', array('model'=>$model)); ?>
+        </div>
+    </div>
+</div>
