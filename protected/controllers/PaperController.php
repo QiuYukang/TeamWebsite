@@ -139,7 +139,7 @@ class PaperController extends Controller
             $params[':people_id']=$_GET['author'];
             $now_criteria['author'] = $_GET['author'];
         } else {
-            array_push($fileName, "以团队发表");
+            //array_push($fileName, "以团队发表");
         }
         if(isset($_GET['maintainer']) && $_GET['maintainer']){
 //            $isByMaintainer = true;
@@ -309,18 +309,15 @@ class PaperController extends Controller
         } else if(isset($_GET['order']) && $_GET['order'] == 1) { //选择了按作者顺序排序
             if(isset($_GET['author']) && $_GET['author']) { //且选择了作者
                 $order .= 'peoples_peoples_.seq ,'; //首先按作者顺序排序
-                array_push($fileName, '按作者顺序排序');
                 $now_criteria['order'] = 1;
             } else { //没选择作者就按时间排序
-                array_push($fileName, '按时间排序');
                 $now_criteria['order'] = 0;
             }
         } else {
-            array_push($fileName, '按时间排序');
             $now_criteria['order'] = 0;
         }
 
-        $fileNameString = implode(', ',$fileName);
+        $fileNameString = implode('，',$fileName);
 
         //var_dump($params);
         $criteria->params = $params;
@@ -353,10 +350,24 @@ class PaperController extends Controller
 //            $incomplete_data_arr = $data_arr;
             $dataProvider->setData($incomplete_data_arr);
 //            $dataProvider->setTotalItemCount(count($incomplete_data_arr));
-            $fileNameString .= '的信息不完整或有误的论文';
+            if(strlen($fileNameString) == 0) $fileNameString = '信息不完整或有误的论文';
+            else $fileNameString .= '的信息不完整或有误的论文';
             $now_criteria['incomplete'] = 1;
         } else {
-            $fileNameString .= '的全部论文';
+            if(strlen($fileNameString) == 0) $fileNameString = '论文';
+            else $fileNameString .= '的论文';
+        }
+
+        if(isset($_GET['order']) && $_GET['order'] == 2) { //选择了按最新更新时间排序
+            $fileNameString .= '（按最后更新时间排序）';
+        } else if(isset($_GET['order']) && $_GET['order'] == 1) { //选择了按作者顺序排序
+            if(isset($_GET['author']) && $_GET['author']) {
+                $fileNameString .= '（按作者顺序排序）'; //且选择了作者
+            } else { //没选择作者就按时间排序
+                $fileNameString .= '（按时间排序）';
+            }
+        } else {
+            $fileNameString .= '（按时间排序）';
         }
 
         //var_dump($dataProvider);
