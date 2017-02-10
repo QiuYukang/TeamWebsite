@@ -8,6 +8,7 @@
 //    array('label'=>'导出全部论文', 'url'=>array('exportAll')),
 //);
 
+$this->pageTitle=Yii::app()->name . ' - 导入论文原文';
 //面包屑
 $this->breadcrumbs=array(
     '学术成果'=>array('paper/index'),
@@ -18,33 +19,51 @@ $this->breadcrumbs=array(
 
 ?>
 
-<style>
-    .file-box{ position:relative;width:340px}
-    .file-txt{ height:22px; border:1px solid #cdcdcd; width:180px;}
-</style>
-
-<div style="position:relative">
-    <img src="images/lang1.jpg" alt="" />
-    <div style="position:absolute;z-indent:2;left:0;top:0;">
-        <h2>导入论文原文</h2>
-        <h4>请选择论文原文文件进行导入(可多选，单次上传请勿超过100M)</h4>
+<div class="cam-page-header">
+    <div class="cam-wrap clearfix cam-local-navigation">
+        <ul class="cam-unstyled-list cam-current">
+            <li class="cam-current-page"><a href="index.php?r=paper/admin" class="active-trail">论文</a></li>
+            <li><a href="index.php?r=patent/admin">专利</a></li>
+            <li><a href="index.php?r=publication/admin">专著</a></li>
+            <li><a href="index.php?r=software/admin">软件著作权</a></li>
+        </ul>
+    </div>
+    <div class="cam-wrap clearfix cam-page-sub-title cam-recessed-sub-title">
+        <div class="cam-column">
+            <div class="cam-content-container">
+                <h1 class="cam-sub-title">
+                    导入论文原文 Upload paper file
+                </h1>
+            </div>
+        </div>
     </div>
 </div>
+<div class="cam-content cam-recessed-content">
+    <div class="cam-wrap clearfix">
+        <div class="index-content">
 
-<br/>
-
-<div class="file-box">
-    <form action="" method="post" enctype="multipart/form-data">
-        <input type='text' name='textField' id='textField' class='file-txt' onfocus="this.blur()"/>
-        <input type='button' class='btn btn-default' value='浏览...' onclick="document.getElementById('fileField').click()"/>
-        <input type="file" name="fileField[]" class="file" id="fileField" multiple="true" style="display: none;" onchange="document.getElementById('textField').value=getNamesByFiles(this.files)" />
-        <input type="submit" class="btn btn-default" value="上传文件" />
-    </form>
+            <div class="create-upload">
+                <p>批量导入原文（上传文件，可多选，单次请勿超过100M）</p>
+                <form action="" method="post" enctype="multipart/form-data">
+                    <input type='text' name='textField' id='textField' class='file-txt' onfocus="this.blur()"/>
+                    <div style="margin-top: 10px">
+                        <input type='button' class='btn btn-default' value='浏览...' style="float: left" onclick="document.getElementById('fileField').click()"/>
+                        <input type="file" name="fileField[]" class="file" id="fileField" multiple="true" style="display: none;" onchange="document.getElementById('textField').value=getNamesByFiles(this.files)" />
+                        <input type="submit" class="btn btn-default" style="float: left; margin-left: 15px" value="上传文件" />
+                    </div>
+                </form>
+                <div class="clearfix"></div>
+            </div>
+            </form>
+            <br/>
+            <p>小提示：</p>
+            <p>1. 批量导入文件适合为一批没有上传文件的论文（批量导入的论文）一次性导入文件，若单个添加文件可在添加或编辑页面进行</p>
+            <p>2. 批量导入文件时文件名（不包括后缀）一定要与论文名保持完全一致，包括标点符号</p>
+            <p>3. 由于数据库响应时间和网速的限制，单次上传请勿超过100M</p>
+            <p>4. 更多说明请查看<a href="#" style="color: #2a959e">使用手册/开发者手册</a></p>
+        </div>
+    </div>
 </div>
-
-
-<br><br>
-
 
 <script>
     //获得文件名
@@ -59,8 +78,3 @@ $this->breadcrumbs=array(
     }
 
 </script>
-
-<!--<form method="POST" enctype="multipart/form-data">-->
-<!--    <input type="file" name="spreedSheet" value="" />-->
-<!--    <input type="submit" value="上传文件" class="btn btn-primary"/>'-->
-<!--</form>-->
