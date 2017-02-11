@@ -72,7 +72,7 @@ $offset = ($page-1) * $page_size;
             <li><a href="#" class="search search-info">查询与导出</a></li>
             <?php if(isset($user->is_admin) && $user->is_admin || isset($user->is_manager) && $user->is_manager) { ?>
                 <li><a href="index.php?r=paper/create" style="width: 150px">添加论文</a></li>
-                <li><a href="index.php?r=paper/upload" style="width: 150px">导入论文</a></li>
+                <li><a href="index.php?r=paper/upload">导入论文数据表</a></li>
                 <li><a href="index.php?r=paper/uploadfile">导入论文原文</a></li>
             <?php } ?>
             <?php if(isset($user->is_admin) && $user->is_admin) { ?>

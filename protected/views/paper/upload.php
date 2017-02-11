@@ -14,13 +14,13 @@
 //    array('label'=>'导出全部论文', 'url'=>array('exportAll')),
 //);
 
-$this->pageTitle=Yii::app()->name . ' - 导入论文';
+$this->pageTitle=Yii::app()->name . ' - 导入论文数据表';
 //面包屑
 $this->breadcrumbs=array(
     '学术成果'=>array('paper/index'),
     '论文'=>array('index'),
     '管理'=>array('admin'),
-    '导入论文数据表',
+    '导入数据表',
 );
 
 ?>
@@ -38,7 +38,7 @@ $this->breadcrumbs=array(
         <div class="cam-column">
             <div class="cam-content-container">
                 <h1 class="cam-sub-title">
-                    导入论文 Upload paper
+                    导入论文数据表 Upload paper data
                 </h1>
             </div>
         </div>

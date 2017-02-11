@@ -14,7 +14,7 @@ $this->breadcrumbs=array(
     '学术成果'=>array('paper/index'),
     '论文'=>array('index'),
     '管理'=>array('admin'),
-    '导入论文原文',
+    '导入原文',
 );
 
 ?>
@@ -43,7 +43,7 @@ $this->breadcrumbs=array(
         <div class="index-content">
 
             <div class="create-upload">
-                <p>批量导入原文（上传文件，可多选，单次请勿超过100M）</p>
+                <p>批量导入原文（上传文件，可多选，单次请勿超过50M）</p>
                 <form action="" method="post" enctype="multipart/form-data">
                     <input type='text' name='textField' id='textField' class='file-txt' onfocus="this.blur()"/>
                     <div style="margin-top: 10px">
@@ -59,7 +59,7 @@ $this->breadcrumbs=array(
             <p>小提示：</p>
             <p>1. 批量导入文件适合为一批没有上传文件的论文（批量导入的论文）一次性导入文件，若单个添加文件可在添加或编辑页面进行</p>
             <p>2. 批量导入文件时文件名（不包括后缀）一定要与论文名保持完全一致，包括标点符号</p>
-            <p>3. 由于数据库响应时间和网速的限制，单次上传请勿超过100M</p>
+            <p>3. 由于数据库响应时间和网络速度的限制，单次上传请勿超过50M</p>
             <p>4. 更多说明请查看<a href="#" style="color: #2a959e">使用手册/开发者手册</a></p>
         </div>
     </div>
