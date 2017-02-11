@@ -161,7 +161,7 @@ $projects = Project::model()->findAllBySql('SELECT * FROM `tbl_project` ORDER BY
             <?php echo
             empty($model->file_name) ?
                 '' :  //若没有文件名什么都不显示
-                ($model->file_name.'&nbsp;&nbsp;&nbsp;'.(empty($model->file_content) ? '(未上传文件)' : '(已上传文件)')); //有文件名就显示，同时依file_content有内容否显示文件是否已上传
+                ('<div style="margin-bottom: 5px">'.$model->file_name.'&nbsp;&nbsp;&nbsp;'.(empty($model->file_content) ? '(未上传文件)</div>' : '(已上传文件，若不修改文件无需选择文件)</div>')); //有文件名就显示，同时依file_content有内容否显示文件是否已上传
             ?>
             <?php
             //                echo CHtml::activeFileField($model, 'uploaded_file');
