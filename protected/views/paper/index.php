@@ -18,22 +18,7 @@ $this->breadcrumbs=array(
 );
 
 ?>
-<?php
-$authStrArr=null;
-$auth = false;
-if(isset(Yii::app()->user->is_user) && Yii::app()->user->is_user) {
-    $authStrArr = '普通用户';
-    $auth = true;
-}
-if(isset(Yii::app()->user->is_manager) && Yii::app()->user->is_manager) {
-    $authStrArr = '管理员';
-    $auth = true;
-}
-if(isset(Yii::app()->user->is_admin) && Yii::app()->user->is_admin) {
-    $authStrArr = '超级管理员';
-    $auth = true;
-}
-?>
+
 <?php
 $authStrArr=null;
 $auth = false;
