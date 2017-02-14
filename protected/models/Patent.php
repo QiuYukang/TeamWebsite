@@ -594,7 +594,7 @@ class Patent extends CActiveRecord
             $info[] = '*申请时间与授权时间应至少填写一个';
         }
         if(empty($this->category)) {
-            $info[] = '*论文应存在类别';
+            $info[] = '*专利应存在类别';
         }
         if(empty($this->file_size)) {
             $info[] = '*专利文件不存在或未上传';
