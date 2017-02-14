@@ -45,7 +45,7 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/views/paper/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="224">
               <caret line="172" column="35" lean-forward="false" selection-start-line="172" selection-start-column="35" selection-end-line="172" selection-end-column="35" />
               <folding>
                 <marker date="1486868338015" expanded="true" signature="3893:3900" ph="«" />
@@ -57,62 +57,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_search.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/views/paper/_search.php">
+      <file leaf-file-name="view.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/views/paper/view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="178" column="4" lean-forward="true" selection-start-line="178" selection-start-column="4" selection-end-line="188" selection-end-column="10" />
+            <state relative-caret-position="319">
+              <caret line="130" column="19" lean-forward="true" selection-start-line="130" selection-start-column="19" selection-end-line="133" selection-end-column="6" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#form#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#form#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#form#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#1;n#div#1;n#form#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#select#0;n#div#1;n#div#1;n#form#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#2;n#form#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#2;n#form#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#3;n#form#0;n#!!top" expanded="true" />
-                <marker date="1487046264080" expanded="true" signature="251:331" ph="SELECT * FRO... tbl_people" />
-                <marker date="1487046264080" expanded="true" signature="401:454" ph="SELECT * FRO... tbl_project" />
+                <element signature="e#5420#5426#0#HTML" expanded="true" />
+                <element signature="e#5555#5561#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PaperController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/protected/controllers/PaperController.php">
+      <file leaf-file-name="view.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/protected/views/patent/view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="305" column="23" lean-forward="true" selection-start-line="305" selection-start-column="23" selection-end-line="305" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PatentController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/controllers/PatentController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="231" column="25" lean-forward="false" selection-start-line="231" selection-start-column="25" selection-end-line="231" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_search.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/views/patent/_search.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="167" column="10" lean-forward="false" selection-start-line="167" selection-start-column="10" selection-end-line="167" selection-end-column="10" />
+            <state relative-caret-position="566">
+              <caret line="111" column="6" lean-forward="false" selection-start-line="111" selection-start-column="6" selection-end-line="111" selection-end-column="6" />
               <folding>
-                <element signature="n#style#0;n#div#2;n#div#1;n#form#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#3;n#div#1;n#form#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#select#0;n#div#3;n#div#1;n#form#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#2;n#form#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#2;n#form#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#2;n#form#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#3;n#form#0;n#!!top" expanded="true" />
-                <marker date="1487048397197" expanded="true" signature="253:333" ph="SELECT * FRO... tbl_people" />
-                <marker date="1487048397197" expanded="true" signature="403:456" ph="SELECT * FRO... tbl_project" />
+                <element signature="e#4383#4389#0#HTML" expanded="true" />
+                <element signature="e#4522#4528#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -160,7 +125,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/protected/views/site/fun1.php" />
         <option value="$PROJECT_DIR$/js/scripts.js" />
         <option value="$PROJECT_DIR$/css/set1.css" />
         <option value="$PROJECT_DIR$/css/wrh720p.css" />
@@ -211,6 +175,7 @@
         <option value="$PROJECT_DIR$/protected/views/patent/_search.php" />
         <option value="$PROJECT_DIR$/protected/controllers/PaperController.php" />
         <option value="$PROJECT_DIR$/protected/controllers/PatentController.php" />
+        <option value="$PROJECT_DIR$/protected/views/patent/view.php" />
       </list>
     </option>
   </component>
@@ -513,12 +478,12 @@
       <workItem from="1486696628983" duration="8637000" />
       <workItem from="1486806073631" duration="3565000" />
       <workItem from="1486828728476" duration="3437000" />
-      <workItem from="1487041473665" duration="5765000" />
+      <workItem from="1487041473665" duration="6572000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="164914000" />
+    <option name="totallyTimeSpent" value="165721000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -573,13 +538,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/old/protected/views/project/_form.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/old/protected/views/project/create.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -760,18 +718,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/paper/view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="128" column="22" lean-forward="false" selection-start-line="128" selection-start-column="22" selection-end-line="128" selection-end-column="22" />
-          <folding>
-            <element signature="e#5420#5426#0#HTML" expanded="false" />
-            <element signature="e#5555#5561#0#HTML" expanded="false" />
-            <element signature="e#6062#6211#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/project/upload.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
@@ -940,19 +886,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/paper/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="172" column="35" lean-forward="false" selection-start-line="172" selection-start-column="35" selection-end-line="172" selection-end-column="35" />
-          <folding>
-            <marker date="1486868338015" expanded="true" signature="3893:3900" ph="«" />
-            <marker date="1486868338015" expanded="true" signature="5405:5412" ph="»" />
-            <marker date="1486868338015" expanded="true" signature="6782:6789" ph="«" />
-            <marker date="1486868338015" expanded="true" signature="8294:8301" ph="»" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/project/_search.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
@@ -1044,6 +977,41 @@
         <state relative-caret-position="570">
           <caret line="305" column="23" lean-forward="true" selection-start-line="305" selection-start-column="23" selection-end-line="305" selection-end-column="25" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/paper/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="172" column="35" lean-forward="false" selection-start-line="172" selection-start-column="35" selection-end-line="172" selection-end-column="35" />
+          <folding>
+            <marker date="1486868338015" expanded="true" signature="3893:3900" ph="«" />
+            <marker date="1486868338015" expanded="true" signature="5405:5412" ph="»" />
+            <marker date="1486868338015" expanded="true" signature="6782:6789" ph="«" />
+            <marker date="1486868338015" expanded="true" signature="8294:8301" ph="»" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/paper/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="130" column="19" lean-forward="true" selection-start-line="130" selection-start-column="19" selection-end-line="133" selection-end-column="6" />
+          <folding>
+            <element signature="e#5420#5426#0#HTML" expanded="true" />
+            <element signature="e#5555#5561#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/patent/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="566">
+          <caret line="111" column="6" lean-forward="false" selection-start-line="111" selection-start-column="6" selection-end-line="111" selection-end-column="6" />
+          <folding>
+            <element signature="e#4383#4389#0#HTML" expanded="true" />
+            <element signature="e#4522#4528#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
