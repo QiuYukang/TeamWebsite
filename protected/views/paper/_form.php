@@ -177,7 +177,7 @@ $projects = Project::model()->findAllBySql('SELECT * FROM `tbl_project` ORDER BY
         //projects是关联项，因此使用html写，update时可以直接从projects中获得数据显示在页面上，保存时通过POST向create/update控制器传值，控制器将值存入save_projects_id项，再调用save()储存projects信息
         $fund_projects = $model->fund_projects;
         for($i=0;$i<6;$i++) {
-            echo '<div class="columns" style="width: 450px">';
+            echo '<div class="columns" style="width: 456px">';
 
             echo $form->label($model,'支助项目'.($i+1));
             $select = '<select name="Project[fund_projects]['.$i.']">';
@@ -206,7 +206,7 @@ $projects = Project::model()->findAllBySql('SELECT * FROM `tbl_project` ORDER BY
         <?php
         $reim_projects = $model->reim_projects;
         for($i=0;$i<2;$i++) {
-            echo '<div class="columns" style="width: 450px">';
+            echo '<div class="columns" style="width: 456px">';
 
             echo $form->label($model,'报账项目'.($i+1));
             $select = '<select name="Project[reim_projects]['.$i.']">';
@@ -230,7 +230,7 @@ $projects = Project::model()->findAllBySql('SELECT * FROM `tbl_project` ORDER BY
         <?php
         $achievement_projects = $model->achievement_projects;
         for($i=0;$i<5;$i++) {
-            echo '<div class="columns" style="width: 450px">';
+            echo '<div class="columns" style="width: 456px">';
 
             echo $form->label($model,'成果项目'.($i+1));
             $select = '<select name="Project[achievement_projects]['.$i.']">';
