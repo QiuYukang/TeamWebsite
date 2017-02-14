@@ -10,7 +10,7 @@
 //    array('label'=>'导出全部论文', 'url'=>array('exportAll')),
 //);
 
-$this->pageTitle=Yii::app()->name . ' - 管理l论文';
+$this->pageTitle=Yii::app()->name . ' - 管理论文';
 //面包屑
 $this->breadcrumbs=array(
     '学术成果'=>array('index'),

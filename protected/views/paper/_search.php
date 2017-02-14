@@ -70,7 +70,7 @@ $projects = Project::model()->findAllBySql('SELECT * FROM `tbl_project` ORDER BY
             <div class="clearfix"></div>
             <input id="category" name="category" type="text" style="float: left; width:220px;" placeholder="输入类别或在右侧选择" value="<?php echo isset($now_criteria['category']) ? $now_criteria['category'] : ''?>">
             <select id="category_list" name="category_list" class="category_list" style="float: left; width:220px; margin-left: 5px;" onchange="document.getElementById('category').value = this.value;">
-                <option value="">选择或输入类别</option>
+                <option value="">选择类别</option>
                 <?php
                 $hasSelected = isset($model->category);
                 $categories = CHtml::listData(Paper::model()->findAll(),'category', 'category');

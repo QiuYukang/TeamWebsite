@@ -304,7 +304,6 @@ class PaperController extends Controller
         }
         if(isset($_GET['order']) && $_GET['order'] == 2) { //选择了按最新更新时间排序
             $order .= 't.last_update_date DESC ,'; //按最后更新时间排序
-            array_push($fileName, '按最后更新时间排序');
             $now_criteria['order'] = 2;
         } else if(isset($_GET['order']) && $_GET['order'] == 1) { //选择了按作者顺序排序
             if(isset($_GET['author']) && $_GET['author']) { //且选择了作者
