@@ -184,18 +184,6 @@ $offset = ($page-1) * $page_size;
     </div>
 </div>
 
-<script>
-    function firm() {
-        if(confirm("您确定要清空论文吗？")) {
-            location.href = 'index.php?r=paper/clear';
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-</script>
-
 <?php
 //yii框架生成表格，已废弃，前台重写
 //$this->widget('zii.widgets.CListView', array(

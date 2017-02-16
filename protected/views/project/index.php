@@ -188,16 +188,6 @@ $offset = ($page-1) * $page_size;
 
 
 <script>
-    function firm() {
-        if(confirm("您确定要清空科研项目吗？")) {
-            location.href = 'index.php?r=project/clear';
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
     function TestBlack(TagName){
         var obj = document.getElementById(TagName);
         if(obj.style.display==""){

@@ -187,16 +187,6 @@ $offset = ($page-1) * $page_size;
 
 
 <script>
-    function firm() {
-        if(confirm("您确定要清空专利吗？")) {
-            location.href = 'index.php?r=patent/clear';
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
     function TestBlack(TagName){
         var obj = document.getElementById(TagName);
         if(obj.style.display==""){
