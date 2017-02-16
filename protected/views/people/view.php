@@ -53,7 +53,7 @@ $this->breadcrumbs=array(
                 'value'=>$model->getPatentsWithLink() ? $model->getPatentsWithLink() : '无',
             ),
             array(
-                'label'=>'专著',
+                'label'=>'著作',
                 'type'=>'raw',
                 'value'=>$model->getPublicationsWithLink() ? $model->getPublicationsWithLink() : '无',
             ),

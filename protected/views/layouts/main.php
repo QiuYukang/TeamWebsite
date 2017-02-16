@@ -141,7 +141,7 @@
                     </li>
                     <li class="sub-navi-li ">
                         <a href=<?php echo $auth ? "index.php?r=publication/admin" : "index.php?r=publication/index"; ?> class="subTitle">
-                            专著
+                            著作
                         </a>
 
                     </li>

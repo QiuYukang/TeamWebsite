@@ -130,7 +130,7 @@ class PublicationController extends Controller
             $params[':people_id']=$_GET['author'];
             $now_criteria['author'] = $_GET['author'];
         } else {
-            array_push($fileName, "以团队编写");
+            //array_push($fileName, "以团队编写");
         }
 
         if(isset($_GET['start_date']) && $_GET['start_date'] && isset($_GET['end_date']) && $_GET['end_date']) {
@@ -191,20 +191,16 @@ class PublicationController extends Controller
             $now_criteria['category'] = $_GET['category'];
         }
         if(isset($_GET['order']) && $_GET['order'] == 2) { //选择了按最新更新时间排序
-            $order .= 'last_update_date DESC ,'; //按最后更新时间排序
-            array_push($fileName, '按最后更新时间排序');
+            $order .= 't.last_update_date DESC ,'; //按最后更新时间排序
             $now_criteria['order'] = 2;
         } else if(isset($_GET['order']) && $_GET['order'] == 1) { //选择了按作者顺序排序
             if(isset($_GET['author']) && $_GET['author']) { //且选择了作者
                 $order .= 'peoples_peoples_.seq ,'; //首先按作者顺序排序
-                array_push($fileName, '按作者顺序排序');
                 $now_criteria['order'] = 1;
             } else { //没选择作者就按时间排序
-                array_push($fileName, '按时间排序');
                 $now_criteria['order'] = 0;
             }
         } else {
-            array_push($fileName, '按时间排序');
             $now_criteria['order'] = 0;
         }
 
@@ -234,10 +230,24 @@ class PublicationController extends Controller
                 }
             }
             $dataProvider->setData($incomplete_data_arr);
-            $fileNameString .= '的信息不完整或有误的著作';
+            if(strlen($fileNameString) == 0) $fileNameString = '信息不完整或有误的著作';
+            else $fileNameString .= '的信息不完整或有误的著作';
             $now_criteria['incomplete'] = 1;
         } else {
-            $fileNameString .= '的全部著作';
+
+            if(strlen($fileNameString) == 0) $fileNameString = '著作';
+            else $fileNameString .= '的著作';
+        }
+        if(isset($_GET['order']) && $_GET['order'] == 2) { //选择了按最新更新时间排序
+            $fileNameString .= '（按最后更新时间排序）';
+        } else if(isset($_GET['order']) && $_GET['order'] == 1) { //选择了按作者顺序排序
+            if(isset($_GET['author']) && $_GET['author']) { //且选择了作者
+                $fileNameString .= '（按作者顺序排序）';
+            } else { //没选择作者就按时间排序
+                $fileNameString .= '（按时间排序）';
+            }
+        } else {
+            $fileNameString .= '（按时间排序）';
         }
 
         //var_dump($dataProvider);

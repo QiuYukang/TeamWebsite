@@ -65,7 +65,7 @@
                     <ul class="dropdown-menu">
                         <li><a href= "../index.php?r=paper/index">论文</a></li>
                         <li><a href="../index.php?r=patent">专利</a></li>
-                        <li><a href="../index.php?r=publication">专著</a></li>
+                        <li><a href="../index.php?r=publication">著作</a></li>
                         <li><a href="../index.php?r=software">软件著作权</a></li>
                     </ul>
                 </li>

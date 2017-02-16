@@ -24,7 +24,7 @@ $this->breadcrumbs=array(
         <ul class="cam-unstyled-list cam-current">
             <li class="cam-current-page"><a href="index.php?r=paper/admin" class="active-trail">论文</a></li>
             <li><a href="index.php?r=patent/admin">专利</a></li>
-            <li><a href="index.php?r=publication/admin">专著</a></li>
+            <li><a href="index.php?r=publication/admin">著作</a></li>
             <li><a href="index.php?r=software/admin">软件著作权</a></li>
         </ul>
     </div>

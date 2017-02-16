@@ -53,7 +53,7 @@ $offset = ($page-1) * $page_size;
         <ul class="cam-unstyled-list cam-current">
             <li class="cam-current-page"><a href="#" class="active-trail">论文</a></li>
             <li><a href=<?php echo $auth ? "index.php?r=patent/admin" : "index.php?r=patent/index"; ?>>专利</a></li>
-            <li><a href=<?php echo $auth ? "index.php?r=publication/admin" : "index.php?r=publication/index"; ?>>专著</a></li>
+            <li><a href=<?php echo $auth ? "index.php?r=publication/admin" : "index.php?r=publication/index"; ?>>著作</a></li>
             <li><a href=<?php echo $auth ? "index.php?r=software/admin" : "index.php?r=software/index"; ?>>软件著作权</a></li>
         </ul>
     </div>

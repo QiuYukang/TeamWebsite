@@ -105,17 +105,17 @@ $this->breadcrumbs=array(
                         'value'=>$model->getPatentsWithLink(Project::PATENT_ACHIEVEMENT) ? $model->getPatentsWithLink(Project::PATENT_ACHIEVEMENT) : '无',
                     ),
                     array(
-                        'label'=>'以其支助的专著',
+                        'label'=>'以其支助的著作',
                         'type'=>'raw',
                         'value'=>$model->getPublicationsWithLink(Project::PUBLICATION_FUND) ? $model->getPublicationsWithLink(Project::PUBLICATION_FUND) : '无',
                     ),
                     array(
-                        'label'=>'以其报账的专著',
+                        'label'=>'以其报账的著作',
                         'type'=>'raw',
                         'value'=>$model->getPublicationsWithLink(Project::PUBLICATION_REIM) ? $model->getPublicationsWithLink(Project::PUBLICATION_REIM) : '无'
                     ),
                     array(
-                        'label'=>'以其成果的专著',
+                        'label'=>'以其成果的著作',
                         'type'=>'raw',
                         'value'=>$model->getPublicationsWithLink(Project::PUBLICATION_ACHIEVEMENT) ? $model->getPublicationsWithLink(Project::PUBLICATION_ACHIEVEMENT) : '无',
                     ),
