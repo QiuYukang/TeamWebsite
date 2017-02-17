@@ -2,8 +2,8 @@
 /* @var $this PublicationController */
 /* @var $model Publication */
 
-//面包屑
 $this->pageTitle=Yii::app()->name . ' - 添加著作';
+//面包屑
 $this->breadcrumbs=array(
     '学术成果'=>array('paper/index'),
     '著作'=>array('index'),

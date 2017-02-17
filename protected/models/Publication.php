@@ -180,7 +180,7 @@ class Publication extends CActiveRecord
         }
 
         $this->last_update_date = date('y-m-d', time()); //最后更新时间
-        
+
         return parent::beforeSave();
     }
 

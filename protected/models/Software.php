@@ -143,7 +143,7 @@ class Software extends CActiveRecord
 			'fund_projects'=>'支助项目',
 			'reim_projects'=>'报账项目',
 			'achievement_projects'=>'成果项目',
-            'save_file' => '论文文件',
+            'save_file' => '软件著作权资料',
 		);
 	}
 
@@ -553,7 +553,7 @@ class Software extends CActiveRecord
             $info[] = '*软件著作应至少存在一个报账项目';
         }
         if(empty($this->maintainer_id)) {
-            $info[] = '*论文应存在维护人';
+            $info[] = '*软件著作权应存在维护人';
         }
 
         if(count($info) == 0) {
