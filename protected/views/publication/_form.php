@@ -42,22 +42,22 @@ $projects = Project::model()->findAllBySql('SELECT * FROM `tbl_project` ORDER BY
     </div>
 
     <div class="row">
-        <div class="medium-3 columns">
+        <div class="columns" style="width: 200px">
             <?php echo $form->labelEx($model,'press'); ?>
             <?php echo $form->textField($model,'press',array('maxlength'=>255)); ?>
             <?php echo $form->error($model,'press'); ?>
         </div>
-        <div class="medium-3 columns end">
+        <div class="columns" style="width: 160px">
             <?php echo $form->labelEx($model,'isbn_number'); ?>
             <?php echo $form->textField($model,'isbn_number',array('maxlength'=>255)); ?>
             <?php echo $form->error($model,'isbn_number'); ?>
         </div>
-        <div class="medium-3 columns">
+        <div class="columns">
             <label for="category">类别</label>
-            <div style="position:relative;">
-        <span style="margin-left:100px;width:20px;overflow:hidden;">
-            <select id="category_list" name="category_list" class="category_list" style="width:265px;margin-left:-100px" onchange="document.getElementById('category').value = this.value;">
-                <option value="">选择或输入类别</option>
+            <div class="clearfix"></div>
+            <input id="category" name="category" type="text" style="float: left; width:180px;" placeholder="输入类别或在右侧选择" value="<?php echo isset($model->category) ? $model->category : ''?>">
+            <select id="category_list" name="category_list" class="category_list" style="float: left; width:180px; margin-left: 10px;" onchange="document.getElementById('category').value = this.value;">
+                <option value="">选择类别</option>
                 <?php
                 $hasSelected = isset($model->category);
                 $categories = CHtml::listData(Publication::model()->findAll(),'category', 'category');
@@ -71,28 +71,26 @@ $projects = Project::model()->findAllBySql('SELECT * FROM `tbl_project` ORDER BY
                 }
                 ?>
             </select>
-            <input id="category" name="category" style="width:247px;height:26px;position:absolute;left:0px;" placeholder="&nbsp;&nbsp;选择或输入类别" value="<?php echo isset($model->category) ? $model->category : ''?>">
-            </div>
         </div>
 
-        <div class="medium-3 columns end" id="pub_date">
+        <div class="columns" style="width: 160px">
             <?php echo $form->labelEx($model,'pub_date'); ?>
-            <?php echo $form->textField($model,'pub_date',array('placeholder'=>'日期格式: yyyy-mm-dd')); ?>
+            <?php echo $form->textField($model,'pub_date',array('placeholder'=>'yyyy-mm-dd')); ?>
             <?php echo $form->error($model,'pub_date'); ?>
         </div>
+        <div class="clearfix"></div>
     </div>
 
-    <div class="row" id="authors">
+    <div class="row">
         <?php
         //peoples是关联项，因此使用html写，update时可以直接从peoples中获得数据显示在页面上，保存时通过POST向create/update控制器传值，控制器将值存入save_peoples_id项，再调用save()储存people信息
         $authors = $model->peoples;
         //var_dump($authors);
         for($i=0;$i<8;$i++) {
-            if($i == 3 || $i == 7) echo '<div class="medium-3 columns end" id="author">';
-            else echo '<div class="medium-3 columns" id="author">';
+            echo '<div class="columns" style="width: 223px">';
 
             echo $form->label($model,'发明人'.($i+1));
-            $select = '<select name="Publication[peoples]['.$i.']">';
+            $select = '<select style="width: 100%" name="Publication[peoples]['.$i.']">';
             $select .= '<option value="-1">选择发明人</option>';
             foreach($peoples as $p) {
                 $selected = "";
@@ -104,21 +102,25 @@ $projects = Project::model()->findAllBySql('SELECT * FROM `tbl_project` ORDER BY
             echo $select;
 
             echo '</div>';
-            if($i == 3) echo '</div><div class="row" id="authors">';
+            if($i == 3) {
+                echo '<div class="clearfix"></div>';
+                echo '</div>';
+                echo '<div class="row">';
+            }
         }
         ?>
+        <div class="clearfix"></div>
     </div>
 
-    <div class="row" id="fund_projects">
+    <div class="row">
         <?php
         //projects是关联项，因此使用html写，update时可以直接从projects中获得数据显示在页面上，保存时通过POST向create/update控制器传值，控制器将值存入save_projects_id项，再调用save()储存projects信息
         $fund_projects = $model->fund_projects;
         for($i=0;$i<6;$i++) {
-            if($i == 2 || $i== 5) echo '<div class="medium-4 columns end">';
-            else echo '<div class="medium-4 columns">';
+            echo '<div class="columns" style="width: 456px">';
 
             echo $form->label($model,'支助项目'.($i+1));
-            $select = '<select name="Project[fund_projects]['.$i.']">';
+            $select = '<select style="width: 100%" name="Project[fund_projects]['.$i.']">';
             $select .= '<option value="-1">无</option>';
             foreach($projects as $p) {
                 $selected = "";
@@ -130,19 +132,24 @@ $projects = Project::model()->findAllBySql('SELECT * FROM `tbl_project` ORDER BY
             echo $select;
 
             echo '</div>';
-            if($i == 2) echo '</div><div class="row">';
+            if($i == 1 || $i == 3) {
+                echo '<div class="clearfix"></div>';
+                echo '</div>';
+                echo '<div class="row">';
+            }
         }
         ?>
+        <div class="clearfix"></div>
     </div>
-    <div class="row" id="reim_projects">
+
+    <div class="row">
         <?php
         $reim_projects = $model->reim_projects;
         for($i=0;$i<2;$i++) {
-            if($i== 1) echo '<div class="medium-4 columns end">';
-            else echo '<div class="medium-4 columns">';
+            echo '<div class="columns" style="width: 456px">';
 
             echo $form->label($model,'报账项目'.($i+1));
-            $select = '<select name="Project[reim_projects]['.$i.']">';
+            $select = '<select style="width: 100%" name="Project[reim_projects]['.$i.']">';
             $select .= '<option value="-1">无</option>';
             foreach($projects as $p) {
                 $selected = "";
@@ -156,16 +163,17 @@ $projects = Project::model()->findAllBySql('SELECT * FROM `tbl_project` ORDER BY
             echo '</div>';
         }
         ?>
+        <div class="clearfix"></div>
     </div>
-    <div class="row" id="achievement_projects">
+
+    <div class="row">
         <?php
         $achievement_projects = $model->achievement_projects;
         for($i=0;$i<5;$i++) {
-            if($i == 4 || $i== 2) echo '<div class="medium-4 columns end">';
-            else echo '<div class="medium-4 columns">';
+            echo '<div class="columns" style="width: 456px">';
 
             echo $form->label($model,'成果项目'.($i+1));
-            $select = '<select name="Project[achievement_projects]['.$i.']">';
+            $select = '<select style="width: 100%" name="Project[achievement_projects]['.$i.']">';
             $select .= '<option value="-1">无</option>';
             foreach($projects as $p) {
                 $selected = "";
@@ -177,30 +185,37 @@ $projects = Project::model()->findAllBySql('SELECT * FROM `tbl_project` ORDER BY
             echo $select;
 
             echo '</div>';
-            if($i == 2) echo '</div><div class="row">';
+            if($i == 1 || $i == 3) {
+                echo '<div class="clearfix"></div>';
+                echo '</div>';
+                echo '<div class="row">';
+            }
         }
         ?>
+        <div class="clearfix"></div>
     </div>
 
-    <div class="row" id="description">
-        <div class="medium-12 columns end">
+    <div class="row">
+        <div class="columns" style="width: 920px;">
             <?php echo $form->labelEx($model,'description'); ?>
             <?php echo $form->textArea($model,'description',array('size'=>120,'maxlength'=>500)); ?>
             <?php echo $form->error($model,'description'); ?>
         </div>
+        <div class="clearfix"></div>
     </div>
 
-    </br>
-    <div class="row buttons">
-        <div class="medium-12 columns end">
+    <div class="row">
+        <div class="columns" style="width: 100%; margin-top: 10px">
             <?php
             //依model是否为新对象判断该表单用于创建还是编辑，使用不同的按钮和返回URL
             echo CHtml::submitButton(
                 $model->isNewRecord ? '添加' : '保存',
                 array('class' => 'btn btn-default')
             ); ?>
+            &nbsp;
             <input type="button" value="返回" class="btn btn-default" onclick="location='<?php echo $model->isNewRecord ? Yii::app()->controller->createUrl("admin") : Yii::app()->controller->createUrl("view",array("id"=>$model->id)); ?>'"/>
         </div>
+        <div class="clearfix"></div>
     </div>
 
     <?php $this->endWidget(); ?>
@@ -218,14 +233,7 @@ $projects = Project::model()->findAllBySql('SELECT * FROM `tbl_project` ORDER BY
 
         });
         //下拉框搜索
-        $('select').select2({
-            width: 'resolve'
-//                matcher: function(term,text) {
-//                    var pinyin = new Pinyin();
-//                    var mod=pinyin.getCamelChars(text.toUpperCase());
-//                    return mod.indexOf(term.toUpperCase())==0;
-//                }
-        });
+        $('select').select2();
     </script>
 
 
