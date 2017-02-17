@@ -31,7 +31,7 @@ $peoples = People::model()->findAllBySql('SELECT * FROM `tbl_people` ORDER BY `p
 
 
     <div class="row">
-        <div class="columns" style="width: 920px" id="name">
+        <div class="columns" style="width: 920px">
             <?php echo $form->labelEx($model,'name'); ?>
             <?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>500)); ?>
             <?php echo $form->error($model,'name'); ?>

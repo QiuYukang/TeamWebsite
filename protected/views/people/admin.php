@@ -73,11 +73,10 @@ if(isset(Yii::app()->user->is_admin) && Yii::app()->user->is_admin) {
                         if($blank != 10) {
                             while($blank--) echo '<td></td>';
                         }
+                        echo '</tr></tbody></table><table class="index-table index-table-hover"><tbody><tr>';
                         $cnt = 0;
                         $pos = $data->position;
-                    }
-
-                    if(($cnt % 10) == 0) {
+                    } else if(($cnt % 10) == 0) {
                         echo '</tr><tr>';
                     }
                     echo '<td>'.CHtml::link(CHtml::encode($data->name), array('people/view', 'id'=>$data->id)).'</td>';
