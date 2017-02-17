@@ -210,15 +210,16 @@ $projects = Project::model()->findAllBySql('SELECT * FROM `tbl_project` ORDER BY
     </div>
 
     <div class="row">
-        <div class="columns" style="width: 125px">
+        <div class="columns" style="width: 223px">
             <?php
-
             //$maintainer = $model->maintainer;
             echo $form->label($model,'维护人员');
-            $listData = CHtml::listData($peoples,'id','name');
-            $listData = array(null => '选择人员')+$listData; //维护人员没有进行后续处理，因此“选择维护人员”这里必须为null不能为-1之类
-            //var_dump(($listData));
-            echo $form->dropDownList($model,'maintainer_id',$listData,array('style'=>'width: 100%'));
+            $maintainerData = array(null => '选择维护人员'); //维护人员没有进行后续处理，因此“选择维护人员”这里必须为null不能为-1之类
+            foreach($peoples as $p) {
+                $maintainerData = $maintainerData + array($p->id => $p->getContentToList());
+            }
+            //var_dump(($maintainerData));
+            echo $form->dropDownList($model,'maintainer_id',$maintainerData,array('style'=>'width: 100%'));
             ?>
         </div>
         <div class="clearfix"></div>
