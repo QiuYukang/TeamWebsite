@@ -8,121 +8,148 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<div style="position:relative">
-    <img src="images/lang1.jpg" alt="" />
-    <div style="position:absolute;z-indent:2;left:0;top:0;">
-        <br>
-        <h2>用户管理</h2>
+<?php
+$authStrArr=null;
+$auth = false;
+if(isset(Yii::app()->user->is_user) && Yii::app()->user->is_user) {
+    $authStrArr = '普通用户';
+    $auth = true;
+}
+if(isset(Yii::app()->user->is_manager) && Yii::app()->user->is_manager) {
+    $authStrArr = '管理员';
+    $auth = true;
+}
+if(isset(Yii::app()->user->is_admin) && Yii::app()->user->is_admin) {
+    $authStrArr = '超级管理员';
+    $auth = true;
+}
+?>
+<?php $user = Yii::app()->user; ?>
+
+<?php
+$arr_admin = array();
+$arr_manager = array();
+$arr_user = array();
+foreach($dataProvider->getData() as $data) {
+    if($data->id == Yii::app()->user->id) continue;
+    if($data->is_admin == 1) $arr_admin[] = $data;
+    if($data->is_manager == 1) $arr_manager[] = $data;
+    if($data->is_user == 1) $arr_user[] = $data;
+}
+
+?>
+
+<div class="cam-page-header">
+    <div class="cam-wrap clearfix cam-page-sub-title cam-recessed-sub-title">
+        <div class="cam-column">
+            <div class="cam-content-container">
+                <h1 class="cam-sub-title">
+                    用户管理 Manage user
+                </h1>
+            </div>
+        </div>
     </div>
 </div>
+<div class="cam-content cam-recessed-content">
+    <div class="cam-wrap clearfix">
+        <ul class="index-list">
+            <?php if(isset($user->is_admin) && $user->is_admin) { ?>
+                <li><a href="index.php?r=user/create" style="width: 160px">添加用户</a></li>
+                <li><a href="index.php?r=user/upload">导入用户数据表</a></li>
+                <li><a href="index.php?r=user/clear">清空用户</a></li>
+            <?php } ?>
+        </ul>
+        <div class="clearfix"></div>
+        <div class="index-content">
+            <p style="margin-bottom: 5px">您当前登陆的超级管理员用户如下，为了保证用户中至少有一个超级管理员权限，您不能修改或删除当前登录的用户。</p>
+            <table class="index-table index-table-hover">
+                <tbody>
+                    <tr></tr>
+                    <tr>
+                        <td><?php echo Yii::app()->user->name; ?></td>
+                    </tr>
+                </tbody>
+            </table>
 
-<?php
-$user = Yii::app()->user;
-if(isset($user->is_admin) && $user->is_admin || isset($user->is_manager) && $user->is_manager) {
-    echo CHtml::link('添加用户', 'index.php?r=user/create', array('class' => 'btn btn-primary'));
-}
-if(isset($user->is_admin) && $user->is_admin) {
-    echo '&nbsp;&nbsp;';
-    echo CHtml::link('清空用户', 'index.php?r=user/clear', array('class' => 'btn btn-primary', 'onclick' => 'return clear_firm()'));
-}
-if(isset($user->is_admin) && $user->is_admin || isset($user->is_manager) && $user->is_manager) {
-    echo '&nbsp;&nbsp;';
-    echo CHtml::link('导入用户数据表', 'index.php?r=user/upload', array('class' => 'btn btn-primary'));
+            <?php if(count($arr_admin) != 0) { ?>
+            <p style="margin-bottom: 5px">其他超级管理员用户如下，点击修改其用户的用户名和密码。</p>
+            <table class="index-table index-table-hover">
+                <tbody>
+                <?php
+                echo '<tr>';
+                $cnt = 0;
+                foreach($arr_admin as $data) {
+                    if(($cnt % 10) == 0) {
+                        echo '</tr><tr>';
+                    }
+                    echo '<td width="10%">'.CHtml::link(CHtml::encode($data->username), array('user/update', 'id'=>$data->id)).'</td>';
+                    $cnt++;
+                }
+                //用空白补充一行剩下的
+                $blank = 10 - count($arr_admin) % 10;
+                if($blank != 10) {
+                    while($blank--) echo '<td width="10%"></td>';
+                }
+                echo '</tr>';
+                ?>
+                </tbody>
+            </table>
+            <?php } else { ?>
+            <p style="margin: -10px 0 15px 0">暂时没有其他超级管理员用户。</p>
+            <?php } ?>
 
-}
+            <?php if(count($arr_manager) != 0) { ?>
+            <p style="margin-bottom: 5px">所有管理员用户如下，点击修改其用户的用户名和密码。</p>
+            <table class="index-table index-table-hover">
+                <tbody>
+                <?php
+                echo '<tr>';
+                $cnt = 0;
+                foreach($arr_manager as $data) {
+                    if(($cnt % 10) == 0) {
+                        echo '</tr><tr>';
+                    }
+                    echo '<td width="10%">'.CHtml::link(CHtml::encode($data->username), array('user/update', 'id'=>$data->id)).'</td>';
+                    $cnt++;
+                }
+                //用空白补充一行剩下的
+                $blank = 10 - count($arr_manager) % 10;
+                if($blank != 10) {
+                    while($blank--) echo '<td width="10%"></td>';
+                }
+                echo '</tr>';
+                ?>
+                </tbody>
+            </table>
+            <?php } ?>
 
-?>
-
-<br><br><br>
-
-<?php
-    $arr_admin = array();
-    $arr_manager = array();
-    $arr_user = array();
-    foreach($dataProvider->getData() as $data) {
-        if($data->id == Yii::app()->user->id) continue;
-        if($data->is_admin == 1) $arr_admin[] = $data;
-        if($data->is_manager == 1) $arr_manager[] = $data;
-        if($data->is_user == 1) $arr_user[] = $data;
-    }
-
-?>
-
-<p>您登陆的用户(超级管理员权限)： <?php echo Yii::app()->user->name; ?></p>
-
-<br/>
-
-<p>其余超级管理员权限： <?php if(count($arr_admin) == 0) echo '无'; ?></p>
-<table class="table table-striped">
-    <tbody>
-    <?php
-    echo '<tr>';
-    $cnt = 0;
-    foreach($arr_admin as $data) {
-        if(($cnt % 10) == 0) {
-            echo '</tr><tr>';
-        }
-        echo '<td width="10%">'.CHtml::link(CHtml::encode($data->username), array('user/update', 'id'=>$data->id)).'</td>';
-        $cnt++;
-    }
-    //用空白补充一行剩下的
-    $blank = 10 - count($arr_admin) % 10;
-    if($blank != 10) {
-        while($blank--) echo '<td width="10%"></td>';
-    }
-    echo '</tr>';
-    ?>
-    </tbody>
-</table>
-
-
-<p>管理员权限： <?php if(count($arr_manager) == 0) echo '无'; ?></p>
-<table class="table table-striped">
-    <tbody>
-    <?php
-    echo '<tr>';
-    $cnt = 0;
-    foreach($arr_manager as $data) {
-        if(($cnt % 10) == 0) {
-            echo '</tr><tr>';
-        }
-        echo '<td width="10%">'.CHtml::link(CHtml::encode($data->username), array('user/update', 'id'=>$data->id)).'</td>';
-        $cnt++;
-    }
-    //用空白补充一行剩下的
-    $blank = 10 - count($arr_manager) % 10;
-    if($blank != 10) {
-        while($blank--) echo '<td width="10%"></td>';
-    }
-    echo '</tr>';
-    ?>
-    </tbody>
-</table>
-
-
-<p>用户权限： <?php if(count($arr_user) == 0) echo '无'; ?></p>
-<table class="table table-striped">
-    <tbody>
-    <?php
-    echo '<tr>';
-    $cnt = 0;
-    foreach($arr_user as $data) {
-        if(($cnt % 10) == 0) {
-            echo '</tr><tr>';
-        }
-        echo '<td width="10%">'.CHtml::link(CHtml::encode($data->username), array('user/update', 'id'=>$data->id)).'</td>';
-        $cnt++;
-    }
-    //用空白补充一行剩下的
-    $blank = 10 - count($arr_user) % 10;
-    if($blank != 10) {
-        while($blank--) echo '<td width="10%"></td>';
-    }
-    echo '</tr>';
-    ?>
-    </tbody>
-</table>
-<hr/>
+            <?php if(count($arr_user) != 0) { ?>
+            <p style="margin-bottom: 5px">所有普通用户如下，点击修改其用户的用户名和密码。</p>
+            <table class="index-table index-table-hover">
+                <tbody>
+                <?php
+                echo '<tr>';
+                $cnt = 0;
+                foreach($arr_user as $data) {
+                    if(($cnt % 10) == 0) {
+                        echo '</tr><tr>';
+                    }
+                    echo '<td width="10%">'.CHtml::link(CHtml::encode($data->username), array('user/update', 'id'=>$data->id)).'</td>';
+                    $cnt++;
+                }
+                //用空白补充一行剩下的
+                $blank = 10 - count($arr_user) % 10;
+                if($blank != 10) {
+                    while($blank--) echo '<td width="10%"></td>';
+                }
+                echo '</tr>';
+                ?>
+                </tbody>
+            </table>
+            <?php } ?>
+        </div>
+    </div>
+</div>
 
 <script>
     function clear_firm() {

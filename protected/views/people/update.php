@@ -6,7 +6,7 @@ $this->pageTitle=Yii::app()->name . ' - 编辑团队成员';
 //面包屑
 $this->breadcrumbs=array(
     '团队成员'=>array('people/admin'),
-    $model->name,
+    $model->name=>array('view','id'=>$model->id),
     '编辑',
 );
 

@@ -61,8 +61,8 @@
             <?php } else { ?>
                 <li><p>你好，<?php echo Yii::app()->user->name."($authStrArr)"; ?></p></li>
                 <li>|</li>
-                <li><a href="#">修改密码</a></li>
-                <?php if(isset(Yii::app()->user->is_admin) && Yii::app()->user->is_admin) echo '<li><a href="#">用户管理</a></li>'; ?>
+                <li><a href="./index.php?r=user/setting">修改密码</a></li>
+                <?php if(isset(Yii::app()->user->is_admin) && Yii::app()->user->is_admin) echo '<li><a href="./index.php?r=user/admin">用户管理</a></li>'; ?>
                 <li><a href="./index.php?r=site/logout">登出</a></li>
 
             <?php } ?>
