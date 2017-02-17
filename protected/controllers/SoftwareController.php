@@ -129,7 +129,7 @@ class SoftwareController extends Controller
             $params[':people_id']=$_GET['author'];
             $now_criteria['author'] = $_GET['author'];
         } else {
-            array_push($fileName, "以团队申请");
+            //array_push($fileName, "以团队申请");
         }
         if(isset($_GET['maintainer']) && $_GET['maintainer']){
 //            $isByMaintainer = true;
@@ -198,24 +198,20 @@ class SoftwareController extends Controller
             $now_criteria['achievement_project'] = $_GET['achievement_project'];
         }
         if(isset($_GET['order']) && $_GET['order'] == 2) { //选择了按最新更新时间排序
-            $order .= 'last_update_date DESC ,'; //按最后更新时间排序
-            array_push($fileName, '按最后更新时间排序');
+            $order .= 't.last_update_date DESC ,'; //按最后更新时间排序
             $now_criteria['order'] = 2;
         } else if(isset($_GET['order']) && $_GET['order'] == 1) { //选择了按作者顺序排序
             if(isset($_GET['author']) && $_GET['author']) { //且选择了作者
                 $order .= 'peoples_peoples_.seq ,'; //首先按作者顺序排序
-                array_push($fileName, '按作者顺序排序');
                 $now_criteria['order'] = 1;
             } else { //没选择作者就按时间排序
-                array_push($fileName, '按时间排序');
                 $now_criteria['order'] = 0;
             }
         } else {
-            array_push($fileName, '按时间排序');
             $now_criteria['order'] = 0;
         }
 
-        $fileNameString = implode(', ',$fileName);
+        $fileNameString = implode('，',$fileName);
 
         //var_dump($params);
         $criteria->params = $params;
@@ -246,10 +242,23 @@ class SoftwareController extends Controller
                 }
             }
             $dataProvider->setData($incomplete_data_arr);
-            $fileNameString .= '的信息不完整或有误的软件著作权';
+            if(strlen($fileNameString) == 0) $fileNameString = '信息不完整或有误的软件著作权';
+            else $fileNameString .= '的信息不完整或有误的软件著作权';
             $now_criteria['incomplete'] = 1;
         } else {
-            $fileNameString .= '的全部软件著作权';
+            if(strlen($fileNameString) == 0) $fileNameString = '软件著作权';
+            else $fileNameString .= '的软件著作权';
+        }
+        if(isset($_GET['order']) && $_GET['order'] == 2) { //选择了按最新更新时间排序
+            $fileNameString .= '（按最后更新时间排序）';
+        } else if(isset($_GET['order']) && $_GET['order'] == 1) { //选择了按作者顺序排序
+            if(isset($_GET['author']) && $_GET['author']) { //且选择了作者
+                $fileNameString .= '（按作者顺序排序）';
+            } else { //没选择作者就按时间排序
+                $fileNameString .= '（按时间排序）';
+            }
+        } else {
+            $fileNameString .= '（按时间排序）';
         }
 
         //var_dump($dataProvider);

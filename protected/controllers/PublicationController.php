@@ -204,7 +204,7 @@ class PublicationController extends Controller
             $now_criteria['order'] = 0;
         }
 
-        $fileNameString = implode(', ',$fileName);
+        $fileNameString = implode('，',$fileName);
 
         //var_dump($params);
         $criteria->params = $params;
