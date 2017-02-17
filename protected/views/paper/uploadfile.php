@@ -8,13 +8,13 @@
 //    array('label'=>'导出全部论文', 'url'=>array('exportAll')),
 //);
 
-$this->pageTitle=Yii::app()->name . ' - 导入论文原文';
+$this->pageTitle=Yii::app()->name . ' - 导入论文文件';
 //面包屑
 $this->breadcrumbs=array(
     '学术成果'=>array('paper/index'),
     '论文'=>array('index'),
     '管理'=>array('admin'),
-    '导入原文',
+    '导入文件',
 );
 
 ?>
@@ -32,7 +32,7 @@ $this->breadcrumbs=array(
         <div class="cam-column">
             <div class="cam-content-container">
                 <h1 class="cam-sub-title">
-                    导入论文原文 Upload paper file
+                    导入论文文件 Upload paper file
                 </h1>
             </div>
         </div>
@@ -43,7 +43,7 @@ $this->breadcrumbs=array(
         <div class="index-content">
 
             <div class="create-upload">
-                <p>批量导入原文（上传文件，可多选，单次请勿超过50M）</p>
+                <p>批量导入文件（上传文件，可多选，单次请勿超过50M）</p>
                 <form action="" method="post" enctype="multipart/form-data">
                     <input type='text' name='textField' id='textField' class='file-txt' onfocus="this.blur()"/>
                     <div style="margin-top: 10px">

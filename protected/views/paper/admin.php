@@ -73,7 +73,7 @@ $offset = ($page-1) * $page_size;
             <?php if(isset($user->is_admin) && $user->is_admin || isset($user->is_manager) && $user->is_manager) { ?>
                 <li><a href="index.php?r=paper/create" style="width: 150px">添加论文</a></li>
                 <li><a href="index.php?r=paper/upload">导入论文数据表</a></li>
-                <li><a href="index.php?r=paper/uploadfile">导入论文原文</a></li>
+                <li><a href="index.php?r=paper/uploadfile">导入论文文件</a></li>
             <?php } ?>
             <?php if(isset($user->is_admin) && $user->is_admin) { ?>
                 <li><a href="index.php?r=paper/clear" style="width: 150px" onclick="return clear_firm()">清空论文</a></li>

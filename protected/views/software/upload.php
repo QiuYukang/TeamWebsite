@@ -6,42 +6,63 @@
  * Time: 下午2:52
  */
 
+$this->pageTitle=Yii::app()->name . ' - 导入软件著作权数据表';
 //面包屑
 $this->breadcrumbs=array(
     '学术成果'=>array('paper/index'),
     '软件著作权'=>array('index'),
     '管理'=>array('admin'),
-    '导入软件著作权数据表',
+    '导入数据表',
 );
 
 ?>
 
-<style>
-    .file-box{ position:relative;width:340px}
-    .file-txt{ height:22px; border:1px solid #cdcdcd; width:180px;}
-</style>
-
-<div style="position:relative">
-    <img src="images/lang1.jpg" alt="" />
-    <div style="position:absolute;z-indent:2;left:0;top:0;">
-        <h2>导入软件著作权数据表</h2>
-        <h4>请选择标准导入格式的Excel文件进行导入</h4>
+<div class="cam-page-header">
+    <div class="cam-wrap clearfix cam-local-navigation">
+        <ul class="cam-unstyled-list cam-current">
+            <li><a href="index.php?r=paper/admin">论文</a></li>
+            <li><a href="index.php?r=patent/admin">专利</a></li>
+            <li><a href="index.php?r=publication/admin">著作</a></li>
+            <li class="cam-current-page"><a href="index.php?r=software/admin" class="active-trail">软件著作权</a></li>
+        </ul>
+    </div>
+    <div class="cam-wrap clearfix cam-page-sub-title cam-recessed-sub-title">
+        <div class="cam-column">
+            <div class="cam-content-container">
+                <h1 class="cam-sub-title">
+                    导入软件著作权数据表 Upload software copyright data
+                </h1>
+            </div>
+        </div>
     </div>
 </div>
+<div class="cam-content cam-recessed-content">
+    <div class="cam-wrap clearfix">
+        <div class="index-content">
 
-<br/>
-
-<div class="file-box">
-    <form action="" method="post" enctype="multipart/form-data">
-        <input type='text' name='textField' id='textField' class='file-txt' onfocus="this.blur()"/>
-        <input type='button' class='btn btn-default' value='浏览...' onclick="document.getElementById('fileField').click()"/>
-        <input type="file" name="fileField" class="file" id="fileField" style="display: none;" onchange="document.getElementById('textField').value=getNameByPath(this.value)" />
-        <input type="submit" class="btn btn-default" value="上传文件" />
-        &nbsp;&nbsp;&nbsp;
-        <input type="button" value="下载标准导入格式文件" class="btn btn-default" onclick="location='index.php?r=paper/downloadformat'"/>
-    </form>
+            <div class="create-upload">
+                <p>批量添加（上传导入文件）</p>
+                <form action="" method="post" enctype="multipart/form-data">
+                    <input type='text' name='textField' id='textField' class='file-txt' onfocus="this.blur()"/>
+                    <div style="margin-top: 10px">
+                        <input type='button' class='btn btn-default' value='浏览...' style="float: left" onclick="document.getElementById('fileField').click()"/>
+                        <input type="file" name="fileField" class="file" id="fileField" style="display: none;" onchange="document.getElementById('textField').value=getNameByPath(this.value)" />
+                        <input type="submit" class="btn btn-default" value="上传文件" style="float: left; margin-left: 15px" />
+                        <input type="button" value="下载标准导入格式文件" class="btn btn-default" style="float: right" onclick="location='index.php?r=software/downloadformat'"/>
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+            <br/>
+            <p>小提示：</p>
+            <p>1. 请严格使用标准导入格式文件填写数据后导入，否则会出现不可预计的错误</p>
+            <p>2. 管理页面中导出的数据是标准导入格式文件，可以直接在上面修改后导入</p>
+            <p>3. 为保证链接关系，导入的文件中同一人员或软件著作权的人员名、软件著作权名等应该在多个文件中保持完全一致，包括标点符号</p>
+            <p>4. 为了保证项目、人员、论文间的链接关系，在数据库为空的时候应该按照导入人员->科研项目->论文/专利/著作/软件著作权的顺序导入</p>
+            <p>5. 更多说明请查看<a href="#" style="color: #2a959e">使用手册/开发者手册</a></p>
+        </div>
+    </div>
 </div>
-<br><br>
 
 
 <script>

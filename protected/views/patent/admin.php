@@ -66,7 +66,7 @@ $offset = ($page-1) * $page_size;
             <?php if(isset($user->is_admin) && $user->is_admin || isset($user->is_manager) && $user->is_manager) { ?>
                 <li><a href="index.php?r=patent/create" style="width: 150px">添加专利</a></li>
                 <li><a href="index.php?r=patent/upload">导入专利数据表</a></li>
-                <li><a href="index.php?r=patent/uploadfile">导入专利原文</a></li>
+                <li><a href="index.php?r=patent/uploadfile">导入专利文件</a></li>
             <?php } ?>
             <?php if(isset($user->is_admin) && $user->is_admin) { ?>
                 <li><a href="index.php?r=patent/clear" style="width: 150px" onclick="return clear_firm()">清空专利</a></li>
