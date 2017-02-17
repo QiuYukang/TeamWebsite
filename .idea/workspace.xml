@@ -58,7 +58,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_form.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="_form.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/protected/views/people/_form.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="228">
@@ -76,42 +76,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/protected/views/people/admin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="78" column="22" lean-forward="false" selection-start-line="78" selection-start-column="22" selection-end-line="78" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/views/project/create.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="41" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/views/people/create.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="18" column="42" lean-forward="false" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>index-content</find>
-      <find>信息</find>
       <find>$search_info</find>
       <find>row</find>
       <find>360</find>
@@ -140,6 +108,8 @@
       <find>专利</find>
       <find>getContentToList</find>
       <find>$listData</find>
+      <find>rules</find>
+      <find>为空</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -193,12 +163,12 @@
         <option value="$PROJECT_DIR$/protected/views/patent/_form.php" />
         <option value="$PROJECT_DIR$/protected/views/software/_form.php" />
         <option value="$PROJECT_DIR$/protected/views/layouts/main.php" />
-        <option value="$PROJECT_DIR$/protected/models/People.php" />
         <option value="$PROJECT_DIR$/protected/views/people/view.php" />
         <option value="$PROJECT_DIR$/protected/views/people/create.php" />
         <option value="$PROJECT_DIR$/protected/views/project/_form.php" />
         <option value="$PROJECT_DIR$/protected/views/people/_form.php" />
         <option value="$PROJECT_DIR$/protected/views/people/admin.php" />
+        <option value="$PROJECT_DIR$/protected/models/People.php" />
       </list>
     </option>
   </component>
@@ -623,12 +593,12 @@
       <workItem from="1486828728476" duration="3437000" />
       <workItem from="1487041473665" duration="10702000" />
       <workItem from="1487242028335" duration="9839000" />
-      <workItem from="1487300447986" duration="19213000" />
+      <workItem from="1487300447986" duration="19794000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198903000" />
+    <option name="totallyTimeSpent" value="199484000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -970,14 +940,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/Patent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="585" column="35" lean-forward="false" selection-start-line="585" selection-start-column="35" selection-end-line="585" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/models/Software.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="118">
@@ -1117,14 +1079,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/People.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="24" column="39" lean-forward="false" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/patent/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="381">
@@ -1224,6 +1178,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/People.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="54" column="54" lean-forward="false" selection-start-line="54" selection-start-column="54" selection-end-line="54" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/Patent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="78" column="59" lean-forward="false" selection-start-line="78" selection-start-column="36" selection-end-line="78" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/people/admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-33">
+          <caret line="78" column="49" lean-forward="true" selection-start-line="78" selection-start-column="49" selection-end-line="78" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/people/_form.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -1237,14 +1215,6 @@
             <marker date="1487322992861" expanded="true" signature="147:227" ph="SELECT * FRO... tbl_people" />
             <marker date="1487322992861" expanded="true" signature="297:350" ph="SELECT * FRO... tbl_project" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/people/admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="78" column="22" lean-forward="false" selection-start-line="78" selection-start-column="22" selection-end-line="78" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>

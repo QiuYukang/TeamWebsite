@@ -52,7 +52,7 @@ class People extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name', 'required'),
+			array('name', 'required', 'message'=>'成员姓名不能为空'),
             array('email', 'email'),
 			array('name, name_en, number, email', 'length', 'max'=>255),
             array('position', 'numerical', 'integerOnly'=>true),
