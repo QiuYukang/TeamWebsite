@@ -56,7 +56,7 @@ foreach($dataProvider->getData() as $data) {
             <?php if(isset($user->is_admin) && $user->is_admin) { ?>
                 <li><a href="index.php?r=user/create" style="width: 160px">添加用户</a></li>
                 <li><a href="index.php?r=user/upload">导入用户数据表</a></li>
-                <li><a href="index.php?r=user/clear">清空用户</a></li>
+                <li><a href="index.php?r=user/clear" onclick="return clear_firm()">清空用户</a></li>
             <?php } ?>
         </ul>
         <div class="clearfix"></div>
