@@ -80,8 +80,8 @@ $offset = ($page-1) * $page_size;
         </div>
         <div class="index-content">
             <?php
-            echo "<p>在团队数据库中，".$search_info."一共有 $data_count 个";
-            echo $data_count == 0 ? "。</p>" : "，当前页显示第 ".($offset + 1)." - ".min( $offset + $page_size, $data_count)." 个，共 $page_count 页。";
+            echo "<p>在团队数据库中，".$search_info."一共有 $data_count 篇";
+            echo $data_count == 0 ? "。</p>" : "，当前页显示第 ".($offset + 1)." - ".min( $offset + $page_size, $data_count)." 篇，共 $page_count 页。";
             if($data_count == 0) {
                 echo '<img style="margin: 10px 0 20px 0;" src="'.Yii::app()->request->baseUrl.'/images/no_data.png"/>';
             } else {
