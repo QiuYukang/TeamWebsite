@@ -72,7 +72,7 @@ class PeopleController extends Controller
         header('Content-Transfer-Encoding: binary');
         header('Content-length: '.filesize($path));
         header('Content-Type: '.mime_content_type($path));
-        header('Content-Disposition: attachment; filename='.'人员标准导入格式.xlsx');
+        header('Content-Disposition: attachment; filename='.'成员标准导入格式.xlsx');
         echo file_get_contents($path);
     }
 
@@ -128,7 +128,7 @@ class PeopleController extends Controller
         header("Content-Type:application/octet-stream");
         header("Content-Type:application/download");;
         //$fileName = iconv('utf-8', "gb2312", $fileName);
-        header('Content-Disposition:attachment;filename="'.'团队全部人员'.'.xlsx"'); //文件名
+        header('Content-Disposition:attachment;filename="'.'团队全部成员'.'.xlsx"'); //文件名
         header("Content-Transfer-Encoding:binary");
         $objWriter->save('php://output'); exit;
     }

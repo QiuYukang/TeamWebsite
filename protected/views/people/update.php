@@ -2,23 +2,31 @@
 /* @var $this PeopleController */
 /* @var $model People */
 
+$this->pageTitle=Yii::app()->name . ' - 编辑团队成员';
 //面包屑
 $this->breadcrumbs=array(
-    '团队人员'=>array('people/admin'),
+    '团队成员'=>array('people/admin'),
     $model->name,
     '编辑',
 );
 
 ?>
 
-<div style="position:relative">
-    <img src="images/lang1.jpg" alt="" />
-    <div style="position:absolute;z-indent:2;left:0;top:0;">
-        <br>
-        <h2>编辑人员</h2>
-        <h4><?php echo $model->name; ?></h4>
+<div class="cam-page-header">
+    <div class="cam-wrap clearfix cam-page-sub-title cam-recessed-sub-title">
+        <div class="cam-column">
+            <div class="cam-content-container">
+                <h1 class="cam-sub-title">
+                    编辑团队成员 Edit team member
+                </h1>
+            </div>
+        </div>
     </div>
 </div>
-
-
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<div class="cam-content cam-recessed-content">
+    <div class="cam-wrap clearfix">
+        <div class="index-content">
+            <?php $this->renderPartial('_form', array('model'=>$model)); ?>
+        </div>
+    </div>
+</div>

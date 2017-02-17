@@ -101,7 +101,7 @@ $this->breadcrumbs=array(
 
 <script>
     function firm() {
-        if(confirm("您确定要删除这个成员吗？")) {
+        if(confirm("您确定要删除这个团队成员吗？")) {
             location.href = '<?php echo Yii::app()->controller->createUrl("delete",array("id"=>$model->id)); ?>';
             return true;
         }
