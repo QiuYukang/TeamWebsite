@@ -72,7 +72,7 @@ foreach($dataProvider->getData() as $data) {
             </table>
 
             <?php if(count($arr_admin) != 0) { ?>
-            <p style="margin-bottom: 5px">其他超级管理员用户如下，点击修改其用户的用户名和密码。</p>
+            <p style="margin-bottom: 5px">其他超级管理员用户如下，点击修改其用户的相关信息。</p>
             <table class="index-table index-table-hover">
                 <tbody>
                 <?php
@@ -99,7 +99,7 @@ foreach($dataProvider->getData() as $data) {
             <?php } ?>
 
             <?php if(count($arr_manager) != 0) { ?>
-            <p style="margin-bottom: 5px">所有管理员用户如下，点击修改其用户的用户名和密码。</p>
+            <p style="margin-bottom: 5px">所有管理员用户如下，点击修改其用户的相关信息。</p>
             <table class="index-table index-table-hover">
                 <tbody>
                 <?php
@@ -124,7 +124,7 @@ foreach($dataProvider->getData() as $data) {
             <?php } ?>
 
             <?php if(count($arr_user) != 0) { ?>
-            <p style="margin-bottom: 5px">所有普通用户如下，点击修改其用户的用户名和密码。</p>
+            <p style="margin-bottom: 5px">所有普通用户如下，点击修改其用户的相关信息。</p>
             <table class="index-table index-table-hover">
                 <tbody>
                 <?php
