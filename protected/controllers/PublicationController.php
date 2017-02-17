@@ -66,7 +66,7 @@ class PublicationController extends Controller
             'Publication',
             array('sort'=>array(
                 'defaultOrder'=>array(
-                    'latest_date' => CSort::SORT_DESC, //依最新时间排序
+                    'pub_date' => CSort::SORT_DESC, //依最新时间排序
                 ),
 
             ),
@@ -379,7 +379,6 @@ class PublicationController extends Controller
 //                echo 'function actionUpload() succeeded.<hr />';
                 $this->redirect(array('admin'));
             }
-            else $this->redirect(array('pppp'));
         }
 
         $this->render('upload');

@@ -68,7 +68,7 @@ class Publication extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
             //所有字段在搜索场景时均不需验证
-			array('id, info, press, isbn_number, pub_date, category, description', 'safe', 'on'=>'search'),
+			array('id, info, press, isbn_number, pub_date, last_update_date, category, description', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -179,6 +179,8 @@ class Publication extends CActiveRecord
             }
         }
 
+        $this->last_update_date = date('y-m-d', time()); //最后更新时间
+        
         return parent::beforeSave();
     }
 
