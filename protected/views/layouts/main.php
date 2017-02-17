@@ -85,138 +85,131 @@
         ?>>
             <li class="sub">
                 <a href="index.php" class="navi-name">
-                    首页                    </a>
-
+                    首页
+                </a>
                 <div class="navi-line hide"></div>
             </li>
             <li class="sub">
                 <a href="index.php?r=site/introduction" class="navi-name">
-                    团队介绍                    </a>
-
+                    团队介绍
+                </a>
                 <div class="navi-line hide"></div>
             </li>
             <li class="sub">
                 <a href="index.php?r=site/direction" class="navi-name">
-                    科研                    </a>
-
+                    科研
+                </a>
                 <div class="navi-line hide"></div>
                 <ul class="nav-ul-ul">
                     <li class="sub-navi-li ">
                         <a href="index.php?r=site/direction" class="subTitle">
                             研究方向
                         </a>
-
                     </li>
                     <li class="sub-navi-li ">
                         <a href=<?php echo $auth ? "index.php?r=project/admin" : "index.php?r=project/index"; ?> class="subTitle">
                             科研项目
                         </a>
-
                     </li>
                     <li class="sub-navi-li ">
                         <a href="#" class="subTitle">
                             科研成果
                         </a>
-
                     </li>
                 </ul>
             </li>
             <li class="sub">
                 <a href=<?php echo $auth ? "index.php?r=paper/admin" : "index.php?r=paper/index"; ?> class="navi-name">
-                    学术成果                    </a>
-
+                    学术成果
+                </a>
                 <div class="navi-line hide"></div>
                 <ul class="nav-ul-ul">
                     <li class="sub-navi-li ">
                         <a href=<?php echo $auth ? "index.php?r=paper/admin" : "index.php?r=paper/index"; ?> class="subTitle">
                             论文
                         </a>
-
                     </li>
                     <li class="sub-navi-li ">
                         <a href=<?php echo $auth ? "index.php?r=patent/admin" : "index.php?r=patent/index"; ?> class="subTitle">
                             专利
                         </a>
-
                     </li>
                     <li class="sub-navi-li ">
                         <a href=<?php echo $auth ? "index.php?r=publication/admin" : "index.php?r=publication/index"; ?> class="subTitle">
                             著作
                         </a>
-
                     </li>
                     <li class="sub-navi-li ">
                         <a href=<?php echo $auth ? "index.php?r=software/admin" : "index.php?r=software/index"; ?> class="subTitle">
                             软件著作权
                         </a>
-
                     </li>
                 </ul>
             </li>
             <li class="sub">
                 <a href="#" class="navi-name">
-                    硕博培养                    </a>
-
+                    硕博培养
+                </a>
                 <div class="navi-line hide"></div>
                 <ul class="nav-ul-ul">
                     <li class="sub-navi-li ">
                         <a href="#" class="subTitle">
                             招生与就业
                         </a>
-
                     </li>
                     <li class="sub-navi-li ">
                         <a href="#" class="subTitle">
                             导师介绍
                         </a>
-
                     </li>
                     <li class="sub-navi-li ">
                         <a href="#" class="subTitle">
                             团队生活
                         </a>
-
                     </li>
                 </ul>
             </li>
             <li class="sub">
                 <a href="#" class="navi-name">
-                    教学                    </a>
-
+                    教学
+                </a>
                 <div class="navi-line hide"></div>
                 <ul class="nav-ul-ul">
                     <li class="sub-navi-li ">
                         <a href="#" class="subTitle">
                             教学课程
                         </a>
-
                     </li>
                     <li class="sub-navi-li ">
                         <a href="#" class="subTitle">
                             实验建设
                         </a>
-
                     </li>
                     <li class="sub-navi-li ">
                         <a href="#" class="subTitle">
                             教学成果
                         </a>
-
                     </li>
                     <li class="sub-navi-li ">
                         <a href="#" class="subTitle">
                             教改项目
                         </a>
-
                     </li>
                     <li class="sub-navi-li ">
                         <a href="#" class="subTitle">
                             教改论文
                         </a>
-
                     </li>
                 </ul>
             </li>
+            <?php if($auth) { ?>
+            <li class="sub">
+                <a href="index.php?r=people/admin" class="navi-name">
+                    团队成员
+                </a>
+                <div class="navi-line hide"></div>
+            </li>
+            <?php } ?>
         </ul>
     </div>
     <div class="clearfix"></div>
