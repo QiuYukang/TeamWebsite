@@ -1,5 +1,6 @@
 <?php
 
+$this->pageTitle=Yii::app()->name . ' - 修改密码';
 //面包屑
 $this->breadcrumbs=array(
     '修改密码',
@@ -26,7 +27,7 @@ $this->breadcrumbs=array(
                 'enableClientValidation'=>true,
                 'enableAjaxValidation'=>false,
             )); ?>
-
+            <p style="margin-bottom: 10px">您当前登录的用户是：<?php echo Yii::app()->user->name; ?>，请输入原密码和需要设置的新密码。</p>
             <div class="row">
                 <div class="columns" style="width: 320px;">
                     <?php echo $form->labelEx($model,'old_password'); ?>

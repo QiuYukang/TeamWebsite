@@ -2,6 +2,7 @@
 /* @var $this UserController */
 /* @var $model User */
 
+$this->pageTitle=Yii::app()->name . ' - 用户管理';
 //面包屑
 $this->breadcrumbs=array(
     '用户管理',
