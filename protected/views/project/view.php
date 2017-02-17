@@ -150,8 +150,8 @@ $this->breadcrumbs=array(
                     <input type="button" value="编辑" class="btn btn-default" onclick="location='<?php echo Yii::app()->controller->createUrl("update",array("id"=>$model->id)); ?>'"/>
                     &nbsp;
                     <input type="submit" class="btn btn-default" id="drop"  value="删除"/>
+                    &nbsp;
                 <?php } ?>
-                &nbsp;
                 <input type="button" class="btn btn-default" value="返回" onclick="location='<?php echo Yii::app()->controller->createUrl("admin"); ?>'"/>
             </form>
         </div>

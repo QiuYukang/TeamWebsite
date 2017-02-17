@@ -22,7 +22,7 @@ table.detail-view th, table.detail-view td
 table.detail-view th
 {
 	text-align: right;
-	width: 160px;
+	width: 120px;
 }
 
 table.detail-view tr.odd
