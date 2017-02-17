@@ -62,13 +62,16 @@ $offset = ($page-1) * $page_size;
 <div class="cam-content cam-recessed-content">
     <div class="cam-wrap clearfix">
         <ul class="index-list">
-            <li><a href="#" class="search search-info">查询与导出</a></li>
+            <li><a href="#" class="search search-info"
+            <?php if(isset($user->is_admin) && $user->is_admin || isset($user->is_manager) && $user->is_manager) { echo ' style="width: 140px"'; } ?>
+                >查询与导出</a></li>
             <?php if(isset($user->is_admin) && $user->is_admin || isset($user->is_manager) && $user->is_manager) { ?>
-                <li><a href="index.php?r=software/create">添加软件著作权</a></li>
-                <li><a href="index.php?r=software/upload">导入软件著作权</a></li>
+                <li><a href="index.php?r=software/create" style="width: 160px">添加软件著作权</a></li>
+                <li><a href="index.php?r=software/upload">导入软件著作权数据表</a></li>
+                <li><a href="index.php?r=software/uploadfile">导入软件著作权原文</a></li>
             <?php } ?>
             <?php if(isset($user->is_admin) && $user->is_admin) { ?>
-                <li><a href="index.php?r=software/clear" onclick="return clear_firm()">清空软件著作权</a></li>
+                <li><a href="index.php?r=software/clear" style="width: 150px" onclick="return clear_firm()">清空软件著作权</a></li>
                 <div class="clearfix"></div>
             <?php } ?>
         </ul>
