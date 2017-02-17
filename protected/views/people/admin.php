@@ -100,7 +100,7 @@ if(isset(Yii::app()->user->is_admin) && Yii::app()->user->is_admin) {
 
 <script>
     function clear_firm() {
-        if(confirm("您确定要清空人员吗？")) {
+        if(confirm("您确定要清空团队成员吗？")) {
             location.href = 'index.php?r=people/clear';
             return true;
         }
