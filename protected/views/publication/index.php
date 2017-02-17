@@ -77,10 +77,12 @@ $offset = ($page-1) * $page_size;
         <div class="index-content">
             <?php
             if($data_count == 0) {
-                echo "<p>团队数据库中暂时没有记载著作数据。</p>";
+                echo "<p>团队数据库中暂时没有记载著作数据";
+                echo $auth ? '。</p>' : '，更多操作请<a href="./index.php?r=site/login" style="color: #2a959e">登录</a>。</p>';
                 echo '<img style="margin: 10px 0 20px 0;" src="'.Yii::app()->request->baseUrl.'/images/no_data.png"/>';
             } else {
-                echo "<p>截止目前，团队数据库中共记录了 $data_count 篇著作，当前页显示第 ".($offset + 1)." - ".min( $offset + $page_size, $data_count)." 篇，共 $page_count 页。</p>";
+                echo "<p>截止目前，团队数据库中共记录了 $data_count 篇著作，当前页显示第 ".($offset + 1)." - ".min( $offset + $page_size, $data_count)." 篇，共 $page_count 页";
+                echo $auth ? '。</p>' : '，更多操作请<a href="./index.php?r=site/login" style="color: #2a959e">登录</a>。</p>';
                 ?>
                 <?php
                 //用于计算页码按钮上的显示

@@ -156,7 +156,7 @@ $offset = ($page-1) * $page_size;
                         <?php
                         //user权限不提供编辑和删除功能
                         if(isset($user->is_admin) && $user->is_admin || isset($user->is_manager) && $user->is_manager) { ?>
-                            <th width="8%">操作</th>
+                            <th style="width:80px;">操作</th>
                         <?php } ?>
                     </tr>
                     </thead>
