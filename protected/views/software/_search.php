@@ -39,7 +39,7 @@ $projects = Project::model()->findAllBySql('SELECT * FROM `tbl_project` ORDER BY
         <div class="columns" style="width: 220px">
             <label for="maintainer">维护人员</label>
             <select id="maintainer" name="maintainer">
-                <option value="-1">选择人员</option>
+                <option value="-1">选择维护人员</option>
                 <?php
                 $hasSelected = isset($now_criteria['maintainer']);
                 foreach($peoples as $p) {

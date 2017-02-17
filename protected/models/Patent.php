@@ -583,7 +583,7 @@ class Patent extends CActiveRecord
             $info[] = '*专利号为空';
         }
         if(count($this->peoples) == 0) {
-            $info[] = '*专利应至少有一个作者';
+            $info[] = '*专利应至少有一个申请人';
         }
         if($this->status == 0) {
             if(!(empty($this->auth_date))) {

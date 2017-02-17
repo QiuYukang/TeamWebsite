@@ -535,10 +535,10 @@ class Software extends CActiveRecord
     public function getIncompleteInfo($glue='<br/>') {
         $info = array();
         if(empty($this->name)) {
-            $info[] = '*著作权名称为空';
+            $info[] = '*软件著作权名称为空';
         }
         if(count($this->peoples) == 0) {
-            $info[] = '*软件著作应至少有一个申请人';
+            $info[] = '*软件著作权应至少有一个申请人';
         }
         if(empty($this->reg_number)) {
             $info[] = '*登记号为空';
@@ -550,7 +550,7 @@ class Software extends CActiveRecord
             $info[] = '*软件著作权资料不存在或未上传';
         }
         if(count($this->reim_projects) == 0) {
-            $info[] = '*软件著作应至少存在一个报账项目';
+            $info[] = '*软件著作权应至少存在一个报账项目';
         }
         if(empty($this->maintainer_id)) {
             $info[] = '*软件著作权应存在维护人';
