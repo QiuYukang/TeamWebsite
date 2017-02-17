@@ -7,41 +7,51 @@
  */
 
 
+$this->pageTitle=Yii::app()->name . ' - 导入用户';
 //面包屑
 $this->breadcrumbs=array(
     '用户管理'=>array('user/admin'),
-    '导入用户数据表',
+    '导入',
 );
 
 ?>
 
-<style>
-    .file-box{ position:relative;width:340px}
-    .file-txt{ height:22px; border:1px solid #cdcdcd; width:180px;}
-</style>
-
-<div style="position:relative">
-    <img src="images/lang1.jpg" alt="" />
-    <div style="position:absolute;z-indent:2;left:0;top:0;">
-        <h2>导入用户数据表</h2>
-        <h4>请选择标准导入格式的Excel文件进行导入</h4>
-        <h4>PS. 已登录的该用户不会被修改</h4>
+<div class="cam-page-header">
+    <div class="cam-wrap clearfix cam-page-sub-title cam-recessed-sub-title">
+        <div class="cam-column">
+            <div class="cam-content-container">
+                <h1 class="cam-sub-title">
+                    导入用户 Upload user
+                </h1>
+            </div>
+        </div>
     </div>
 </div>
+<div class="cam-content cam-recessed-content">
+    <div class="cam-wrap clearfix">
+        <div class="index-content">
 
-<br/>
-
-<div class="file-box">
-    <form action="" method="post" enctype="multipart/form-data">
-        <input type='text' name='textField' id='textField' class='file-txt' onfocus="this.blur()"/>
-        <input type='button' class='btn btn-default' value='浏览...' onclick="document.getElementById('fileField').click()"/>
-        <input type="file" name="fileField" class="file" id="fileField" style="display: none;" onchange="document.getElementById('textField').value=getNameByPath(this.value)" />
-        <input type="submit" class="btn btn-default" value="上传文件" />
-        &nbsp;&nbsp;&nbsp;
-        <input type="button" value="下载标准导入格式文件" class="btn btn-default" onclick="location='index.php?r=user/downloadformat'"/>
-    </form>
+            <div class="create-upload">
+                <p>批量添加（上传导入文件）</p>
+                <form action="" method="post" enctype="multipart/form-data">
+                    <input type='text' name='textField' id='textField' class='file-txt' onfocus="this.blur()"/>
+                    <div style="margin-top: 10px">
+                        <input type='button' class='btn btn-default' value='浏览...' style="float: left" onclick="document.getElementById('fileField').click()"/>
+                        <input type="file" name="fileField" class="file" id="fileField" style="display: none;" onchange="document.getElementById('textField').value=getNameByPath(this.value)" />
+                        <input type="submit" class="btn btn-default" value="上传文件" style="float: left; margin-left: 15px" />
+                        <input type="button" value="下载标准导入格式文件" class="btn btn-default" style="float: right" onclick="location='index.php?r=user/downloadformat'"/>
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+            <br/>
+            <p>小提示：</p>
+            <p>1. 为了保证用户安全，已登录的该用户不会被修改</p>
+            <p>2. 请严格使用标准导入格式文件填写数据后导入，否则会出现不可预计的错误</p>
+            <p>3. 更多说明请查看<a href="#" style="color: #2a959e">使用手册/开发者手册</a></p>
+        </div>
+    </div>
 </div>
-<br><br>
 
 
 <script>
@@ -53,7 +63,3 @@ $this->breadcrumbs=array(
 
 </script>
 
-<!--<form method="POST" enctype="multipart/form-data">-->
-<!--    <input type="file" name="spreedSheet" value="" />-->
-<!--    <input type="submit" value="上传文件" class="btn btn-primary"/>'-->
-<!--</form>-->

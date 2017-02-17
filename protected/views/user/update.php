@@ -2,22 +2,30 @@
 /* @var $this UserController */
 /* @var $model User */
 
+$this->pageTitle=Yii::app()->name . ' - 编辑用户';
 //面包屑
 $this->breadcrumbs=array(
     '用户管理'=>array('user/admin'),
-    $model->username,
+    '编辑用户',
 );
 
 ?>
 
-<div style="position:relative">
-    <img src="images/lang1.jpg" alt="" />
-    <div style="position:absolute;z-indent:2;left:0;top:0;">
-        <br>
-        <h2>修改或删除用户</h2>
-        <h4><?php echo $model->username; ?></h4>
+<div class="cam-page-header">
+    <div class="cam-wrap clearfix cam-page-sub-title cam-recessed-sub-title">
+        <div class="cam-column">
+            <div class="cam-content-container">
+                <h1 class="cam-sub-title">
+                    编辑用户 Edit user
+                </h1>
+            </div>
+        </div>
     </div>
 </div>
-
-
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<div class="cam-content cam-recessed-content">
+    <div class="cam-wrap clearfix">
+        <div class="index-content">
+            <?php $this->renderPartial('_form', array('model'=>$model)); ?>
+        </div>
+    </div>
+</div>

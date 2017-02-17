@@ -36,8 +36,8 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username', 'required', 'message'=>"用户名不能为空"),
-            array('password', 'required', 'message'=>"密码不能为空"),
+            //array('username', 'required', 'message'=>"用户名不能为空"),
+            //array('password', 'required', 'message'=>"密码不能为空"),
 			array('is_admin, is_manager, is_user', 'numerical', 'integerOnly'=>true),
 			array('username', 'length', 'max'=>30),
 			array('password', 'length', 'max'=>30),
@@ -46,11 +46,12 @@ class User extends CActiveRecord
             array('old_password', 'matchPassword', 'on' => 'setting'),
             array('repeat_password', 'compare', 'compareAttribute'=>'new_password', 'message'=>"两次密码不一致", 'on'=>'setting'),
             //创建用户场景下验证以下
-            array('username, password, repeat_password', 'required', 'message'=>"密码不能为空", 'on' => 'create'),
+            array('username', 'required', 'message'=>"用户名不能为空"),
+            array('password, repeat_password', 'required', 'message'=>"密码不能为空", 'on' => 'create'),
             array('username', 'existUsername', 'on' => 'create'),
             array('repeat_password', 'compare', 'compareAttribute'=>'password', 'message'=>"两次密码不一致", 'on'=>'create'),
             //修改用户场景下验证以下
-            array('username, password, repeat_password', 'required', 'message'=>"密码不能为空", 'on' => 'update'),
+            //array('username, password, repeat_password', 'required', 'message'=>"密码不能为空", 'on' => 'update'),
             array('repeat_password', 'compare', 'compareAttribute'=>'password', 'message'=>"两次密码不一致", 'on'=>'update'),
             //上传用户场景下
             array('username, password', 'required', 'message'=>"密码不能为空", 'on'=>'upload'),
@@ -128,7 +129,7 @@ class User extends CActiveRecord
     protected function beforeSave(){
         $this->trimAttribute();
         if($this->username == null || $this->username == '') return false; //对username做检查
-        if($this->password == null || $this->password == '') return false; //对password做检查
+//        if($this->password == null || $this->password == '') return false; //对password做检查
 //        if(User::model()->findByAttributes(array('username' => $this->username)) != null) return false; //有相同用户名存在则false
 
         if(!empty($this->is_user)) $this->is_user = 1;
@@ -154,7 +155,11 @@ class User extends CActiveRecord
 //        if($this->getIsNewRecord()) {
 //            $this->password = password_hash($this->password, PASSWORD_DEFAULT);
 //        }
-        $this->password = password_hash($this->password, PASSWORD_DEFAULT); //密码使用hash加密
+        if($this->password != null && $this->password != '') {
+            $this->password = password_hash($this->password, PASSWORD_DEFAULT); //密码使用hash加密
+        } else {
+            $this->password = User::model()->findByAttributes(array('username' => $this->username))->password;
+        }
 
         return parent::beforeSave();
     }
