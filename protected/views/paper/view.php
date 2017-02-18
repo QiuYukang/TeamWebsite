@@ -18,7 +18,7 @@ $this->breadcrumbs=array(
     '学术成果'=>array('paper/index'),
     '论文'=>array('index'),
     '管理'=>array('admin'),
-    substr($model->info, 0, 30).'...',
+    iconv_substr($model->info, 0, 30, "UTF-8"),
 );
 ?>
 
