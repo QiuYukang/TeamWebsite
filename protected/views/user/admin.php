@@ -63,18 +63,18 @@ foreach($dataProvider->getData() as $data) {
         <div class="clearfix"></div>
         <div class="index-content">
             <p style="margin-bottom: 5px">用户共有3种权限，超级管理员权限、管理员权限、普通用户权限。</p>
-            <p style="margin-bottom: 5px">您当前登陆的超级管理员用户如下，为了保证用户中至少有一个超级管理员权限，您不能修改或删除当前登录的用户。</p>
+            <p style="margin-bottom: 5px">您当前登陆的超级管理员用户如下，为了保证用户中至少有一个超级管理员权限，您不能删除当前登录的用户，点击修改密码。</p>
             <table class="index-table index-table-hover">
                 <tbody>
                     <tr></tr>
                     <tr>
-                        <td><?php echo Yii::app()->user->name; ?></td>
+                        <td><a href="index.php?r=user/setting"><?php echo Yii::app()->user->name; ?></a></td>
                     </tr>
                 </tbody>
             </table>
 
             <?php if(count($arr_admin) != 0) { ?>
-            <p style="margin-bottom: 5px">其他超级管理员用户如下，点击修改其用户的相关信息。</p>
+            <p style="margin-bottom: 5px">其他超级管理员用户如下，点击修改或删除用户。</p>
             <table class="index-table index-table-hover">
                 <tbody>
                 <?php
@@ -101,7 +101,7 @@ foreach($dataProvider->getData() as $data) {
             <?php } ?>
 
             <?php if(count($arr_manager) != 0) { ?>
-            <p style="margin-bottom: 5px">所有管理员用户如下，点击修改其用户的相关信息。</p>
+            <p style="margin-bottom: 5px">所有管理员用户如下，点击修改或删除用户。</p>
             <table class="index-table index-table-hover">
                 <tbody>
                 <?php
@@ -126,7 +126,7 @@ foreach($dataProvider->getData() as $data) {
             <?php } ?>
 
             <?php if(count($arr_user) != 0) { ?>
-            <p style="margin-bottom: 5px">所有普通用户如下，点击修改其用户的相关信息。</p>
+            <p style="margin-bottom: 5px">所有普通用户如下，点击修改或删除用户。</p>
             <table class="index-table index-table-hover">
                 <tbody>
                 <?php

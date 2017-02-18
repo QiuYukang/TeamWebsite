@@ -3,6 +3,7 @@
 $this->pageTitle=Yii::app()->name . ' - 修改密码';
 //面包屑
 $this->breadcrumbs=array(
+    '用户管理'=>array('user/admin'),
     '修改密码',
 );
 
@@ -27,7 +28,8 @@ $this->breadcrumbs=array(
                 'enableClientValidation'=>true,
                 'enableAjaxValidation'=>false,
             )); ?>
-            <p style="margin-bottom: 10px">您当前登录的用户是：<?php echo Yii::app()->user->name; ?>，请输入原密码和需要设置的新密码。</p>
+            <p>您当前登录的用户是：<?php echo Yii::app()->user->name; ?>，</p>
+            <p style="margin-bottom: 10px">请输入原密码和需要设置的新密码。</p>
             <div class="row">
                 <div class="columns" style="width: 320px;">
                     <?php echo $form->labelEx($model,'old_password'); ?>
@@ -57,7 +59,11 @@ $this->breadcrumbs=array(
             <br/>
 
             <div class="row buttons">
-                <?php echo CHtml::submitButton('提交',array('class'=>'btn btn-default')); ?>&nbsp;&nbsp;&nbsp;<?php echo empty($msg) ? '' : $msg; ?>
+                <?php echo CHtml::submitButton('提交',array('class'=>'btn btn-default')); ?>
+                &nbsp;
+                <input type="button" value="取消" class="btn btn-default" onclick="location='./index.php'"/>
+                &nbsp;
+                <?php echo empty($msg) ? '' : $msg; ?>
                 <div class="clearfix"></div>
             </div>
 
