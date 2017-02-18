@@ -29,10 +29,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
+            <state relative-caret-position="1482">
               <caret line="78" column="38" lean-forward="false" selection-start-line="78" selection-start-column="38" selection-end-line="78" selection-end-column="38" />
               <folding>
                 <marker date="1487340310637" expanded="true" signature="8992:9162" ph="..." />
@@ -70,7 +70,7 @@
         <entry file="file://$PROJECT_DIR$/protected/controllers/PaperController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="321">
-              <caret line="113" column="56" lean-forward="true" selection-start-line="112" selection-start-column="60" selection-end-line="113" selection-end-column="56" />
+              <caret line="113" column="56" lean-forward="false" selection-start-line="112" selection-start-column="60" selection-end-line="113" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -80,7 +80,7 @@
         <entry file="file://$PROJECT_DIR$/protected/controllers/PatentController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="152">
-              <caret line="95" column="60" lean-forward="true" selection-start-line="95" selection-start-column="60" selection-end-line="96" selection-end-column="57" />
+              <caret line="95" column="60" lean-forward="false" selection-start-line="95" selection-start-column="60" selection-end-line="96" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -116,7 +116,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PeopleController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PeopleController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/controllers/PeopleController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1653">
@@ -700,12 +700,12 @@
       <workItem from="1487041473665" duration="10702000" />
       <workItem from="1487242028335" duration="9839000" />
       <workItem from="1487300447986" duration="28958000" />
-      <workItem from="1487379845412" duration="9362000" />
+      <workItem from="1487379845412" duration="9711000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="218010000" />
+    <option name="totallyTimeSpent" value="218359000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -717,7 +717,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="1" width="1918" height="1038" extended-state="1" />
+    <frame x="1" y="1" width="1918" height="1038" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16876972" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1106,17 +1106,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="78" column="38" lean-forward="false" selection-start-line="78" selection-start-column="38" selection-end-line="78" selection-end-column="38" />
-          <folding>
-            <marker date="1487340310637" expanded="true" signature="8992:9162" ph="..." />
-            <marker date="1487340310637" expanded="true" signature="10378:10419" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="554">
@@ -1185,7 +1174,7 @@
     <entry file="file://$PROJECT_DIR$/protected/controllers/PaperController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="321">
-          <caret line="113" column="56" lean-forward="true" selection-start-line="112" selection-start-column="60" selection-end-line="113" selection-end-column="56" />
+          <caret line="113" column="56" lean-forward="false" selection-start-line="112" selection-start-column="60" selection-end-line="113" selection-end-column="56" />
           <folding />
         </state>
       </provider>
@@ -1193,7 +1182,7 @@
     <entry file="file://$PROJECT_DIR$/protected/controllers/PatentController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
-          <caret line="95" column="60" lean-forward="true" selection-start-line="95" selection-start-column="60" selection-end-line="96" selection-end-column="57" />
+          <caret line="95" column="60" lean-forward="false" selection-start-line="95" selection-start-column="60" selection-end-line="96" selection-end-column="57" />
           <folding />
         </state>
       </provider>
@@ -1236,6 +1225,17 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <marker date="1487338028627" expanded="true" signature="3256:3336" ph="SELECT * FRO... tbl_people" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/layouts/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1482">
+          <caret line="78" column="38" lean-forward="false" selection-start-line="78" selection-start-column="38" selection-end-line="78" selection-end-column="38" />
+          <folding>
+            <marker date="1487340310637" expanded="true" signature="8992:9162" ph="..." />
+            <marker date="1487340310637" expanded="true" signature="10378:10419" ph="..." />
           </folding>
         </state>
       </provider>
