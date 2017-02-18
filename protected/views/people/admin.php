@@ -2,7 +2,7 @@
 /* @var $this PeopleController */
 /* @var $model People */
 
-$this->pageTitle=Yii::app()->name . ' - 管理团队成员';
+$this->pageTitle=Yii::app()->name . ' - 团队成员';
 //面包屑
 $this->breadcrumbs=array(
     '团队成员',

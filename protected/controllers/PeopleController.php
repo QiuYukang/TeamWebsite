@@ -4,6 +4,16 @@ require_once('PHPExcel/PHPExcel.php');
 
 class PeopleController extends Controller
 {
+    //php高版本中被finfo()函数替代
+    function mime_content_type($filename) {
+        $result = new finfo();
+
+        if (is_resource($result) === true) {
+            return $result->file($filename, FILEINFO_MIME_TYPE);
+        }
+
+        return false;
+    }
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
