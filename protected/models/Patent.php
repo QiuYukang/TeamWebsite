@@ -536,9 +536,15 @@ class Patent extends CActiveRecord
                 $projectRecords = $this->reim_projects;
                 break;
         }
+        $count_flag = false; $count_num = 1;
+        if(count($projectRecords) > 1) {
+            $count_flag = true;
+            $count_num = 1;
+        }
         foreach ($projectRecords as $project) {
-            if($attr == null) array_push($projectsArr, $project->getContentToList());
-            else array_push($projectsArr, $project->$attr);
+            //if($attr == null) array_push($projectsArr, $project->getContentToList());
+            if($attr == null) array_push($projectsArr, ($count_flag ? $count_num++ . '. ' : '') . $project->getContentToGuest());
+            else array_push($projectsArr, ($count_flag ? $count_num++ . '. ' : '') . $project->$attr);
         }
         if(count($projectsArr) != 0) return implode($glue, $projectsArr);
         return null;
@@ -561,10 +567,16 @@ class Patent extends CActiveRecord
                 $projectRecords = $this->reim_projects;
                 break;
         }
+        $count_flag = false; $count_num = 1;
+        if(count($projectRecords) > 1) {
+            $count_flag = true;
+            $count_num = 1;
+        }
         foreach ($projectRecords as $project) {
-            if($attr == null) $text = $project->getContentToList();
-            else  $text = $project->$attr;
-            $link = CHtml::link(CHtml::encode($text), array('project/view', 'id'=>$project->id));
+//            if($attr == null) $text = $project->getContentToList();
+//            else  $text = $project->$attr;
+//            $link = CHtml::link(CHtml::encode($text), array('project/view', 'id'=>$project->id));
+            $link = CHtml::link(($count_flag ? $count_num++ . '. ' : '') . $project->getContentToGuest(), array('project/view', 'id'=>$project->id));
             array_push($projectsArr, $link);
         }
         if(count($projectsArr) != 0) return implode($glue, $projectsArr);

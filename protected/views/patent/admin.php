@@ -170,7 +170,7 @@ $offset = ($page-1) * $page_size;
                             <tbody>
                             <tr>
                                 <td class="index-table-id"><?php echo $i+1;?></td>
-                                <td><a href="index.php?r=patent/view&id=<?php echo $dataProvider->getData()[$i]->id; ?>"><?php echo $dataProvider->getData()[$i]->getContentToGuest(); ?></a></td>
+                                <td><a href="index.php?r=patent/view&id=<?php echo $dataProvider->getData()[$i]->id; ?>"><?php echo $dataProvider->getData()[$i]->name; ?></a></td>
                                 <td><?php
                                     echo $dataProvider->getData()[$i]->number; ?>
                                 </td>

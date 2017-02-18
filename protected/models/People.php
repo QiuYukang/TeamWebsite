@@ -315,7 +315,8 @@ class People extends CActiveRecord
             $count_num = 1;
         }
         foreach ($projectsRecord as $project){
-            $link = CHtml::link(CHtml::encode(($count_flag ? $count_num++ . '. ' : '') . $project->$attr), array('project/view', 'id'=>$project->id));
+            //$link = CHtml::link(CHtml::encode(($count_flag ? $count_num++ . '. ' : '') . $project->$attr), array('project/view', 'id'=>$project->id));
+            $link = CHtml::link(($count_flag ? $count_num++ . '. ' : '') . $project->getContentToGuest(), array('project/view', 'id'=>$project->id));
             array_push($projectsArr, $link);
         }
         if(count($projectsArr) == 0) return null;
@@ -335,7 +336,8 @@ class People extends CActiveRecord
             $count_num = 1;
         }
         foreach ($papersRecord as $paper){
-            $link = CHtml::link(($count_flag ? $count_num++ . '. ' : '') . CHtml::encode($paper->$attr), array('paper/view', 'id'=>$paper->id));
+            //$link = CHtml::link(($count_flag ? $count_num++ . '. ' : '') . CHtml::encode($paper->$attr), array('paper/view', 'id'=>$paper->id));
+            $link = CHtml::link(($count_flag ? $count_num++ . '. ' : '') . $paper->getContentToGuest(), array('paper/view', 'id'=>$paper->id));
             array_push($papersArr, $link);
         }
         if(count($papersArr) == 0) return null;
@@ -355,7 +357,8 @@ class People extends CActiveRecord
             $count_num = 1;
         }
         foreach ($patentsRecord as $patent){
-            $link = CHtml::link(($count_flag ? $count_num++ . '. ' : '') . CHtml::encode($patent->$attr), array('patent/view', 'id'=>$patent->id));
+            //$link = CHtml::link(($count_flag ? $count_num++ . '. ' : '') . CHtml::encode($patent->$attr), array('patent/view', 'id'=>$patent->id));
+            $link = CHtml::link(($count_flag ? $count_num++ . '. ' : '') . $patent->getContentToGuest(), array('patent/view', 'id'=>$patent->id));
             array_push($patentsArr, $link);
         }
         if(count($patentsArr) == 0) return null;
@@ -375,7 +378,8 @@ class People extends CActiveRecord
             $count_num = 1;
         }
         foreach ($publicationsRecord as $publication){
-            $link = CHtml::link(($count_flag ? $count_num++ . '. ' : '') . CHtml::encode($publication->$attr), array('publication/view', 'id'=>$publication->id));
+            //$link = CHtml::link(($count_flag ? $count_num++ . '. ' : '') . CHtml::encode($publication->$attr), array('publication/view', 'id'=>$publication->id));
+            $link = CHtml::link(($count_flag ? $count_num++ . '. ' : '') . $publication->getContentToGuest(), array('publication/view', 'id'=>$publication->id));
             array_push($publicationsArr, $link);
         }
         if(count($publicationsArr) == 0) return null;
@@ -395,7 +399,8 @@ class People extends CActiveRecord
             $count_num = 1;
         }
         foreach ($softwaresRecord as $software){
-            $link = CHtml::link(($count_flag ? $count_num++ . '. ' : '') . CHtml::encode($software->$attr), array('software/view', 'id'=>$software->id));
+            //$link = CHtml::link(($count_flag ? $count_num++ . '. ' : '') . CHtml::encode($software->$attr), array('software/view', 'id'=>$software->id));
+            $link = CHtml::link(($count_flag ? $count_num++ . '. ' : '') . $software->getContentToGuest(), array('software/view', 'id'=>$software->id));
             array_push($softwaresArr, $link);
         }
         if(count($softwaresArr) == 0) return null;
