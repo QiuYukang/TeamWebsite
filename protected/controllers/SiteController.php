@@ -2,6 +2,11 @@
 
 class SiteController extends Controller
 {
+    /**
+     * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
+     * using two-column layout. See 'protected/views/layouts/column2.php'.
+     */
+    public $layout='//layouts/main';
 	/**
 	 * Declares class-based actions.
 	 */
@@ -66,33 +71,6 @@ class SiteController extends Controller
         $this->render('direction');
     }
 
-    public function actionEnrollment() {
-        $this->render('enrollment');
-    }
-
-    public function actionFun() {
-        $this->render('fun');
-    }
-    public function actionFun1() {
-        $this->render('fun1');
-    }
-    public function actionFun2() {
-        $this->render('fun2');
-    }
-    public function actionFun3() {
-        $this->render('fun3');
-    }
-    public function actionSub() {
-        $this->render('sub');
-    }
-
-	public function actionAbout() {
-		$this->render('about');
-	}
-
-	public function actionTeacher() {
-		$this->render('teacher');
-	}
 	/**
 	 * This is the action to handle external exceptions.
 	 */
