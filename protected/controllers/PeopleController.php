@@ -81,7 +81,7 @@ class PeopleController extends Controller
 
         header('Content-Transfer-Encoding: binary');
         header('Content-length: '.filesize($path));
-        header('Content-Type: '.mime_content_type($path));
+        header('Content-Type: '.self::mime_content_type($path));
         header('Content-Disposition: attachment; filename='.'成员标准导入格式.xlsx');
         echo file_get_contents($path);
     }
