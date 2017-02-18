@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
     '学术成果'=>array('paper/index'),
     '专利'=>array('index'),
     '管理'=>array('admin'),
-    mb_substr($model->name, 0, 30).'...',
+    substr($model->name, 0, 30).'...',
 );
 ?>
 
