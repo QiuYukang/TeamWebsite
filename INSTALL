@@ -1,4 +1,11 @@
 数据库与网页管理账号
+1. 取消MySQL 5.7.9版本sql_mode=only_full_group_by限制
+SET GLOBAL sql_mode = '';
+2. 提高php提交和mysql上传文件大小的限制
+设置php的upload_max_filesize和post_max_size至少为64M(/etc/php.ini)
+设置mysql的max_allowed_packed至少为64M(/etc/my.cnf)
+show VARIABLES like '%max_allowed_packet%';
+
 1. 新建数据库，名为team_web
 2. 导入sql\team_web.sql的表结构
 3. 在tbl_user表中导入sql\tbl_user_default.sql初始数据
