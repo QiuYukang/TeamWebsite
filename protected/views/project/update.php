@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
     '科研'=>array('project/index'),
     '科研项目'=>array('index'),
     '管理'=>array('admin'),
-    iconv_substr($model->name, 0, 30, "UTF-8").'...'=>array('view','id'=>$model->id),
+    iconv_substr($model->name, 0, 20, "UTF-8").'...'=>array('view','id'=>$model->id),
     '编辑',
 );
 
