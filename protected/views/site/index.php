@@ -4,6 +4,12 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 
+<?php
+//取前5篇
+$data_count = $dataProvider->itemCount;
+if($data_count > 5) $data_count = 5;
+?>
+
 <div class="slider-bg">
     <div class="container">
         <div class="shadow-left"></div>
@@ -146,56 +152,33 @@ $this->pageTitle=Yii::app()->name;
 
             </div>
             <table>
-                <tr>
-                    <td width="48px">
-                        <div class="year">2017</div>
-                        <div class="month">Feb</div>
-                    </td>
-                    <td>
-                        <a href="#" class="summary">An Energy Saving Data Delivery Scheme in ...</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="48px">
-                        <div class="year">2016</div>
-                        <div class="month">Dec</div>
-                    </td>
-                    <td>
-                        <a href="#" class="summary">Optimal Resource Allocation for Energy-Efficient ...</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="48px">
-                        <div class="year">2016</div>
-                        <div class="month">Nov</div>
-                    </td>
-                    <td>
-                        <a href="#" class="summary"> Joint Optimization of Throwbox Deployment ...</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="48px">
-                        <div class="year">2016</div>
-                        <div class="month">Sep</div>
-                    </td>
-                    <td>
-                        <a href="#" class="summary">Connectivity-aware Media Access Control protocol ...</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td width="48px">
-                        <div class="year">2016</div>
-                        <div class="month">Jun</div>
-                    </td>
-                    <td>
-                        <a href="#" class="summary">Group Bidding for Guaranteed Quality of ...</a>
-                    </td>
-                </tr>
+                <?php
+                for($i = 0; $i < $data_count; $i++) {
+                    $info = $dataProvider->getData()[$i]->info;
+                    $year = empty($dataProvider->getData()[$i]->latest_date) ? 'N/A' : preg_split('/[.\-\/]/',$dataProvider->getData()[$i]->latest_date)[0];
+                    $mouth = empty($dataProvider->getData()[$i]->latest_date) ? 'N/A' : preg_split('/[.\-\/]/',$dataProvider->getData()[$i]->latest_date)[1];
+                    $mou_tb = array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec');
+
+                    echo '<tr>';
+                    echo '<td width="48px">';
+                    echo '<div class="year">'.$year.'</div>';
+                    echo '<div class="month">'.$mou_tb[intval($mouth)-1].'</div>';
+                    echo '</td>';
+                    echo '<td>';
+                    echo '<a href="index.php?r=paper/view&id='.$dataProvider->getData()[$i]->id.'" class="summary">'.$info.'</a>';
+                    echo '</td>';
+                    echo '</tr>';
+                }
+                ?>
+                <?php if($data_count != 0) { ?>
                 <tr>
                     <td colspan="2" style="text-align: right">
                         <a href="index.php?r=paper/index" style="  color: #2a959e;font-size: 13px;position: relative;top: -20px;">更多</a>
                     </td>
                 </tr>
+                <?php } else { ?>
+                <p style="font-size: 13px;">团队数据库中暂时没有记载论文数据</p>
+                <?php } ?>
             </table>
         </div>
         <div class="clearfix"></div>

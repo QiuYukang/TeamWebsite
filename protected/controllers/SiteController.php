@@ -29,7 +29,27 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+        $criteria = new CDbCriteria;
+        $user = Yii::app()->user;
+        //index页面中展示5篇高水平论文
+        $criteria->condition = "is_high_level=1";
+        $criteria->select = array('id','info','latest_date');
+        $dataProvider=new CActiveDataProvider(
+            'Paper',
+            array('sort'=>array(
+                'defaultOrder'=>array(
+                    'latest_date' => CSort::SORT_DESC, //依最新时间排序
+                ),
+
+            ),
+                'criteria' => $criteria,
+                'pagination' =>false, //所有数据都传给前台，前台实现分页
+            )
+        );
+        //$dataProvider->pagination=false;
+        $this->render('index',array(
+            'dataProvider' => $dataProvider, //所有数据，前台取前5篇
+        ));
 	}
 
     public function actionIntroduction()
