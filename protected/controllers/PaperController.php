@@ -109,8 +109,9 @@ class PaperController extends Controller
         $criteria = new CDbCriteria();
         //搜索出了的行只读出以下列来显示
         //        $criteria->select = array('info','index_number','sci_number','ei_number','istp_number','category');
-        //如果要查找不完整的数据，就要查询数据所有列进行筛选；否则只需查找要显示的列，提高加载速度
-        if(isset($_GET['incomplete']) && $_GET['incomplete'] ) $criteria->select = array('info','status','index_number','pass_date','pub_date','index_date','latest_date','sci_number','ei_number','istp_number','category','file_name','file_size','is_high_level','maintainer_id','last_update_date');
+        //如果要查找不完整的数据，就要查询数据所有列进行筛选；或者导出数据也要所有列；否则只需查找要显示的列，提高加载速度
+        if(isset($_GET['incomplete']) && $_GET['incomplete'] ||
+            (isset($_GET['export']) && $_GET['export'])) $criteria->select = array('info','status','index_number','pass_date','pub_date','index_date','latest_date','sci_number','ei_number','istp_number','category','file_name','file_size','is_high_level','maintainer_id','last_update_date');
         else $criteria->select = array('info','index_number','sci_number','ei_number','istp_number','category','file_content');
 //        $criteria->with = array('peoples','fund_projects','reim_projects','achievement_projects');
         $criteria->with = array('peoples', 'fund_projects','reim_projects','achievement_projects');

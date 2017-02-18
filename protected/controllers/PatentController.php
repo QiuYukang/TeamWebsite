@@ -93,7 +93,8 @@ class PatentController extends Controller
         $fileName = array(); //显示的搜索条件，导出的文件名
 
         $criteria = new CDbCriteria();
-        if(isset($_GET['incomplete']) && $_GET['incomplete'] ) $criteria->select = array('name', 'number', 'status', 'app_date', 'auth_date', 'latest_date', 'level', 'category', 'file_name', 'file_size', 'abstract', 'maintainer_id', 'last_update_date');
+        if(isset($_GET['incomplete']) && $_GET['incomplete'] ||
+            (isset($_GET['export']) && $_GET['export'])) $criteria->select = array('name', 'number', 'status', 'app_date', 'auth_date', 'latest_date', 'level', 'category', 'file_name', 'file_size', 'abstract', 'maintainer_id', 'last_update_date');
         else $criteria->select = array('name', 'number', 'level', 'category');
         $criteria->with = array('peoples', 'reim_projects','achievement_projects');
         $criteria->together = true;
