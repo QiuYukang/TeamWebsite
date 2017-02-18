@@ -74,6 +74,11 @@ $this->breadcrumbs=array(
                     'ei_number',
                     'istp_number',
                     array(
+                        'label'=>'高水平标记',
+                        'type'=>'raw',
+                        'value'=>$model->is_high_level == 1 ? '是（对外展示）' : '否（不对外展示）',
+                    ),
+                    array(
                         'label'=>'论文文件',
                         'type'=>'raw',
                         'value'=>

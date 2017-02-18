@@ -42,7 +42,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/views/site/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="581">
@@ -52,6 +52,36 @@
                 <marker date="1487394787407" expanded="true" signature="9007:9255" ph="..." />
                 <marker date="1487394787407" expanded="true" signature="9070:9233" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Paper.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/models/Paper.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3023">
+              <caret line="631" column="35" lean-forward="false" selection-start-line="631" selection-start-column="22" selection-end-line="631" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PaperController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/controllers/PaperController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-59">
+              <caret line="1059" column="30" lean-forward="false" selection-start-line="1059" selection-start-column="26" selection-end-line="1059" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/protected/views/paper/view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="78" column="78" lean-forward="false" selection-start-line="78" selection-start-column="78" selection-end-line="78" selection-end-column="78" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -75,8 +105,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>matcher:</find>
-      <find>equal</find>
       <find>su</find>
       <find>matcher</find>
       <find>actionIn</find>
@@ -105,6 +133,8 @@
       <find>修改密码</find>
       <find>guest</find>
       <find>getContentToGuest</find>
+      <find>is_high_level</find>
+      <find>view</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -121,7 +151,6 @@
         <option value="$PROJECT_DIR$/protected/views/software/view.php" />
         <option value="$PROJECT_DIR$/protected/views/publication/view.php" />
         <option value="$PROJECT_DIR$/protected/views/patent/view.php" />
-        <option value="$PROJECT_DIR$/protected/views/paper/view.php" />
         <option value="$PROJECT_DIR$/protected/views/project/view.php" />
         <option value="$PROJECT_DIR$/protected/views/publication/_search.php" />
         <option value="$PROJECT_DIR$/protected/controllers/PatentController.php" />
@@ -164,6 +193,7 @@
         <option value="$PROJECT_DIR$/css/index.css" />
         <option value="$PROJECT_DIR$/protected/controllers/SiteController.php" />
         <option value="$PROJECT_DIR$/protected/views/site/index.php" />
+        <option value="$PROJECT_DIR$/protected/views/paper/view.php" />
       </list>
     </option>
   </component>
@@ -633,12 +663,12 @@
       <workItem from="1487041473665" duration="10702000" />
       <workItem from="1487242028335" duration="9839000" />
       <workItem from="1487300447986" duration="28958000" />
-      <workItem from="1487379845412" duration="7986000" />
+      <workItem from="1487379845412" duration="8230000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="216634000" />
+    <option name="totallyTimeSpent" value="216878000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -693,14 +723,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/protected/views/patent/upload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="65" column="6" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="65" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/patent/uploadfile.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="532">
@@ -1085,14 +1107,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controllers/PaperController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="83" column="22" lean-forward="true" selection-start-line="69" selection-start-column="8" selection-end-line="90" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/paper/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
@@ -1124,14 +1138,6 @@
             <marker date="1487340310637" expanded="true" signature="8992:9162" ph="..." />
             <marker date="1487340310637" expanded="true" signature="10378:10419" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/models/Paper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1181,6 +1187,30 @@
             <marker date="1487394787407" expanded="true" signature="9007:9255" ph="..." />
             <marker date="1487394787407" expanded="true" signature="9070:9233" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/models/Paper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3023">
+          <caret line="631" column="35" lean-forward="false" selection-start-line="631" selection-start-column="22" selection-end-line="631" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/controllers/PaperController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-59">
+          <caret line="1059" column="30" lean-forward="false" selection-start-line="1059" selection-start-column="26" selection-end-line="1059" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/paper/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="78" column="78" lean-forward="false" selection-start-line="78" selection-start-column="78" selection-end-line="78" selection-end-column="78" />
+          <folding />
         </state>
       </provider>
     </entry>
