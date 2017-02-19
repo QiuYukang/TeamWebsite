@@ -782,7 +782,7 @@ class PatentController extends Controller
         header('Content-Disposition: attachment; filename='.$model->file_name);
         echo $model->file_content;
 
-        $this->redirect(array('view','id'=>$model->id));
+        //$this->redirect(array('view','id'=>$model->id));
     }
 
     /**
