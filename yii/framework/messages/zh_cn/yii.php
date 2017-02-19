@@ -207,7 +207,7 @@ return array (
   'The relation "{relation}" in active record class "{class}" is specified with an incomplete foreign key. The foreign key must consist of columns referencing both joining tables.' => 'active record class "{class}" 中的关联 "{relation}" 有一个不完整的 foreign key. foreign key 必须是参照 joining tables 中的栏位所构成.',
   'The relation "{relation}" in active record class "{class}" is specified with an invalid foreign key. The format of the foreign key must be "joinTable(fk1,fk2,...)".' => 'active record class "{class}" 中的关联 "{relation}" 有一个无效的 foreign key. foreign key 的格式必须是 "joinTable(fk1,fk2,...)".',
   'The stack is empty.' => '堆栈状态为空.',
-  'The system is unable to find the requested action "{action}".' => '系统无法找到请求的 "{action}" 动作.',
+  'The system is unable to find the requested action "{action}".' => '系统无法找到请求的 "{action}" 动作。',
   'The system view path "{path}" is not a valid directory.' => '系统 view 路径 "{path}" 不是一个有效的目录.',
   'The table "{table}" for active record class "{class}" cannot be found in the database.' => '数据库中无法找到 active record class "{class}" 对应的 table "{table}".',
   'The verification code is incorrect.' => '验证码不正确.',

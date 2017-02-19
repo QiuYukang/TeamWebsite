@@ -29,21 +29,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PaperController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/controllers/PaperController.php">
+      <file leaf-file-name="error.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/protected/views/site/error.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="1122" column="34" lean-forward="false" selection-start-line="1122" selection-start-column="20" selection-end-line="1122" selection-end-column="34" />
+            <state relative-caret-position="494">
+              <caret line="26" column="104" lean-forward="false" selection-start-line="26" selection-start-column="104" selection-end-line="26" selection-end-column="104" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PatentController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/protected/controllers/PatentController.php">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/protected/views/project/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="784" column="10" lean-forward="false" selection-start-line="784" selection-start-column="10" selection-end-line="784" selection-end-column="10" />
+            <state relative-caret-position="133">
+              <caret line="82" column="16" lean-forward="false" selection-start-line="82" selection-start-column="16" selection-end-line="82" selection-end-column="119" />
               <folding />
             </state>
           </provider>
@@ -91,8 +91,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/protected/views/software/create.php" />
-        <option value="$PROJECT_DIR$/protected/views/software/_search.php" />
         <option value="$PROJECT_DIR$/protected/views/software/admin.php" />
         <option value="$PROJECT_DIR$/protected/views/software/upload.php" />
         <option value="$PROJECT_DIR$/protected/views/software/uploadfile.php" />
@@ -142,6 +140,8 @@
         <option value="$PROJECT_DIR$/protected/views/patent/view.php" />
         <option value="$PROJECT_DIR$/protected/controllers/PaperController.php" />
         <option value="$PROJECT_DIR$/protected/controllers/PatentController.php" />
+        <option value="$PROJECT_DIR$/yii/framework/messages/zh_cn/yii.php" />
+        <option value="$PROJECT_DIR$/protected/views/site/error.php" />
       </list>
     </option>
   </component>
@@ -630,12 +630,12 @@
       <workItem from="1487242028335" duration="9839000" />
       <workItem from="1487300447986" duration="28958000" />
       <workItem from="1487379845412" duration="22905000" />
-      <workItem from="1487499753664" duration="838000" />
+      <workItem from="1487499753664" duration="2482000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="232391000" />
+    <option name="totallyTimeSpent" value="234035000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -647,7 +647,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="1" width="1918" height="1038" extended-state="1" />
+    <frame x="1" y="1" width="1918" height="1038" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16876972" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -690,21 +690,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/protected/views/paper/admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="177" column="44" lean-forward="false" selection-start-line="177" selection-start-column="44" selection-end-line="177" selection-end-column="119" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/views/site/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="581">
-          <caret line="179" column="60" lean-forward="false" selection-start-line="179" selection-start-column="60" selection-end-line="179" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controllers/AwardController.php" />
     <entry file="file://$PROJECT_DIR$/protected/controllers/AwardTeachingController.php" />
     <entry file="file://$PROJECT_DIR$/protected/controllers/CourseController.php" />
     <entry file="file://$PROJECT_DIR$/protected/controllers/PaperTeachingController.php" />
@@ -826,6 +811,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="22" column="26" lean-forward="true" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -833,6 +819,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-228">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1487322758036" expanded="true" signature="148:228" ph="SELECT * FRO... tbl_people" />
+            <marker date="1487322758036" expanded="true" signature="5543:5555" ph="..." />
+            <marker date="1487322758036" expanded="true" signature="6643:6655" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -862,6 +853,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -869,6 +861,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -876,6 +869,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -883,6 +877,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -890,6 +885,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -897,6 +893,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -904,6 +901,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="11" column="35" lean-forward="false" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -911,6 +909,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -918,6 +917,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -925,6 +925,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -932,6 +933,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -953,6 +955,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="10" column="34" lean-forward="true" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -960,6 +963,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/controllers/PatentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="784" column="10" lean-forward="false" selection-start-line="784" selection-start-column="10" selection-end-line="784" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -971,10 +983,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/controllers/PatentController.php">
+    <entry file="file://$PROJECT_DIR$/protected/views/project/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="784" column="10" lean-forward="false" selection-start-line="784" selection-start-column="10" selection-end-line="784" selection-end-column="10" />
+        <state relative-caret-position="133">
+          <caret line="82" column="16" lean-forward="false" selection-start-line="82" selection-start-column="16" selection-end-line="82" selection-end-column="119" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yii/framework/messages/zh_cn/yii.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="30" column="24" lean-forward="false" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/site/error.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" column="104" lean-forward="false" selection-start-line="26" selection-start-column="104" selection-end-line="26" selection-end-column="104" />
           <folding />
         </state>
       </provider>
