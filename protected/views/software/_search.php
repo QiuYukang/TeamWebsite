@@ -121,7 +121,7 @@ $projects = Project::model()->findAllBySql('SELECT * FROM `tbl_project` ORDER BY
 
     <div class="row">
         <div class="columns" style="width: 280px">
-            <label for="order">显示顺序</label>
+            <label for="order">排序</label>
             <select id="order" name="order">
                 <option value="-1">按时间排序</option>
                 <option value="1" <?php echo (isset($now_criteria['order']) && $now_criteria['order'] == 1) ? 'selected="selected"' : ''?>>按作者顺序排序(需选择作者)</option>
