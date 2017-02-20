@@ -18,7 +18,7 @@ $projects = Project::model()->findAllBySql('SELECT * FROM `tbl_project` ORDER BY
     <div class="row">
         <div class="columns" style="width: 450px">
             <label for="keyword">关键词</label>
-            <input id="keyword" name="keyword" type="text" value="<?php echo isset($now_criteria['keyword']) ? $now_criteria['keyword'] : ''?>">
+            <input id="keyword" name="keyword" type="text" onkeydown='if(event.keyCode==13){search_btn.click()}' value="<?php echo isset($now_criteria['keyword']) ? $now_criteria['keyword'] : ''?>">
         </div>
         <div class="columns" style="width: 220px">
             <label for="author">作者</label>
@@ -58,11 +58,11 @@ $projects = Project::model()->findAllBySql('SELECT * FROM `tbl_project` ORDER BY
     <div class="row">
         <div class="columns" style="width: 220px">
             <label for="start_date">开始时间</label>
-            <input id="start_date" name="start_date" type="text" value="<?php echo isset($now_criteria['start_date']) ? $now_criteria['start_date'] : ''?>" placeholder="yyyy-mm-dd" />
+            <input id="start_date" name="start_date" type="text" onkeydown='if(event.keyCode==13){search_btn.click()}' value="<?php echo isset($now_criteria['start_date']) ? $now_criteria['start_date'] : ''?>" placeholder="yyyy-mm-dd" />
         </div>
         <div class="columns" style="width: 220px">
             <label for="end_date">截至时间</label>
-            <input id="end_date" name="end_date" type="text" value="<?php echo isset($now_criteria['end_date']) ? $now_criteria['end_date'] : ''?>" placeholder="yyyy-mm-dd" />
+            <input id="end_date" name="end_date" type="text" onkeydown='if(event.keyCode==13){search_btn.click()}' value="<?php echo isset($now_criteria['end_date']) ? $now_criteria['end_date'] : ''?>" placeholder="yyyy-mm-dd" />
         </div>
         <div class="columns" style="width: 450px">
             <label for="fund_project">支助项目</label>

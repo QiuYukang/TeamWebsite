@@ -18,7 +18,7 @@ $projects = Project::model()->findAllBySql('SELECT * FROM `tbl_project` ORDER BY
     <div class="row">
         <div class="columns" style="width: 450px">
             <label for="keyword">关键词</label>
-            <input id="keyword" name="keyword" type="text" value="<?php echo isset($now_criteria['keyword']) ? $now_criteria['keyword'] : ''?>">
+            <input id="keyword" name="keyword" type="text" onkeydown='if(event.keyCode==13){search_btn.click()}' value="<?php echo isset($now_criteria['keyword']) ? $now_criteria['keyword'] : ''?>">
         </div>
         <div class="columns" style="width: 220px">
             <label for="author">作者</label>
@@ -68,7 +68,7 @@ $projects = Project::model()->findAllBySql('SELECT * FROM `tbl_project` ORDER BY
         <div class="columns">
             <label for="category">类别</label>
             <div class="clearfix"></div>
-            <input id="category" name="category" type="text" style="float: left; width:220px;" placeholder="输入类别或在右侧选择" value="<?php echo isset($now_criteria['category']) ? $now_criteria['category'] : ''?>">
+            <input id="category" name="category" type="text" onkeydown='if(event.keyCode==13){search_btn.click()}' style="float: left; width:220px;" placeholder="输入类别或在右侧选择" value="<?php echo isset($now_criteria['category']) ? $now_criteria['category'] : ''?>">
             <select id="category_list" name="category_list" class="category_list" style="float: left; width:220px; margin-left: 5px;" onchange="document.getElementById('category').value = this.value;">
                 <option value="">选择类别</option>
                 <?php
@@ -87,7 +87,7 @@ $projects = Project::model()->findAllBySql('SELECT * FROM `tbl_project` ORDER BY
         </div>
         <div class="columns" style="width: 324px">
             <label for="index_number">检索号</label>
-            <input id="index_number" name="index_number" type="text" value="<?php echo isset($now_criteria['index_number']) ? $now_criteria['index_number'] : ''?>">
+            <input id="index_number" name="index_number" type="text" onkeydown='if(event.keyCode==13){search_btn.click()}' value="<?php echo isset($now_criteria['index_number']) ? $now_criteria['index_number'] : ''?>">
         </div>
         <div class="clearfix"></div>
     </div>
@@ -95,11 +95,11 @@ $projects = Project::model()->findAllBySql('SELECT * FROM `tbl_project` ORDER BY
     <div class="row">
         <div class="columns" style="width: 220px">
             <label for="start_date">开始时间</label>
-            <input id="start_date" name="start_date" type="text" value="<?php echo isset($now_criteria['start_date']) ? $now_criteria['start_date'] : ''?>" placeholder="yyyy-mm-dd" />
+            <input id="start_date" name="start_date" type="text" onkeydown='if(event.keyCode==13){search_btn.click()}' value="<?php echo isset($now_criteria['start_date']) ? $now_criteria['start_date'] : ''?>" placeholder="yyyy-mm-dd" />
         </div>
         <div class="columns" style="width: 220px">
             <label for="end_date">截至时间</label>
-            <input id="end_date" name="end_date" type="text" value="<?php echo isset($now_criteria['end_date']) ? $now_criteria['end_date'] : ''?>" placeholder="yyyy-mm-dd" />
+            <input id="end_date" name="end_date" type="text" onkeydown='if(event.keyCode==13){search_btn.click()}' value="<?php echo isset($now_criteria['end_date']) ? $now_criteria['end_date'] : ''?>" placeholder="yyyy-mm-dd" />
         </div>
         <div class="columns" style="width: 450px">
             <label for="fund_project">支助项目</label>

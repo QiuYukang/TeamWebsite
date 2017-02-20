@@ -15,15 +15,15 @@ $peoples = People::model()->findAllBySql('SELECT * FROM `tbl_people` ORDER BY `p
     <div class="row">
         <div class="columns" style="width: 450px">
             <label for="keyword">关键词</label>
-            <input id="keyword" name="keyword" type="text" placeholder="输入关键词" value="<?php echo isset($now_criteria['keyword']) ? $now_criteria['keyword'] : ''?>">
+            <input id="keyword" name="keyword" type="text" onkeydown='if(event.keyCode==13){search_btn.click()}' placeholder="输入关键词" value="<?php echo isset($now_criteria['keyword']) ? $now_criteria['keyword'] : ''?>">
         </div>
         <div class="columns" style="width: 220px">
             <label for="number">项目编号</label>
-            <input id="number" name="number" type="text" placeholder="输入项目编号" value="<?php echo isset($now_criteria['number']) ? $now_criteria['number'] : ''?>">
+            <input id="number" name="number" type="text" onkeydown='if(event.keyCode==13){search_btn.click()}' placeholder="输入项目编号" value="<?php echo isset($now_criteria['number']) ? $now_criteria['number'] : ''?>">
         </div>
         <div class="columns" style="width: 218px">
             <label for="fund_number">经费本编号</label>
-            <input id="fund_number" name="fund_number" type="text" placeholder="输入经费本编号" value="<?php echo isset($now_criteria['fund_number']) ? $now_criteria['fund_number'] : ''?>">
+            <input id="fund_number" name="fund_number" type="text" onkeydown='if(event.keyCode==13){search_btn.click()}' placeholder="输入经费本编号" value="<?php echo isset($now_criteria['fund_number']) ? $now_criteria['fund_number'] : ''?>">
         </div>
         <div class="clearfix"></div>
     </div>
@@ -99,7 +99,7 @@ $peoples = People::model()->findAllBySql('SELECT * FROM `tbl_people` ORDER BY `p
         <div class="columns">
             <label for="category">类别</label>
             <div class="clearfix"></div>
-            <input id="category" name="category" type="text" style="float: left; width:220px;" placeholder="输入类别或在右侧选择" value="<?php echo isset($now_criteria['category']) ? $now_criteria['category'] : ''?>">
+            <input id="category" name="category" type="text" style="float: left; width:220px;" onkeydown='if(event.keyCode==13){search_btn.click()}' placeholder="输入类别或在右侧选择" value="<?php echo isset($now_criteria['category']) ? $now_criteria['category'] : ''?>">
             <select id="category_list" name="category_list" class="category_list" style="float: left; width:220px; margin-left: 5px;" onchange="document.getElementById('category').value = this.value;">
                 <option value="">选择类别</option>
                 <?php
@@ -140,19 +140,19 @@ $peoples = People::model()->findAllBySql('SELECT * FROM `tbl_people` ORDER BY `p
     <div class="row">
         <div class="columns" style="width: 220px">
             <label for="start_date">开始时间</label>
-            <input id="start_date" name="start_date" type="text" value="<?php echo isset($now_criteria['start_date']) ? $now_criteria['start_date'] : ''?>" placeholder="yyyy-mm-dd" />
+            <input id="start_date" name="start_date" type="text" onkeydown='if(event.keyCode==13){search_btn.click()}' value="<?php echo isset($now_criteria['start_date']) ? $now_criteria['start_date'] : ''?>" placeholder="yyyy-mm-dd" />
         </div>
         <div class="columns" style="width: 220px">
             <label for="end_date">截至时间</label>
-            <input id="end_date" name="end_date" type="text" value="<?php echo isset($now_criteria['end_date']) ? $now_criteria['end_date'] : ''?>" placeholder="yyyy-mm-dd" />
+            <input id="end_date" name="end_date" type="text" onkeydown='if(event.keyCode==13){search_btn.click()}' value="<?php echo isset($now_criteria['end_date']) ? $now_criteria['end_date'] : ''?>" placeholder="yyyy-mm-dd" />
         </div>
         <div class="columns" style="width: 220px">
             <label for="start_fund">经费大于</label>
-            <input id="start_fund" name="start_fund" type="text" placeholder="万元" value="<?php echo isset($now_criteria['start_fund']) ? $now_criteria['start_fund'] : ''?>" />
+            <input id="start_fund" name="start_fund" type="text" onkeydown='if(event.keyCode==13){search_btn.click()}' placeholder="万元" value="<?php echo isset($now_criteria['start_fund']) ? $now_criteria['start_fund'] : ''?>" />
         </div>
         <div class="columns" style="width: 220px">
             <label for="end_fund">小于</label>
-            <input id="end_fund" name="end_fund" type="text" placeholder="万元" value="<?php echo isset($now_criteria['end_fund']) ? $now_criteria['end_fund'] : ''?>" />
+            <input id="end_fund" name="end_fund" type="text" onkeydown='if(event.keyCode==13){search_btn.click()}' placeholder="万元" value="<?php echo isset($now_criteria['end_fund']) ? $now_criteria['end_fund'] : ''?>" />
         </div>
         <div class="clearfix"></div>
     </div>
