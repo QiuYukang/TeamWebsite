@@ -387,6 +387,28 @@ class Software extends CActiveRecord
     }
 
     /**
+     * 返回中英文保持长度一致的缩写，@$byte_len/2个中文字符或@$byte_len个英文字符
+     */
+    public function getAbbr($byte_len = 16) {
+        $byte_cnt = 0; $char_cnt = 0;
+        $flag = false;
+        while($byte_cnt < $byte_len) {
+            $char = iconv_substr($this->name, $char_cnt, 1, "UTF-8");
+            if(strlen($char) == 1) { //英文字符
+                $byte_cnt += 1;
+            } else { //非英文字符
+                $byte_cnt += 2;
+            }
+            $char_cnt += 1;
+            if($char_cnt == iconv_strlen($this->name, "UTF-8")) { //字符串遍历完了
+                $flag = true;
+                break;
+            }
+        }
+        return iconv_substr($this->name, 0, $char_cnt, "UTF-8") . ($flag ? '' : '...');
+    }
+
+    /**
      * 返回所有作者的@attr属性，返回值采用@glue做分隔符
      */
     public function getAuthors($glue='，',$attr='name')

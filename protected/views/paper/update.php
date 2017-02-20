@@ -18,7 +18,7 @@ $this->breadcrumbs=array(
     '学术成果'=>array('paper/index'),
 	'论文'=>array('index'),
     '管理'=>array('admin'),
-    iconv_substr($model->info, 0, 20, "UTF-8").'...'=>array('view','id'=>$model->id),
+    $model->getAbbr()=>array('view','id'=>$model->id),
 	'编辑',
 );
 
