@@ -29,28 +29,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="_search.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/views/publication/_search.php">
+      <file leaf-file-name="setting.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/protected/views/user/setting.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="80" column="114" lean-forward="false" selection-start-line="80" selection-start-column="114" selection-end-line="80" selection-end-column="114" />
-              <folding>
-                <marker date="1487568296329" expanded="true" signature="263:343" ph="SELECT * FRO... tbl_people" />
-                <marker date="1487568296329" expanded="true" signature="413:466" ph="SELECT * FRO... tbl_project" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_search.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/protected/views/software/_search.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="64" column="114" lean-forward="false" selection-start-line="64" selection-start-column="114" selection-end-line="64" selection-end-column="114" />
-              <folding>
-                <marker date="1487568331190" expanded="true" signature="257:337" ph="SELECT * FRO... tbl_people" />
-                <marker date="1487568331190" expanded="true" signature="407:460" ph="SELECT * FRO... tbl_project" />
-              </folding>
+            <state relative-caret-position="405">
+              <caret line="63" column="105" lean-forward="false" selection-start-line="63" selection-start-column="105" selection-end-line="63" selection-end-column="105" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -110,7 +94,6 @@
         <option value="$PROJECT_DIR$/protected/models/User.php" />
         <option value="$PROJECT_DIR$/protected/views/user/upload.php" />
         <option value="$PROJECT_DIR$/protected/views/user/admin.php" />
-        <option value="$PROJECT_DIR$/protected/views/user/setting.php" />
         <option value="$PROJECT_DIR$/protected/views/patent/admin.php" />
         <option value="$PROJECT_DIR$/protected/views/project/admin.php" />
         <option value="$PROJECT_DIR$/protected/models/People.php" />
@@ -148,6 +131,7 @@
         <option value="$PROJECT_DIR$/protected/views/patent/_search.php" />
         <option value="$PROJECT_DIR$/protected/views/publication/_search.php" />
         <option value="$PROJECT_DIR$/protected/views/software/_search.php" />
+        <option value="$PROJECT_DIR$/protected/views/user/setting.php" />
       </list>
     </option>
   </component>
@@ -637,12 +621,12 @@
       <workItem from="1487300447986" duration="28958000" />
       <workItem from="1487379845412" duration="22905000" />
       <workItem from="1487499753664" duration="3080000" />
-      <workItem from="1487564405344" duration="3765000" />
+      <workItem from="1487564405344" duration="4631000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="238398000" />
+    <option name="totallyTimeSpent" value="239264000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -697,13 +681,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/protected/models/PublicationProjectAchievement.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1197">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/config/console.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1114,12 +1091,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/software/_search.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
+        <state relative-caret-position="703">
           <caret line="64" column="114" lean-forward="false" selection-start-line="64" selection-start-column="114" selection-end-line="64" selection-end-column="114" />
           <folding>
             <marker date="1487568331190" expanded="true" signature="257:337" ph="SELECT * FRO... tbl_people" />
             <marker date="1487568331190" expanded="true" signature="407:460" ph="SELECT * FRO... tbl_project" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/views/user/setting.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="63" column="105" lean-forward="false" selection-start-line="63" selection-start-column="105" selection-end-line="63" selection-end-column="105" />
+          <folding />
         </state>
       </provider>
     </entry>
