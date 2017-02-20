@@ -5,6 +5,24 @@ $this->pageTitle=Yii::app()->name;
 ?>
 
 <?php
+$authStrArr=null;
+$auth = false;
+if(isset(Yii::app()->user->is_user) && Yii::app()->user->is_user) {
+    $authStrArr = '普通用户';
+    $auth = true;
+}
+if(isset(Yii::app()->user->is_manager) && Yii::app()->user->is_manager) {
+    $authStrArr = '管理员';
+    $auth = true;
+}
+if(isset(Yii::app()->user->is_admin) && Yii::app()->user->is_admin) {
+    $authStrArr = '超级管理员';
+    $auth = true;
+}
+?>
+<?php $user = Yii::app()->user; ?>
+
+<?php
 //取前5篇
 $data_count = $dataProvider->itemCount;
 if($data_count > 5) $data_count = 5;
@@ -165,7 +183,8 @@ if($data_count > 5) $data_count = 5;
                     echo '<div class="month">'.$mou_tb[intval($mouth)-1].'</div>';
                     echo '</td>';
                     echo '<td>';
-                    echo '<a href="index.php?r=paper/view&id='.$dataProvider->getData()[$i]->id.'" class="summary">'.$info.'</a>';
+                    if($auth) echo '<a href="index.php?r=paper/view&id='.$dataProvider->getData()[$i]->id.'" class="summary">'.$info.'</a>';
+                    else echo '<p class="summary">'.$info.'</p>';
                     echo '</td>';
                     echo '</tr>';
                 }
