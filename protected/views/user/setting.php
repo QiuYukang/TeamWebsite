@@ -61,7 +61,7 @@ $this->breadcrumbs=array(
             <div class="row buttons">
                 <?php echo CHtml::submitButton('提交',array('class'=>'btn btn-default')); ?>
                 &nbsp;
-                <input type="button" value="取消" class="btn btn-default" onclick="location='./index.php?r=user/admin'"/>
+                <input type="button" value="返回" class="btn btn-default" onclick="location='./index.php?r=user/admin'"/>
                 &nbsp;
                 <?php echo empty($msg) ? '' : $msg; ?>
                 <div class="clearfix"></div>
