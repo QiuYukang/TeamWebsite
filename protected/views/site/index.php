@@ -192,7 +192,7 @@ if($data_count > 5) $data_count = 5;
                 <?php if($data_count != 0) { ?>
                 <tr>
                     <td colspan="2" style="text-align: right">
-                        <a href="index.php?r=paper/index" style="  color: #2a959e;font-size: 13px;position: relative;top: -20px;">更多</a>
+                        <a href="<?php echo $auth ? 'index.php?r=paper/admin' : 'index.php?r=paper/index'; ?>" style="  color: #2a959e;font-size: 13px;position: relative;top: -20px;">更多</a>
                     </td>
                 </tr>
                 <?php } else { ?>

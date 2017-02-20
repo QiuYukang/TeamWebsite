@@ -42,9 +42,11 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/protected/views/site/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2546">
-              <caret line="19" column="9" lean-forward="false" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="9" />
-              <folding />
+            <state relative-caret-position="608">
+              <caret line="194" column="76" lean-forward="false" selection-start-line="194" selection-start-column="76" selection-end-line="194" selection-end-column="76" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -651,12 +653,12 @@
       <workItem from="1487300447986" duration="28958000" />
       <workItem from="1487379845412" duration="22905000" />
       <workItem from="1487499753664" duration="3080000" />
-      <workItem from="1487564405344" duration="6414000" />
+      <workItem from="1487564405344" duration="6664000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="241047000" />
+    <option name="totallyTimeSpent" value="241297000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -668,7 +670,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="1" width="1918" height="1038" extended-state="0" />
+    <frame x="1" y="1" width="1918" height="1038" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16876972" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1141,9 +1143,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/views/site/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2546">
-          <caret line="19" column="9" lean-forward="false" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="9" />
-          <folding />
+        <state relative-caret-position="608">
+          <caret line="194" column="76" lean-forward="false" selection-start-line="194" selection-start-column="76" selection-end-line="194" selection-end-column="76" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#td#0;n#tr#0;n#table#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
