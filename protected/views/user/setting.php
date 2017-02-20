@@ -1,11 +1,20 @@
 <?php
 
+$user = Yii::app()->user;
+
 $this->pageTitle=Yii::app()->name . ' - 修改密码';
-//面包屑
-$this->breadcrumbs=array(
-    '用户管理'=>array('user/admin'),
-    '修改密码',
-);
+if(isset($user->is_admin) && $user->is_admin) {
+    //面包屑
+    $this->breadcrumbs=array(
+        '用户管理'=>array('user/admin'),
+        '修改密码',
+    );
+} else {
+    //面包屑
+    $this->breadcrumbs=array(
+        '修改密码',
+    );
+}
 
 ?>
 
@@ -61,7 +70,8 @@ $this->breadcrumbs=array(
             <div class="row buttons">
                 <?php echo CHtml::submitButton('提交',array('class'=>'btn btn-default')); ?>
                 &nbsp;
-                <input type="button" value="返回" class="btn btn-default" onclick="location='./index.php?r=user/admin'"/>
+                <input type="button" value="返回" class="btn btn-default"
+                       onclick="location='<?php echo isset($user->is_admin) && $user->is_admin ? './index.php?r=user/admin' : './index.php'; ?>'"/>
                 &nbsp;
                 <?php echo empty($msg) ? '' : $msg; ?>
                 <div class="clearfix"></div>
